@@ -1,0 +1,265 @@
+<%= content_tag :div, class: 'page-header' do %>
+  <h1>CVSSv3 score calculator</h1>
+<% end %>
+
+<p class="lead">Use this page to calculate the <abbr title="Common Vulnerability Scoring System">CVSS</abbr> score of a given finding.</p>
+
+<div class="row">
+  <div class="span8">
+    <section>
+      <h2>Base: <span id="base-score">0</span></h2>
+      <p id="missing-base-metric-error" class="text-error hide"><strong>Warning</strong>: all Base metrics are required</p>
+
+      <div class="row-fluid">
+        <div class="span6">
+          <h3>Attack Vector (AV)</h3>
+          <input type="hidden" id="av" />
+
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small" name="av" value="N">Network (N)</button>
+            <button type="button" class="btn btn-small" name="av" value="A">Adjacent (A)</button>
+            <button type="button" class="btn btn-small" name="av" value="L">Local (L)</button>
+            <button type="button" class="btn btn-small" name="av" value="P">Physical (P)</button>
+          </div>
+
+
+          <h3>Attack Complexity (AC)</h3>
+          <input type="hidden" id="ac" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small" name="ac" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="ac" value="H">High (H)</button>
+          </div>
+
+          <h3>Privileges Required (PR)</h3>
+          <input type="hidden" id="pr" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small" name="pr" value="N">None (N)</button>
+            <button type="button" class="btn btn-small" name="pr" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="pr" value="H">High (H)</button>
+          </div>
+
+          <h3>User Interaction (UI)</h3>
+          <input type="hidden" id="ui" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small" name="ui" value="N">None (N)</button>
+            <button type="button" class="btn btn-small" name="ui" value="R">Required (R)</button>
+          </div>
+        </div>
+
+        <div class="span6">
+          <h3>Scope (S)</h3>
+          <input type="hidden" id="s" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small" name="s" value="U">Unchanged (U)</button>
+            <button type="button" class="btn btn-small" name="s" value="C">Changed (C)</button>
+          </div>
+
+          <h3>Confidentiality (C)</h3>
+          <input type="hidden" id="c" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small" name="c" value="N">None (N)</button>
+            <button type="button" class="btn btn-small" name="c" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="c" value="H">High (H)</button>
+          </div>
+
+          <h3>Integrity (I)</h3>
+          <input type="hidden" id="i" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small" name="i" value="N">None (N)</button>
+            <button type="button" class="btn btn-small" name="i" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="i" value="H">High (H)</button>
+          </div>
+
+          <h3>Availability (A)</h3>
+          <input type="hidden" id="a" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small" name="a" value="N">None (N)</button>
+            <button type="button" class="btn btn-small" name="a" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="a" value="H">High (H)</button>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <section>
+      <h2>Temporal: <span id="temporal-score">0</span></h2>
+
+      <h3>Exploit Code Maturity (E)</h3>
+      <input type="hidden" id="e" />
+      <div class="btn-group" data-toggle="buttons-radio">
+        <button type="button" class="btn btn-small active" name="e" value="X">Not Defined (X)</button>
+        <button type="button" class="btn btn-small" name="e" value="U">Unproven (U)</button>
+        <button type="button" class="btn btn-small" name="e" value="P">Proof-of-Concept (P)</button>
+        <button type="button" class="btn btn-small" name="e" value="F">Functional (F)</button>
+      </div>
+
+      <h3>Remediation Level (RL)</h3>
+      <input type="hidden" id="rl" />
+      <div class="btn-group" data-toggle="buttons-radio">
+        <button type="button" class="btn btn-small active" name="rl" value="X">Not Defined (X)</button>
+        <button type="button" class="btn btn-small" name="rl" value="O">Official Fix (O)</button>
+        <button type="button" class="btn btn-small" name="rl" value="T">Temporary Fix (T)</button>
+        <button type="button" class="btn btn-small" name="rl" value="W">Workaround (W)</button>
+        <button type="button" class="btn btn-small" name="rl" value="U">Unavailable (U)</button>
+      </div>
+
+      <h3>Report Confidence (RC)</h3>
+      <input type="hidden" id="rc" />
+      <div class="btn-group" data-toggle="buttons-radio">
+        <button type="button" class="btn btn-small active" name="rc" value="X">Not Defined (X)</button>
+        <button type="button" class="btn btn-small" name="rc" value="U">Unknown (U)</button>
+        <button type="button" class="btn btn-small" name="rc" value="R">Reasonable (R)</button>
+        <button type="button" class="btn btn-small" name="rc" value="C">Confirmed (C)</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Environmental: <span id="environmental-score">0</span></h2>
+
+      <div class="row-fluid">
+        <div class="span6">
+          <h3>Confidentiality Req. (CR)</h3>
+          <input type="hidden" id="cr" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small active" name="cr" value="X">Not Defined (X)</button>
+            <button type="button" class="btn btn-small" name="cr" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="cr" value="M">Medium (M)</button>
+            <button type="button" class="btn btn-small" name="cr" value="H">High (H)</button>
+          </div>
+
+          <h3>Integrity Req. (IR)</h3>
+          <input type="hidden" id="ir" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small active" name="ir" value="X">Not Defined (X)</button>
+            <button type="button" class="btn btn-small" name="ir" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="ir" value="M">Medium (M)</button>
+            <button type="button" class="btn btn-small" name="ir" value="H">High (H)</button>
+          </div>
+
+          <h3>Availability Req. (AR)</h3>
+          <input type="hidden" id="ar" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small active" name="ar" value="X">Not Defined (X)</button>
+            <button type="button" class="btn btn-small" name="ar" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="ar" value="M">Medium (M)</button>
+            <button type="button" class="btn btn-small" name="ar" value="H">High (H)</button>
+          </div>
+
+        </div>
+        <div class="span6">
+          <h3>Mod. Attack Vector (MAV)</h3>
+          <input type="hidden" id="mav" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small active" name="mav" value="X">Not Defined (X)</button>
+            <button type="button" class="btn btn-small" name="mav" value="N">Network (N)</button>
+            <button type="button" class="btn btn-small" name="mav" value="A">Adjacent (A)</button>
+            <button type="button" class="btn btn-small" name="mav" value="L">Local (L)</button>
+            <button type="button" class="btn btn-small" name="mav" value="P">Physical (P)</button>
+          </div>
+
+          <h3>Mod. Attack Complexity (MAC)</h3>
+          <input type="hidden" id="mac" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small active" name="mac" value="X">Not Defined (X)</button>
+            <button type="button" class="btn btn-small" name="mac" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="mac" value="H">High (H)</button>
+          </div>
+
+          <h3>Mod. Privileges Required (MPR)</h3>
+          <input type="hidden" id="mpr" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small active" name="mpr" value="X">Not Defined (X)</button>
+            <button type="button" class="btn btn-small" name="mpr" value="N">None (N)</button>
+            <button type="button" class="btn btn-small" name="mpr" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="mpr" value="H">High (H)</button>
+          </div>
+
+          <h3>Mod. User Interaction (MUI)</h3>
+          <input type="hidden" id="mui" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small active" name="mui" value="X">Not Defined (X)</button>
+            <button type="button" class="btn btn-small" name="mui" value="N">None (N)</button>
+            <button type="button" class="btn btn-small" name="mui" value="R">Required (R)</button>
+          </div>
+
+          <h3>Mod. Scope (MS)</h3>
+          <input type="hidden" id="ms" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small active" name="ms" value="X">Not Defined (X)</button>
+            <button type="button" class="btn btn-small" name="ms" value="U">Unchanged (U)</button>
+            <button type="button" class="btn btn-small" name="ms" value="C">Changed (C)</button>
+          </div>
+
+          <h3>Mod. Confidentiality (MC)</h3>
+          <input type="hidden" id="mc" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small active" name="mc" value="X">Not Defined (X)</button>
+            <button type="button" class="btn btn-small" name="mc" value="N">None (N)</button>
+            <button type="button" class="btn btn-small" name="mc" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="mc" value="H">High (H)</button>
+          </div>
+
+          <h3>Mod. Integrity (MI)</h3>
+          <input type="hidden" id="mi" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small active" name="mi" value="X">Not Defined (X)</button>
+            <button type="button" class="btn btn-small" name="mi" value="N">None (N)</button>
+            <button type="button" class="btn btn-small" name="mi" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="mi" value="H">High (H)</button>
+          </div>
+
+          <h3>Mod. Availability (MA)</h3>
+          <input type="hidden" id="ma" />
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button type="button" class="btn btn-small active" name="ma" value="X">Not Defined (X)</button>
+            <button type="button" class="btn btn-small" name="ma" value="N">None (N)</button>
+            <button type="button" class="btn btn-small" name="ma" value="L">Low (L)</button>
+            <button type="button" class="btn btn-small" name="ma" value="H">High (H)</button>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <div class="span4">
+<pre id="blob">#[CVSSv3]#
+N/A
+
+
+#[Damage]#
+N/A
+
+
+#[AffectedSystems]#
+N/A
+
+
+#[Impact]#
+N/A
+
+
+#[Reproducibility]#
+N/A
+
+
+#[Discoverability]#
+N/A
+
+
+#[ThreatAgent]#
+N/A
+
+
+#[Exploitability]#
+N/A
+
+
+#[Likelihood]#
+N/A
+</pre>
+  </div>
+</div>

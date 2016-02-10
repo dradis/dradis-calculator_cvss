@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CVSS Score Calculator | Dradis Framework</title>
+    <%= stylesheet_link_tag    'dradis/plugins/calculators/cvss/manifests/application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body class="authenticated">
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <a href="javascript:void(0)" class="brand">CVSS score calculator</a>
+          <ul class="nav pull-right">
+            <li>
+              <%= link_to Dradis::constants.include?(:Pro) ? main_app.root_path : frontend.root_path do %>
+              Back to the app  &rarr;
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <%= yield%>
+    </div>
+
+    <%= javascript_include_tag 'dradis/plugins/calculators/cvss/manifests/application', 'data-turbolinks-track' => true %>
+  </body>
+</html>

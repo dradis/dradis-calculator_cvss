@@ -56,6 +56,27 @@
       issue_cvss += "#{output.environmentalMetricScore}\n\n"
       issue_cvss += "#[CVSSv3.EnvironmentalSeverity]#\n"
       issue_cvss += "#{output.environmentalSeverity}\n\n"
+      
+      issue_cvss += "#[CVSSv3.BaseAttackVector]#\n"
+      issue_cvss += "#{output.baseAttackVector}\n\n"
+      issue_cvss += "#[CVSSv3.BaseAttackComplexity]#\n"
+      issue_cvss += "#{output.baseAttackComplexity}\n\n"
+      issue_cvss += "#[CVSSv3.BasePrivilegesRequired]#\n"
+      issue_cvss += "#{output.basePrivilegesRequired}\n\n"
+      issue_cvss += "#[CVSSv3.BaseUserInteraction]#\n"
+      issue_cvss += "#{output.baseUserInteraction}\n\n"
+      issue_cvss += "#[CVSSv3.BaseScope]#\n"
+      issue_cvss += "#{output.baseScope}\n\n"
+      issue_cvss += "#[CVSSv3.BaseConfidentiality]#\n"
+      issue_cvss += "#{output.baseConfidentiality}\n\n"
+      issue_cvss += "#[CVSSv3.BaseIntegrity]#\n"
+      issue_cvss += "#{output.baseIntegrity}\n\n"
+      issue_cvss += "#[CVSSv3.BaseAvailability]#\n"
+      issue_cvss += "#{output.baseAvailability}\n\n"
+      issue_cvss += "#[CVSSv3.EnvironmentalConfidentialityRequirement]#\n"
+      issue_cvss += "#{output.environmentalConfidentialityRequirement}\n\n"
+      issue_cvss += "#[CVSSv3.EnvironmentalIntegrityRequirement]#\n"
+      issue_cvss += "#{output.environmentalIntegrityRequirement}\n\n"
       $('#blob').text(issue_cvss)
     else
       if output.errorType == 'MissingBaseMetric'

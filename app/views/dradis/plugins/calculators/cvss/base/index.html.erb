@@ -152,10 +152,12 @@
         <div class="span6">
           <h3 title="This metric reflects the context by which vulnerability exploitation is possible. The Base Score increases the more remote (logically, and physically) an attacker can be in order to exploit the vulnerable component.">Mod. Attack Vector (MAV)</h3>
           <input type="hidden" id="mav" />
-          <div class="btn-group" data-toggle="buttons-radio">
+          <div class="btn-group-vertical" data-toggle="buttons-radio">
             <button type="button" class="btn btn-med active" name="mav" value="X" title="Use the value assigned to the corresponding Base Score metric.">Not Defined (X) <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
             <button type="button" class="btn btn-med" name="mav" value="N" title="A vulnerability exploitable with network access means the vulnerable component is bound to the network stack and the attacker's path is through OSI layer 3 (the network layer). Such a vulnerability is often termed 'remotely exploitable' and can be thought of as an attack being exploitable one or more network hops away.">Network (N) <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
             <button type="button" class="btn btn-med" name="mav" value="A" title="A vulnerability exploitable with adjacent network access means the vulnerable component is bound to the network stack, however the attack is limited to the same shared physical (e.g. Bluetooth, IEEE 802.11), or logical (e.g. local IP subnet) network, and cannot be performed across an OSI layer 3 boundary (e.g. a router).">Adjacent (A) <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+          </div>
+          <div class="btn-group-vertical" data-toggle="buttons-radio">  
             <button type="button" class="btn btn-med" name="mav" value="L" title="A vulnerability exploitable with local access means that the vulnerable component is not bound to the network stack, and the attacker’s path is via read/write/execute capabilities. In some cases, the attacker may be logged in locally in order to exploit the vulnerability, otherwise, she may rely on User Interaction to execute a malicious file.">Local (L) <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
             <button type="button" class="btn btn-med" name="mav" value="P" title="A vulnerability exploitable with physical access requires the attacker to physically touch or manipulate the vulnerable component. Physical interaction may be brief or persistent.">Physical (P) <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
           </div>
@@ -247,6 +249,18 @@ N/A
 
 #[CVSSv3.EnvironmentalSeverity]#
 N/A
+
+#[CVSSv3.BaseAttackVector]#
+#[CVSSv3.BaseAttackComplexity]#
+#[CVSSv3.BasePrivilegesRequired]#
+#[CVSSv3.BaseUserInteraction]#
+#[CVSSv3.BaseScope]#
+#[CVSSv3.BaseConfidentiality]#
+#[CVSSv3.BaseIntegrity]#
+#[CVSSv3.BaseAvailability]#
+#[CVSSv3.EnvironmentalConfidentialityRequirement]#
+#[CVSSv3.EnvironmentalIntegrityRequirement]#
+
 </pre>
   </div>
 </div>

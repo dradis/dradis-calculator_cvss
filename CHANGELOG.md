@@ -1,7 +1,10 @@
+## Dradis Framework 3.9 (January, 2018) ##
+
+* Add metric-specific fields to calculator output (v3.8.1)
+
 ## Dradis Framework 3.8 (September, 2017) ##
 
 * No changes.
-* Add metric-specific fields to calculator output (v3.8.1)
 
 ## Dradis Framework 3.7 (July, 2017) ##
 

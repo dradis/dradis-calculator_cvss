@@ -1,3 +1,7 @@
+## Dradis Framework 3.10 (XXX, 2018) ##
+
+* Fix vertical button selection behavior
+
 ## Dradis Framework 3.9 (January, 2018) ##
 
 * Add metric-specific fields to calculator output (v3.8.1)

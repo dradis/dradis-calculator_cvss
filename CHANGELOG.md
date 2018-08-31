@@ -1,4 +1,4 @@
-## Dradis Framework 3.10 (XXX, 2018) ##
+## Dradis Framework 3.10 (August, 2018) ##
 
 * Fix vertical button selection behavior
 

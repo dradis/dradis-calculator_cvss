@@ -1,0 +1,24 @@
+<% if defined?(Dradis::Pro)%>
+<% else %>
+  <div class="tab-pane" id="cvss-tab">
+    <div class="inner">
+      <h3>CVSSv3 Risk Scoring -
+        <span class="actions">
+          <%= link_to cvss_calculator.cvss_project_issue_path(current_project, @issue),
+                class: 'action-link' do %>
+            <i class="fa fa-pencil"></i> Edit
+          <% end %>
+      </h3>
+
+      <div class="content-textile">
+        <%=
+          markup(
+            @issue.fields
+              .select { |k,v| Dradis::Plugins::Calculators::CVSS::V3::FIELDS.include?(k) }
+              .map { |k,v| "#[#{k}]#\n#{v}" }.join("\n\n")
+          )
+        %>
+      </div>
+    </div>
+  </div>
+<% end %>

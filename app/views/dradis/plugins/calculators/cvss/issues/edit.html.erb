@@ -1,0 +1,12 @@
+<% content_for :title, 'Edit issue' %>
+
+<% content_for :sidebar do %>
+  <%= render 'issues/sidebar'%>
+<% end %>
+
+<div id="issues_editor">
+  <div class="inner note-text-inner">
+    <h3>Edit CVSSv3 Risk Scoring</h3>
+    <%= render 'dradis/plugins/calculators/cvss/base/calculator' %>
+  </div>
+</div>

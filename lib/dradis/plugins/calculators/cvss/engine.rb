@@ -4,7 +4,7 @@ module Dradis::Plugins::Calculators::CVSS
 
     include Dradis::Plugins::Base
     provides :addon
-    description 'Provides a CVSS score calculator under /calculators/cvss'
+    description 'Risk Calculator: CVSSv3'
 
     initializer 'calculator_cvss.asset_precompile_paths' do |app|
       app.config.assets.precompile += ["dradis/plugins/calculators/cvss/manifests/*"]
@@ -18,7 +18,7 @@ module Dradis::Plugins::Calculators::CVSS
 
     initializer 'calculator_cvss.mount_engine' do
       Rails.application.routes.append do
-        mount Dradis::Plugins::Calculators::CVSS::Engine => '/calculators/', as: :cvss_calculator
+        mount Dradis::Plugins::Calculators::CVSS::Engine => '/', as: :cvss_calculator
       end
     end
 

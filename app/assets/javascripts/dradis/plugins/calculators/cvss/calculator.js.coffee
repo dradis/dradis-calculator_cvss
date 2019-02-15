@@ -87,7 +87,11 @@
 
 
 jQuery ->
+  # alert(1)
   $('button').on 'click', ->
     $this = $(this)
     $("##{$this.attr('name')}").val($this.val())
     CVSSCalculator.calculate()
+
+document.addEventListener "turbolinks:load", ->
+  # alert(2)

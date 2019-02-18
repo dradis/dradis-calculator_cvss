@@ -4,4 +4,46 @@
 
 <p class="lead">Use this page to calculate the <abbr title="Common Vulnerability Scoring System">CVSS</abbr> score of a given finding.</p>
 
-<%= render 'calculator' %>
+<div class="row">
+  <div class="span8">
+    <%= render 'dradis/plugins/calculators/cvss/base/base'          %>
+    <%= render 'dradis/plugins/calculators/cvss/base/temporal'      %>
+    <%= render 'dradis/plugins/calculators/cvss/base/environmental' %>
+  </div>
+
+  <div class="span4">
+    <pre id="blob">#[CVSSv3Vector]#
+N/A
+
+#[CVSSv3.BaseScore]#
+N/A
+
+#[CVSSv3.BaseSeverity]#
+N/A
+
+#[CVSSv3.TemporalScore]#
+N/A
+
+#[CVSSv3.TemporalSeverity]#
+N/A
+
+#[CVSSv3.EnvironmentalScore]#
+N/A
+
+#[CVSSv3.EnvironmentalSeverity]#
+N/A
+
+#[CVSSv3.BaseAttackVector]#
+#[CVSSv3.BaseAttackComplexity]#
+#[CVSSv3.BasePrivilegesRequired]#
+#[CVSSv3.BaseUserInteraction]#
+#[CVSSv3.BaseScope]#
+#[CVSSv3.BaseConfidentiality]#
+#[CVSSv3.BaseIntegrity]#
+#[CVSSv3.BaseAvailability]#
+#[CVSSv3.EnvironmentalConfidentialityRequirement]#
+#[CVSSv3.EnvironmentalIntegrityRequirement]#
+
+</pre>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<% content_for :title, 'Edit issue' %>
+<% content_for :title, 'Edit CVSSv3 score' %>
 
 <% content_for :sidebar do %>
   <%= render 'issues/sidebar'%>
@@ -7,6 +7,67 @@
 <div id="issues_editor">
   <div class="inner note-text-inner">
     <h3>Edit CVSSv3 Risk Scoring</h3>
-    <%= render 'dradis/plugins/calculators/cvss/base/calculator' %>
+
+    <ul class="nav nav-pills">
+      <li class="active"><a href="#cvss-edit-base" data-toggle="tab">Base</a></li>
+      <li><a href="#cvss-edit-temporal" data-toggle="tab">Temporal</a></li>
+      <li><a href="#cvss-edit-environmental" data-toggle="tab">Environmental</a></li>
+      <li class="pull-right"><a href="#cvss-edit-result" data-toggle="tab">Result</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="cvss-edit-base">
+        <%= render 'dradis/plugins/calculators/cvss/base/base'          %>
+      </div>
+      <div class="tab-pane" id="cvss-edit-temporal">
+        <%= render 'dradis/plugins/calculators/cvss/base/temporal'      %>
+      </div>
+      <div class="tab-pane" id="cvss-edit-environmental">
+        <%= render 'dradis/plugins/calculators/cvss/base/environmental' %>
+      </div>
+
+      <div class="tab-pane" id="cvss-edit-result">
+<pre id="blob">#[CVSSv3Vector]#
+N/A
+
+#[CVSSv3.BaseScore]#
+N/A
+
+#[CVSSv3.BaseSeverity]#
+N/A
+
+#[CVSSv3.TemporalScore]#
+N/A
+
+#[CVSSv3.TemporalSeverity]#
+N/A
+
+#[CVSSv3.EnvironmentalScore]#
+N/A
+
+#[CVSSv3.EnvironmentalSeverity]#
+N/A
+
+#[CVSSv3.BaseAttackVector]#
+#[CVSSv3.BaseAttackComplexity]#
+#[CVSSv3.BasePrivilegesRequired]#
+#[CVSSv3.BaseUserInteraction]#
+#[CVSSv3.BaseScope]#
+#[CVSSv3.BaseConfidentiality]#
+#[CVSSv3.BaseIntegrity]#
+#[CVSSv3.BaseAvailability]#
+#[CVSSv3.EnvironmentalConfidentialityRequirement]#
+#[CVSSv3.EnvironmentalIntegrityRequirement]#
+    </pre>
+      </div>
+    </div>
+
   </div>
 </div>
+
+<%= simple_form_for [:cvss, current_project, @issue] do |f| %>
+  <div class="form-actions">
+    <%= f.button :submit, nil, class: 'btn btn-primary' %> or
+    <%= link_to 'Cancel', main_app.project_issue_path(current_project, @issue), class: 'cancel-link' %>
+  </div>
+<% end %>

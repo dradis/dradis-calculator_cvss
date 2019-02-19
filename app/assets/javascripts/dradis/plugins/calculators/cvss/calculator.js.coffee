@@ -86,12 +86,8 @@
 
 
 
-jQuery ->
-  # alert(1)
-  $('button').on 'click', ->
+document.addEventListener "turbolinks:load", ->
+  $('[data-behavior~=cvss-buttons] button').on 'click', ->
     $this = $(this)
     $("##{$this.attr('name')}").val($this.val())
     CVSSCalculator.calculate()
-
-document.addEventListener "turbolinks:load", ->
-  # alert(2)

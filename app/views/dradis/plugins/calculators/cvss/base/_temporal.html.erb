@@ -1,9 +1,12 @@
-<section>
+<section data-behavior="cvss-buttons">
 
   <div class="inner">
     <h3 title="This metric measures the likelihood of the vulnerability being attacked, and is typically based on the current state of exploit techniques, exploit code availability, or active, 'in-the-wild' exploitation.">
       Exploit Code Maturity (E)
-    </h3><input type="hidden" id="e">
+    </h3>
+
+    <input type="hidden" name="e">
+
     <div class="btn-group" data-toggle="buttons-radio">
       <button type="button" class="btn btn-med active" name="e" value="X" title="(X) Assigning this value to the metric will not influence the score.">Not Defined <i class="fa fa-question-circle-o" aria-hidden="true"></i></button> <button type="button" class="btn btn-med" name="e" value="U" title="No exploit code is available, or an exploit is theoretical.">Unproven <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
@@ -18,7 +21,7 @@
       Remediation Level (RL)
     </h3>
 
-    <input type="hidden" id="rl">
+    <input type="hidden" name="rl">
 
     <div class="btn-group" data-toggle="buttons-radio">
       <button type="button" class="btn btn-med active" name="rl" value="X" title="(X) Assigning this value to the metric will not influence the score.">Not Defined <i class="fa fa-question-circle-o" aria-hidden="true"></i></button> <button type="button" class="btn btn-med" name="rl" value="O" title="(O) A complete vendor solution is available. Either the vendor has issued an official patch, or an upgrade is available.">Official Fix <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -36,7 +39,7 @@
       Report Confidence (RC)
     </h3>
 
-    <input type="hidden" id="rc">
+    <input type="hidden" name="rc">
 
     <div class="btn-group" data-toggle="buttons-radio">
       <button type="button" class="btn btn-med active" name="rc" value="X" title="(X) Assigning this value to the metric will not influence the score.">Not Defined <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>

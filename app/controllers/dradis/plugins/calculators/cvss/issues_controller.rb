@@ -23,8 +23,14 @@ module Dradis::Plugins::Calculators::CVSS
       # Undefined Temporal and Environmental default to X
       @cvss_vector = Hash.new { |h, k| h[k] = 'X' }
       field_value  = @issue.fields['CVSSv3.Vector'] || @issue.fields['CVSSv3Vector']
-      if field_value
+
+      # If no vector is set yet, that's OK
+      return unless field_value
+
+      if field_value =~ V3::VECTOR_REGEXP
         field_value.split('/').each { |pair| @cvss_vector.store *pair.split(':') }
+      else
+        redirect_to main_app.project_issue_path(current_project, @issue), alert: 'The format of the CVSSv3 Vector field is invalid.'
       end
     end
   end

@@ -21,5 +21,6 @@ module Dradis::Plugins::Calculators::CVSS
     }.freeze
 
     FIELDS = (['CVSSv3Vector'.freeze] + FIELD_NAMES.map {|name| "CVSSv3.#{name}".freeze }).freeze
+    VECTOR_REGEXP = /CVSS:3.0\/AV:[N|A|L|P]\/AC:[L|H]\/PR:[N|L|H]\/UI:[N|R]\/S:[U|C]\/C:[N|L|H]\/I:[N|L|H]\/A:[N|L|H](.*?)/.freeze
   end
 end

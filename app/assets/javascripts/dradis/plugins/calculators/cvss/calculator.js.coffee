@@ -37,7 +37,8 @@
 
 
     if output.success == true
-      $('#missing-base-metric-error').hide()
+      $('input[type=submit]').attr('disabled', null)
+      $('[data-behavior~=cvss-error]').hide().text('')
       $('#base-score').text("#{output.baseMetricScore} (#{output.baseSeverity})")
       $('#temporal-score').text("#{output.temporalMetricScore} (#{output.temporalSeverity})")
       $('#environmental-score').text("#{output.environmentalMetricScore} (#{output.environmentalSeverity})")
@@ -78,19 +79,24 @@
       issue_cvss += "#[CVSSv3.EnvironmentalIntegrityRequirement]#\n"
       issue_cvss += "#{output.environmentalIntegrityRequirement}\n\n"
       $('textarea[name=cvss_fields]').val(issue_cvss)
-      $('input[type=submit]').attr('disabled', null)
     else
+      errorMessage = ''
+
       if output.errorType == 'MissingBaseMetric'
-        $('#missing-base-metric-error').show()
-        $('input[type=submit]').attr('disabled', 'disabled')
+        errorMessage = "The error type is '#{output.errorType}' and the metrics with errors are #{output.errorMetrics}."
+      else
+        errorMessage = "All Base metrics are required"
 
-      console.log("An error occurred. The error type is '#{output.errorType}' and the metrics with errors are #{output.errorMetrics}.")
-
+      $('input[type=submit]').attr('disabled', 'disabled')
+      $('[data-behavior~=cvss-error]')
+        .show()
+        .text(errorMessage)
 
 
 document.addEventListener "turbolinks:load", ->
   if $('[data-behavior~=cvss-buttons]').length
     CVSSCalculator.calculate()
+    $('[data-behavior~=cvss-error]').hide()
 
     $('[data-behavior~=cvss-buttons] button').on 'click', ->
       $this = $(this)

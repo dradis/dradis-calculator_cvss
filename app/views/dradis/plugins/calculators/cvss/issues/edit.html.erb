@@ -10,6 +10,11 @@
 
     <%= simple_form_for [:cvss, current_project, @issue] do |f| %>
 
+      <div class="alert alert-error text-error hide" data-behavior="cvss-error">
+        <p><strong>Warning</strong>: all Base metrics are required</p>
+      </div>
+      <br/>
+
       <ul class="nav nav-pills" id="cvss-tabs">
         <li class="active"><a href="#cvss-edit-base" data-toggle="tab">Base: <span id="base-score">0</span></a></li>
         <li><a href="#cvss-edit-temporal" data-toggle="tab">Temporal: <span id="temporal-score">0</span></a></li>

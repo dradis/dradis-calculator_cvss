@@ -6,7 +6,7 @@
       <div class="inner">
         <h3 title="These metrics enable the analyst to customize the CVSS score depending on the importance of the Confidentiality of the affected IT asset to a user’s organization, relative to other impacts. This metric modifies the environmental score by reweighting the Modified Confidentiality impact metric versus the other modified impacts.">Confidentiality Req. (CR)</h3>
 
-        <input type="hidden" name="cr" />
+        <%= hidden_field_tag :cr, @cvss_vector['CR'] %>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['CR'] == 'X' %>" name="cr" value="X" title="(X) Assigning this value to the metric will not influence the score.">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -21,7 +21,8 @@
 
       <div class="inner">
         <h3 title="These metrics enable the analyst to customize the CVSS score depending on the importance of the Integrity of the affected IT asset to a user’s organization, relative to other impacts. This metric modifies the environmental score by reweighting the Modified Integrity impact metric versus the other modified impacts.">Integrity Req. (IR)</h3>
-        <input type="hidden" name="ir" />
+
+        <%= hidden_field_tag :ir, @cvss_vector['IR'] %>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['IR'] == 'X' %>" name="ir" value="X" title="(X) Assigning this value to the metric will not influence the score.">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -37,7 +38,7 @@
       <div class="inner">
         <h3 title="These metrics enable the analyst to customize the CVSS score depending on the importance of the Availability of the affected IT asset to a user’s organization, relative to other impacts. This metric modifies the environmental score by reweighting the Modified Availability impact metric versus the other modified impacts.">Availability Req. (AR)</h3>
 
-        <input type="hidden" name="ar" />
+        <%= hidden_field_tag :ar, @cvss_vector['AR'] %>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['AR'] == 'X' %>" name="ar" value="X" title="(X) Assigning this value to the metric will not influence the score.">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -56,7 +57,7 @@
       <div class="inner">
         <h3 title="This metric reflects the context by which vulnerability exploitation is possible. The Base Score increases the more remote (logically, and physically) an attacker can be in order to exploit the vulnerable component.">Mod. Attack Vector (MAV)</h3>
 
-        <input type="hidden" name="mav" />
+        <%= hidden_field_tag :mav, @cvss_vector['MAV'] %>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['MAV'] == 'X' %>" name="mav" value="X" title="(X) Use the value assigned to the corresponding Base Score metric.">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -74,7 +75,7 @@
       <div class="inner">
         <h3 title="This metric describes the conditions beyond the attacker’s control that must exist in order to exploit the vulnerability. Such conditions may require the collection of more information about the target, the presence of certain system configuration settings, or computational exceptions.">Mod. Attack Complexity (MAC)</h3>
 
-        <input type="hidden" name="mac" />
+        <%= hidden_field_tag :mac, @cvss_vector['MAC'] %>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['MAC'] == 'X' %>" name="mac" value="X" title="(X) Use the value assigned to the corresponding Base Score metric.">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -88,7 +89,7 @@
       <div class="inner">
         <h3 title="This metric describes the level of privileges an attacker must possess before successfully exploiting the vulnerability. This Base Score increases as fewer privileges are required.">Mod. Privileges Required (MPR)</h3>
 
-        <input type="hidden" name="mpr" />
+        <%= hidden_field_tag :mpr, @cvss_vector['MPR'] %>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['MPR'] == 'X' %>" name="mpr" value="X" title="(X) Use the value assigned to the corresponding Base Score metric.">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -104,7 +105,7 @@
       <div class="inner">
         <h3 title="This metric captures the requirement for a user, other than the attacker, to participate in the successful compromise the vulnerable component. This metric determines whether the vulnerability can be exploited solely at the will of the attacker, or whether a separate user (or user-initiated process) must participate in some manner. The Base Score is highest when no user interaction is required.">Mod. User Interaction (MUI)</h3>
 
-        <input type="hidden" name="mui" />
+        <%= hidden_field_tag :mui, @cvss_vector['MUI'] %>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['MUI'] == 'X' %>" name="mui" value="X" title="(X) Use the value assigned to the corresponding Base Score metric.">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -118,7 +119,7 @@
       <div class="inner">
         <h3 title="Does a successful attack impact a component other than the vulnerable component? If so, the Base Score increases and the Confidentiality, Integrity and Authentication metrics should be scored relative to the impacted component.">Mod. Scope (MS)</h3>
 
-        <input type="hidden" name="ms" />
+        <%= hidden_field_tag :ms, @cvss_vector['MS'] %>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['MS'] == 'X' %>" name="ms" value="X" title="(X) Use the value assigned to the corresponding Base Score metric.">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -132,7 +133,7 @@
       <div class="inner">
         <h3 title="This metric measures the impact to the confidentiality of the information resources managed by a software component due to a successfully exploited vulnerability. Confidentiality refers to limiting information access and disclosure to only authorized users, as well as preventing access by, or disclosure to, unauthorized ones.">Mod. Confidentiality (MC)</h3>
 
-        <input type="hidden" name="mc" />
+        <%= hidden_field_tag :mc, @cvss_vector['MC'] %>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['MC'] == 'X' %>" name="mc" value="X" title="(X) Use the value assigned to the corresponding Base Score metric.">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -148,7 +149,7 @@
       <div class="inner">
         <h3 title="This metric measures the impact to integrity of a successfully exploited vulnerability. Integrity refers to the trustworthiness and veracity of information.">Mod. Integrity (MI)</h3>
 
-        <input type="hidden" name="mi" />
+        <%= hidden_field_tag :mi, @cvss_vector['MI'] %>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['MI'] == 'X' %>" name="mi" value="X" title="(X) Use the value assigned to the corresponding Base Score metric.">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -164,7 +165,7 @@
       <div class="inner">
         <h3 title="This metric measures the impact to the availability of the impacted component resulting from a successfully exploited vulnerability. It refers to the loss of availability of the impacted component itself, such as a networked service (e.g., web, database, email). Since availability refers to the accessibility of information resources, attacks that consume network bandwidth, processor cycles, or disk space all impact the availability of an impacted component.">Mod. Availability (MA)</h3>
 
-        <input type="hidden" name="ma" />
+        <%= hidden_field_tag :ma, @cvss_vector['MA'] %>
 
         <div class="btn-group" data-toggle="buttons-radio">
           <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['MA'] == 'X' %>" name="ma" value="X" title="(X) Use the value assigned to the corresponding Base Score metric.">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>

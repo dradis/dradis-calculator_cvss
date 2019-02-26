@@ -5,7 +5,7 @@
       Exploit Code Maturity (E)
     </h3>
 
-    <input type="hidden" name="e">
+    <%= hidden_field_tag :e, @cvss_vector['E'] %>
 
     <div class="btn-group" data-toggle="buttons-radio">
       <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['E'] == 'X' %>" name="e" value="X" title="(X) Assigning this value to the metric will not influence the score.">Not Defined <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -25,7 +25,7 @@
       Remediation Level (RL)
     </h3>
 
-    <input type="hidden" name="rl">
+    <%= hidden_field_tag :rl, @cvss_vector['RL'] %>
 
     <div class="btn-group" data-toggle="buttons-radio">
       <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['RL'] == 'X' %>" name="rl" value="X" title="(X) Assigning this value to the metric will not influence the score.">Not Defined <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -45,7 +45,7 @@
       Report Confidence (RC)
     </h3>
 
-    <input type="hidden" name="rc">
+    <%= hidden_field_tag :rc, @cvss_vector['RC'] %>
 
     <div class="btn-group" data-toggle="buttons-radio">
       <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['RC'] == 'X' %>" name="rc" value="X" title="(X) Assigning this value to the metric will not influence the score.">Not Defined <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>

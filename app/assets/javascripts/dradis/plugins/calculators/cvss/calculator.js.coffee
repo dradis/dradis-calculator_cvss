@@ -1,29 +1,29 @@
 @CVSSCalculator =
   calculate: ->
-    av  = $("#av").val()
-    ac  = $("#ac").val()
-    pr  = $("#pr").val()
-    ui  = $("#ui").val()
-    s   = $("#s").val()
-    c   = $("#c").val()
-    i   = $("#i").val()
-    a   = $("#a").val()
+    av  = $("input[name=av]").val()
+    ac  = $("input[name=ac]").val()
+    pr  = $("input[name=pr]").val()
+    ui  = $("input[name=ui]").val()
+    s   = $("input[name=s]").val()
+    c   = $("input[name=c]").val()
+    i   = $("input[name=i]").val()
+    a   = $("input[name=a]").val()
 
-    e   = $("#e").val()
-    rl  = $("#rl").val()
-    rc  = $("#rc").val()
+    e   = $("input[name=e]").val()
+    rl  = $("input[name=rl]").val()
+    rc  = $("input[name=rc]").val()
 
-    cr  = $("#cr").val()
-    ir  = $("#ir").val()
-    ar  = $("#ar").val()
-    mav = $("#mav").val()
-    mac = $("#mac").val()
-    mpr = $("#mpr").val()
-    mui = $("#mui").val()
-    ms  = $("#ms").val()
-    mc  = $("#mc").val()
-    mi  = $("#mi").val()
-    ma  = $("#ma").val()
+    cr  = $("input[name=cr]").val()
+    ir  = $("input[name=ir]").val()
+    ar  = $("input[name=ar]").val()
+    mav = $("input[name=mav]").val()
+    mac = $("input[name=mac]").val()
+    mpr = $("input[name=mpr]").val()
+    mui = $("input[name=mui]").val()
+    ms  = $("input[name=ms]").val()
+    mc  = $("input[name=mc]").val()
+    mi  = $("input[name=mi]").val()
+    ma  = $("input[name=ma]").val()
 
     # AttackVector, AttackComplexity, PrivilegesRequired, UserInteraction, Scope,
     # Confidentiality, Integrity, Availability, Exploitability, RemediationLevel,
@@ -37,12 +37,13 @@
 
 
     if output.success == true
-      $('#missing-base-metric-error').hide()
+      $('input[type=submit]').attr('disabled', null)
+      $('[data-behavior~=cvss-error]').hide().text('')
       $('#base-score').text("#{output.baseMetricScore} (#{output.baseSeverity})")
       $('#temporal-score').text("#{output.temporalMetricScore} (#{output.temporalSeverity})")
       $('#environmental-score').text("#{output.environmentalMetricScore} (#{output.environmentalSeverity})")
 
-      issue_cvss  = "#[CVSSv3Vector]#\n"
+      issue_cvss  = "#[CVSSv3.Vector]#\n"
       issue_cvss += "#{output.vectorString}\n\n"
       issue_cvss += "#[CVSSv3.BaseScore]#\n"
       issue_cvss += "#{output.baseMetricScore}\n\n"
@@ -77,17 +78,29 @@
       issue_cvss += "#{output.environmentalConfidentialityRequirement}\n\n"
       issue_cvss += "#[CVSSv3.EnvironmentalIntegrityRequirement]#\n"
       issue_cvss += "#{output.environmentalIntegrityRequirement}\n\n"
-      $('#blob').text(issue_cvss)
+      $('textarea[name=cvss_fields]').val(issue_cvss)
     else
+      errorMessage = ''
+
       if output.errorType == 'MissingBaseMetric'
-        $('#missing-base-metric-error').show()
+        errorMessage = "The error type is '#{output.errorType}' and the metrics with errors are #{output.errorMetrics}."
+      else
+        errorMessage = "All Base metrics are required"
 
-      console.log("An error occurred. The error type is '#{output.errorType}' and the metrics with errors are #{output.errorMetrics}.")
+      $('input[type=submit]').attr('disabled', 'disabled')
+      $('[data-behavior~=cvss-error]')
+        .show()
+        .text(errorMessage)
 
 
-
-jQuery ->
-  $('button').on 'click', ->
-    $this = $(this)
-    $("##{$this.attr('name')}").val($this.val())
+document.addEventListener "turbolinks:load", ->
+  if $('[data-behavior~=cvss-buttons]').length
     CVSSCalculator.calculate()
+    $('[data-behavior~=cvss-error]').hide()
+
+    $('[data-behavior~=cvss-buttons] button').on 'click', ->
+      $this = $(this)
+      $this.parent().find('button').removeClass('btn-primary');
+      $this.addClass('btn-primary');
+      $("input[name=#{$this.attr('name')}]").val($this.val())
+      CVSSCalculator.calculate()

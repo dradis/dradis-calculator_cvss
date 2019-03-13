@@ -1,0 +1,67 @@
+<section data-behavior="cvss-buttons">
+
+  <div class="inner">
+    <h3 title="This metric measures the likelihood of the vulnerability being attacked, and is typically based on the current state of exploit techniques, exploit code availability, or active, 'in-the-wild' exploitation.">
+      Exploit Code Maturity (E)
+    </h3>
+
+    <%= hidden_field_tag :e, @cvss_vector['E'] %>
+
+    <div class="btn-group" data-toggle="buttons-radio">
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['E'] == 'X' %>" name="e" value="X" title="(X) Assigning this value to the metric will not influence the score.">Not Defined <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['E'] == 'U' %>" name="e" value="U" title="No exploit code is available, or an exploit is theoretical.">Unproven <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['E'] == 'P' %>" name="e" value="P" title="(P) Proof-of-concept exploit code is available, or an attack demonstration is not practical for most systems. The code or technique is not functional in all situations and may require substantial modification by a skilled attacker.">Proof-of-Concept <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['E'] == 'F' %>" name="e" value="F" title="(F) Functional exploit code is available. The code works in most situations where the vulnerability exists.">Functional <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['E'] == 'H' %>" name="e" value="H" title="(H) Functional autonomous code exists, or no exploit is required (manual trigger) and details are widely available. Exploit code works in every situation, or is actively being delivered via an autonomous agent (such as a worm or virus). Network-connected systems are likely to encounter scanning or exploitation attempts. Exploit development has reached the level of reliable, widely-available, easy-to-use automated tools.">High <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <div class="inner">
+    <h3 title="The Remediation Level of a vulnerability is an important factor for prioritization. The typical vulnerability is unpatched when initially published. Workarounds or hotfixes may offer interim remediation until an official patch or upgrade is issued. Each of these respective stages adjusts the temporal score downwards, reflecting the decreasing urgency as remediation becomes final.">
+      Remediation Level (RL)
+    </h3>
+
+    <%= hidden_field_tag :rl, @cvss_vector['RL'] %>
+
+    <div class="btn-group" data-toggle="buttons-radio">
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['RL'] == 'X' %>" name="rl" value="X" title="(X) Assigning this value to the metric will not influence the score.">Not Defined <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['RL'] == 'O' %>" name="rl" value="O" title="(O) A complete vendor solution is available. Either the vendor has issued an official patch, or an upgrade is available.">Official Fix <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['RL'] == 'T' %>" name="rl" value="T" title="(T) There is an official but temporary fix available. This includes instances where the vendor issues a temporary hotfix, tool, or workaround.">Temporary Fix <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['RL'] == 'W' %>" name="rl" value="W" title="(W) There is an unofficial, non-vendor solution available. In some cases, users of the affected technology will create a patch of their own or provide steps to work around or otherwise mitigate the vulnerability.">Workaround <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['RL'] == 'U' %>" name="rl" value="U" title="(U) There is either no solution available or it is impossible to apply.">Unavailable <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <div class="inner">
+    <h3 title="This metric measures the degree of confidence in the existence of the vulnerability and the credibility of the known technical details. Sometimes only the existence of vulnerabilities are publicized, but without specific details. For example, an impact may be recognized as undesirable, but the root cause may not be known. The vulnerability may later be corroborated by research which suggests where the vulnerability may lie, though the research may not be certain. Finally, a vulnerability may be confirmed through acknowledgement by the author or vendor of the affected technology. The urgency of a vulnerability is higher when a vulnerability is known to exist with certainty. This metric also suggests the level of technical knowledge available to would-be attackers.">
+      Report Confidence (RC)
+    </h3>
+
+    <%= hidden_field_tag :rc, @cvss_vector['RC'] %>
+
+    <div class="btn-group" data-toggle="buttons-radio">
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['RC'] == 'X' %>" name="rc" value="X" title="(X) Assigning this value to the metric will not influence the score.">Not Defined <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['RC'] == 'U' %>" name="rc" value="U" title="(U) There are reports of impacts that indicate a vulnerability is present. The reports indicate that the cause of the vulnerability is unknown, or reports may differ on the cause or impacts of the vulnerability. Reporters are uncertain of the true nature of the vulnerability, and there is little confidence in the validity of the reports or whether a static Base score can be applied given the differences described. An example is a bug report which notes that an intermittent but non-reproducible crash occurs, with evidence of memory corruption suggesting that denial of service, or possible more serious impacts, may result.">Unknown <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['RC'] == 'R' %>" name="rc" value="R" title="(R) Significant details are published, but researchers either do not have full confidence in the root cause, or do not have access to source code to fully confirm all of the interactions that may lead to the result. Reasonable confidence exists, however, that the bug is reproducible and at least one impact is able to be verified (Proof-of-concept exploits may provide this). An example is a detailed write-up of research into a vulnerability with an explanation (possibly obfuscated or 'left as an exercise to the reader') that gives assurances on how to reproduce the results.">Reasonable <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn btn-med<%= ' active btn-primary' if @cvss_vector['RC'] == 'C' %>" name="rc" value="C" title="(C) Detailed reports exist, or functional reproduction is possible (functional exploits may provide this). Source code is available to independently verify the assertions of the research, or the author or vendor of the affected code has confirmed the presence of the vulnerability.">Confirmed <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+    </div>
+
+  </div>
+
+  <p>
+    The Temporal metrics measure the current state of exploit techniques or code
+    availability, the existence of any patches or workarounds, or the confidence
+    that one has in the description of a vulnerability.
+  </p>
+</section>

@@ -1,0 +1,78 @@
+<% content_for :title, 'Edit CVSSv3 score' %>
+
+<% content_for :sidebar do %>
+  <%= render 'issues/sidebar'%>
+<% end %>
+
+<div id="issues_editor">
+  <div class="inner note-text-inner">
+    <h3>Edit CVSSv3 Risk Scoring</h3>
+
+    <%= simple_form_for [:cvss, current_project, @issue] do |f| %>
+
+      <div class="alert alert-error text-error hide" data-behavior="cvss-error">
+        <p><strong>Warning</strong>: all Base metrics are required</p>
+      </div>
+      <br/>
+
+      <ul class="nav nav-pills" id="cvss-tabs">
+        <li class="active"><a href="#cvss-edit-base" data-toggle="tab">Base: <span id="base-score">0</span></a></li>
+        <li><a href="#cvss-edit-temporal" data-toggle="tab">Temporal: <span id="temporal-score">0</span></a></li>
+        <li><a href="#cvss-edit-environmental" data-toggle="tab">Environmental: <span id="environmental-score">0</span></a></li>
+        <li class="pull-right"><a href="#cvss-edit-result" data-toggle="tab">Result</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="cvss-edit-base">
+          <%= render 'dradis/plugins/calculators/cvss/base/base'          %>
+        </div>
+        <div class="tab-pane" id="cvss-edit-temporal">
+          <%= render 'dradis/plugins/calculators/cvss/base/temporal'      %>
+        </div>
+        <div class="tab-pane" id="cvss-edit-environmental">
+          <%= render 'dradis/plugins/calculators/cvss/base/environmental' %>
+        </div>
+
+        <div class="tab-pane" id="cvss-edit-result">
+          <textarea name="cvss_fields" rows="10" style="width:95%">#[CVSSv3.Vector]#
+N/A
+
+#[CVSSv3.BaseScore]#
+N/A
+
+#[CVSSv3.BaseSeverity]#
+N/A
+
+#[CVSSv3.TemporalScore]#
+N/A
+
+#[CVSSv3.TemporalSeverity]#
+N/A
+
+#[CVSSv3.EnvironmentalScore]#
+N/A
+
+#[CVSSv3.EnvironmentalSeverity]#
+N/A
+
+#[CVSSv3.BaseAttackVector]#
+#[CVSSv3.BaseAttackComplexity]#
+#[CVSSv3.BasePrivilegesRequired]#
+#[CVSSv3.BaseUserInteraction]#
+#[CVSSv3.BaseScope]#
+#[CVSSv3.BaseConfidentiality]#
+#[CVSSv3.BaseIntegrity]#
+#[CVSSv3.BaseAvailability]#
+#[CVSSv3.EnvironmentalConfidentialityRequirement]#
+#[CVSSv3.EnvironmentalIntegrityRequirement]#
+</textarea>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, nil, class: 'btn btn-primary' %> or
+        <%= link_to 'Cancel', main_app.project_issue_path(current_project, @issue), class: 'cancel-link' %>
+      </div>
+    <% end %>
+  </div>
+</div>

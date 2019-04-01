@@ -1,3 +1,7 @@
+## Dradis Framework 3.12 (March, 2019) ##
+
+*  Present a per-issue CVSSv3 calculator.
+
 ## Dradis Framework 3.11 (November, 2018) ##
 
 * No changes

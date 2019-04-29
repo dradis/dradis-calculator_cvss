@@ -1,27 +1,37 @@
-## Dradis Framework 3.12 (March, 2019) ##
+# Dradis Framework 3.12 (Xxx, YYY) ##
+*  Allow empty 'CVSSv3.Vector' field to trigger the per-issue calculator.
+
+
+# Dradis Framework 3.12 (March, 2019) ##
 
 *  Present a per-issue CVSSv3 calculator.
+
 
 ## Dradis Framework 3.11 (November, 2018) ##
 
 * No changes
 
+
 ## Dradis Framework 3.10 (August, 2018) ##
 
 * Fix vertical button selection behavior
+
 
 ## Dradis Framework 3.9 (January, 2018) ##
 
 * Add metric-specific fields to calculator output (v3.8.1)
 
+
 ## Dradis Framework 3.8 (September, 2017) ##
 
 * No changes.
+
 
 ## Dradis Framework 3.7 (July, 2017) ##
 
 * Add mouseover details to each button
 * Add "High" as an option for Exploit Code Maturity (E)
+
 
 ## Dradis Framework 3.6 (March XX, 2017) ##
 

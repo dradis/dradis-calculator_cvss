@@ -25,7 +25,7 @@ module Dradis::Plugins::Calculators::CVSS
       field_value  = @issue.fields['CVSSv3.Vector'] || @issue.fields['CVSSv3Vector']
 
       # If no vector is set yet, that's OK
-      return unless field_value
+      return if field_value.blank?
 
       if field_value =~ V3::VECTOR_REGEXP
         field_value.split('/').each { |pair| @cvss_vector.store *pair.split(':') }

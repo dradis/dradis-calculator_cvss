@@ -1,4 +1,5 @@
-# Dradis Framework 3.12 (Xxx, YYY) ##
+# Dradis Framework 3.13 (XXX, 2019) ##
+
 *  Allow empty 'CVSSv3.Vector' field to trigger the per-issue calculator.
 
 

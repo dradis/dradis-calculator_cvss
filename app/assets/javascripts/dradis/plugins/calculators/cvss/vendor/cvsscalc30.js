@@ -365,14 +365,27 @@ CVSS.calculateCVSSFromMetrics = function (
     baseConfidentiality: CVSS.XML_MetricNames["MCIA"][Confidentiality],
     baseIntegrity: CVSS.XML_MetricNames["MCIA"][Integrity],
     baseAvailability: CVSS.XML_MetricNames["MCIA"][Availability],
+
+    exploitCodeMaturity: CVSS.XML_MetricNames["E"][ExploitCodeMaturity || "X"],
+    remediationLevel: CVSS.XML_MetricNames["RL"][RemediationLevel || "X"],
+    reportConfidence: CVSS.XML_MetricNames["RC"][ReportConfidence || "X"],
+
     environmentalConfidentialityRequirement: CVSS.XML_MetricNames["CIAR"][ConfidentialityRequirement || "X"],
     environmentalIntegrityRequirement: CVSS.XML_MetricNames["CIAR"][IntegrityRequirement || "X"],
+    environmentalAvailabilityRequirement: CVSS.XML_MetricNames["CIAR"][AvailabilityRequirement || "X"],
+
+    modifiedAttackVector: CVSS.XML_MetricNames["MAV"][ModifiedAttackVector || "X"],
+    modifiedAttackComplexity: CVSS.XML_MetricNames["MAC"][ModifiedAttackComplexity || "X"],
+    modifiedPrivilegesRequired: CVSS.XML_MetricNames["MPR"][ModifiedPrivilegesRequired || "X"],
+    modifiedUserInteraction: CVSS.XML_MetricNames["MUI"][ModifiedUserInteraction || "X"],
+    modifiedScope: CVSS.XML_MetricNames["MS"][ModifiedScope || "X"],
+    modifiedConfidentiality: CVSS.XML_MetricNames["MCIA"][ModifiedConfidentiality || "X"],
+    modifiedIntegrity: CVSS.XML_MetricNames["MCIA"][ModifiedIntegrity || "X"],
+    modifiedAvailability: CVSS.XML_MetricNames["MCIA"][ModifiedAvailability || "X"],
 
     vectorString: vectorString
   };
 };
-
-
 
 
 /* ** CVSS.calculateCVSSFromVector **

@@ -74,10 +74,38 @@
       issue_cvss += "#{output.baseIntegrity}\n\n"
       issue_cvss += "#[CVSSv3.BaseAvailability]#\n"
       issue_cvss += "#{output.baseAvailability}\n\n"
+      
+      issue_cvss += "#[CVSSv3.TemporalExploitCodeMaturity]#\n"
+      issue_cvss += "#{output.exploitCodeMaturity}\n\n"
+      issue_cvss += "#[CVSSv3.TemporalRemediationLevel]#\n"
+      issue_cvss += "#{output.remediationLevel}\n\n"
+      issue_cvss += "#[CVSSv3.TemporalReportConfidence]#\n"
+      issue_cvss += "#{output.reportConfidence}\n\n"
+
       issue_cvss += "#[CVSSv3.EnvironmentalConfidentialityRequirement]#\n"
       issue_cvss += "#{output.environmentalConfidentialityRequirement}\n\n"
       issue_cvss += "#[CVSSv3.EnvironmentalIntegrityRequirement]#\n"
       issue_cvss += "#{output.environmentalIntegrityRequirement}\n\n"
+      issue_cvss += "#[CVSSv3.EnvironmentalAvailabilityRequirement]#\n"
+      issue_cvss += "#{output.environmentalAvailabilityRequirement}\n\n"
+
+      issue_cvss += "#[CVSSv3.ModifiedAttackVector]#\n"
+      issue_cvss += "#{output.modifiedAttackVector}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedAttackComplexity]#\n"
+      issue_cvss += "#{output.modifiedAttackComplexity}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedPrivilegesRequired]#\n"
+      issue_cvss += "#{output.modifiedPrivilegesRequired}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedUserInteraction]#\n"
+      issue_cvss += "#{output.modifiedUserInteraction}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedScope]#\n"
+      issue_cvss += "#{output.modifiedScope}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedConfidentiality]#\n"
+      issue_cvss += "#{output.modifiedConfidentiality}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedIntegrity]#\n"
+      issue_cvss += "#{output.modifiedIntegrity}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedAvailability]#\n"
+      issue_cvss += "#{output.modifiedAvailability}\n\n"
+
       $('textarea[name=cvss_fields]').val(issue_cvss)
     else
       errorMessage = ''

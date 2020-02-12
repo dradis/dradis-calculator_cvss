@@ -76,11 +76,11 @@
       issue_cvss += "#{output.baseAvailability}\n\n"
       
       issue_cvss += "#[CVSSv3.TemporalExploitCodeMaturity]#\n"
-      issue_cvss += "#{output.exploitCodeMaturity}\n\n"
+      issue_cvss += "#{output.temporalExploitCodeMaturity}\n\n"
       issue_cvss += "#[CVSSv3.TemporalRemediationLevel]#\n"
-      issue_cvss += "#{output.remediationLevel}\n\n"
+      issue_cvss += "#{output.temporalRemediationLevel}\n\n"
       issue_cvss += "#[CVSSv3.TemporalReportConfidence]#\n"
-      issue_cvss += "#{output.reportConfidence}\n\n"
+      issue_cvss += "#{output.temporalReportConfidence}\n\n"
 
       issue_cvss += "#[CVSSv3.EnvironmentalConfidentialityRequirement]#\n"
       issue_cvss += "#{output.environmentalConfidentialityRequirement}\n\n"

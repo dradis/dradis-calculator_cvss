@@ -366,9 +366,9 @@ CVSS.calculateCVSSFromMetrics = function (
     baseIntegrity: CVSS.XML_MetricNames["MCIA"][Integrity],
     baseAvailability: CVSS.XML_MetricNames["MCIA"][Availability],
 
-    exploitCodeMaturity: CVSS.XML_MetricNames["E"][ExploitCodeMaturity || "X"],
-    remediationLevel: CVSS.XML_MetricNames["RL"][RemediationLevel || "X"],
-    reportConfidence: CVSS.XML_MetricNames["RC"][ReportConfidence || "X"],
+    temporalExploitCodeMaturity: CVSS.XML_MetricNames["E"][ExploitCodeMaturity || "X"],
+    temporalRemediationLevel: CVSS.XML_MetricNames["RL"][RemediationLevel || "X"],
+    temporalReportConfidence: CVSS.XML_MetricNames["RC"][ReportConfidence || "X"],
 
     environmentalConfidentialityRequirement: CVSS.XML_MetricNames["CIAR"][ConfidentialityRequirement || "X"],
     environmentalIntegrityRequirement: CVSS.XML_MetricNames["CIAR"][IntegrityRequirement || "X"],

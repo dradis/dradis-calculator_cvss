@@ -1,14 +1,13 @@
 <div class="tab-pane" id="cvss-tab">
   <div class="inner">
-    <h3>CVSSv3 Risk Scoring -
+    <h4 class="header-underline">CVSSv3 Risk Scoring -
       <span class="actions">
-        <%= link_to cvss_calculator.cvss_project_issue_path(current_project, @issue),
-              class: 'action-link' do %>
+        <%= link_to cvss_calculator.cvss_project_issue_path(current_project, @issue) do %>
           <i class="fa fa-pencil"></i> Edit
         <% end %>
-    </h3>
+    </h4>
 
-    <div class="content-textile">
+    <div class="mb-4 content-textile">
       <%=
         markup(
           @issue.fields

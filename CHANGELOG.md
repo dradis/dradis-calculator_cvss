@@ -1,3 +1,12 @@
+# Dradis Framework 3.16 (February, 2020) ##
+
+*  Update for compatibility with Tylium
+
+# Dradis Framework 3.15 (November, 2019) ##
+
+*  No changes.
+
+
 # Dradis Framework 3.14 (August, 2019) ##
 
 *  No changes.

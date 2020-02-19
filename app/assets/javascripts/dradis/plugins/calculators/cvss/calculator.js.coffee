@@ -38,7 +38,7 @@
 
     if output.success == true
       $('input[type=submit]').attr('disabled', null)
-      $('[data-behavior~=cvss-error]').hide().text('')
+      $('[data-behavior~=cvss-error]').addClass('d-none').text('')
       $('#base-score').text("#{output.baseMetricScore} (#{output.baseSeverity})")
       $('#temporal-score').text("#{output.temporalMetricScore} (#{output.temporalSeverity})")
       $('#environmental-score').text("#{output.environmentalMetricScore} (#{output.environmentalSeverity})")
@@ -116,17 +116,15 @@
         errorMessage = "All Base metrics are required"
 
       $('input[type=submit]').attr('disabled', 'disabled')
-      $('[data-behavior~=cvss-error]')
-        .show()
-        .text(errorMessage)
-
+      $('[data-behavior~=cvss-error]').removeClass('d-none').text(errorMessage)
 
 document.addEventListener "turbolinks:load", ->
   if $('[data-behavior~=cvss-buttons]').length
     CVSSCalculator.calculate()
-    $('[data-behavior~=cvss-error]').hide()
+    $('[data-behavior~=cvss-error]').addClass('d-none')
 
     $('[data-behavior~=cvss-buttons] button').on 'click', ->
+      console.log('clicked');
       $this = $(this)
       $this.parent().find('button').removeClass('btn-primary');
       $this.addClass('btn-primary');

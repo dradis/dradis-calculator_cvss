@@ -352,40 +352,18 @@ CVSS.calculateCVSSFromMetrics = function (
     success: true,
     baseMetricScore: baseScore.toFixed(1),
     baseSeverity: CVSS.severityRating( baseScore.toFixed(1) ),
+
     temporalMetricScore: temporalScore.toFixed(1),
     temporalSeverity: CVSS.severityRating( temporalScore.toFixed(1) ),
+
     environmentalMetricScore: envScore.toFixed(1),
     environmentalSeverity: CVSS.severityRating( envScore.toFixed(1) ),
-
-    baseAttackVector: CVSS.XML_MetricNames["MAV"][AttackVector],
-    baseAttackComplexity: CVSS.XML_MetricNames["MAC"][AttackComplexity],
-    basePrivilegesRequired: CVSS.XML_MetricNames["MPR"][PrivilegesRequired],
-    baseUserInteraction: CVSS.XML_MetricNames["MUI"][UserInteraction],
-    baseScope: CVSS.XML_MetricNames["MS"][Scope],
-    baseConfidentiality: CVSS.XML_MetricNames["MCIA"][Confidentiality],
-    baseIntegrity: CVSS.XML_MetricNames["MCIA"][Integrity],
-    baseAvailability: CVSS.XML_MetricNames["MCIA"][Availability],
-
-    temporalExploitCodeMaturity: CVSS.XML_MetricNames["E"][ExploitCodeMaturity || "X"],
-    temporalRemediationLevel: CVSS.XML_MetricNames["RL"][RemediationLevel || "X"],
-    temporalReportConfidence: CVSS.XML_MetricNames["RC"][ReportConfidence || "X"],
-
-    environmentalConfidentialityRequirement: CVSS.XML_MetricNames["CIAR"][ConfidentialityRequirement || "X"],
-    environmentalIntegrityRequirement: CVSS.XML_MetricNames["CIAR"][IntegrityRequirement || "X"],
-    environmentalAvailabilityRequirement: CVSS.XML_MetricNames["CIAR"][AvailabilityRequirement || "X"],
-
-    modifiedAttackVector: CVSS.XML_MetricNames["MAV"][ModifiedAttackVector || "X"],
-    modifiedAttackComplexity: CVSS.XML_MetricNames["MAC"][ModifiedAttackComplexity || "X"],
-    modifiedPrivilegesRequired: CVSS.XML_MetricNames["MPR"][ModifiedPrivilegesRequired || "X"],
-    modifiedUserInteraction: CVSS.XML_MetricNames["MUI"][ModifiedUserInteraction || "X"],
-    modifiedScope: CVSS.XML_MetricNames["MS"][ModifiedScope || "X"],
-    modifiedConfidentiality: CVSS.XML_MetricNames["MCIA"][ModifiedConfidentiality || "X"],
-    modifiedIntegrity: CVSS.XML_MetricNames["MCIA"][ModifiedIntegrity || "X"],
-    modifiedAvailability: CVSS.XML_MetricNames["MCIA"][ModifiedAvailability || "X"],
 
     vectorString: vectorString
   };
 };
+
+
 
 
 /* ** CVSS.calculateCVSSFromVector **
@@ -505,17 +483,17 @@ CVSS.severityRating = function (score) {
 // because the latter is the same as the former, except it also includes a "NOT_DEFINED" value.
 
 CVSS.XML_MetricNames = {
-  E:    { X: "Not Defined", U: "Unproven",     P: "Proof of Concept",  F: "Functional",  H: "High"},
-  RL:   { X: "Not Defined", O: "Official Fix", T: "Temporary Fix",     W: "Workaround",  U: "Unavailable"},
-  RC:   { X: "Not Defined", U: "Unknown",      R: "Reasonable",        C: "Confirmed"},
+  E:    { X: "NOT_DEFINED", U: "UNPROVEN",     P: "PROOF_OF_CONCEPT",  F: "FUNCTIONAL",  H: "HIGH"},
+  RL:   { X: "NOT_DEFINED", O: "OFFICIAL_FIX", T: "TEMPORARY_FIX",     W: "WORKAROUND",  U: "UNAVAILABLE"},
+  RC:   { X: "NOT_DEFINED", U: "UNKNOWN",      R: "REASONABLE",        C: "CONFIRMED"},
 
-  CIAR: { X: "Not Defined", L: "Low",              M: "Medium", H: "High"},         // CR, IR and AR use the same metric names
-  MAV:  { N: "Network",     A: "Adjacent Network", L: "Local",  P: "Physical", X: "Not Defined" },
-  MAC:  { H: "High",        L: "Low",              X: "Not Defined" },
-  MPR:  { N: "None",        L: "Low",              H: "High",   X: "Not Defined" },
-  MUI:  { N: "None",        R: "Required",         X: "Not Defined" },
-  MS:   { U: "Unchanged",   C: "Changed",          X: "Not Defined" },
-  MCIA: { N: "None",        L: "Low",              H: "High",   X: "Not Defined" }  // C, I and A use the same metric names
+  CIAR: { X: "NOT_DEFINED", L: "LOW",              M: "MEDIUM", H: "HIGH"},         // CR, IR and AR use the same metric names
+  MAV:  { N: "NETWORK",     A: "ADJACENT_NETWORK", L: "LOCAL",  P: "PHYSICAL", X: "NOT_DEFINED" },
+  MAC:  { H: "HIGH",        L: "LOW",              X: "NOT_DEFINED" },
+  MPR:  { N: "NONE",        L: "LOW",              H: "HIGH",   X: "NOT_DEFINED" },
+  MUI:  { N: "NONE",        R: "REQUIRED",         X: "NOT_DEFINED" },
+  MS:   { U: "UNCHANGED",   C: "CHANGED",          X: "NOT_DEFINED" },
+  MCIA: { N: "NONE",        L: "LOW",              H: "HIGH",   X: "NOT_DEFINED" }  // C, I and A use the same metric names
 };
 
 
@@ -611,7 +589,7 @@ CVSS.generateXMLFromMetrics = function (
   }
 
   var xmlOutput = xmlTemplate;
-  xmlOutput = xmlOutput.replace ("__AttackVector__",        CVSS.XML_MetricNames["MAC"][AttackVector]);
+  xmlOutput = xmlOutput.replace ("__AttackVector__",        CVSS.XML_MetricNames["MAV"][AttackVector]);
   xmlOutput = xmlOutput.replace ("__AttackComplexity__",    CVSS.XML_MetricNames["MAC"][AttackComplexity]);
   xmlOutput = xmlOutput.replace ("__PrivilegesRequired__",  CVSS.XML_MetricNames["MPR"][PrivilegesRequired]);
   xmlOutput = xmlOutput.replace ("__UserInteraction__",     CVSS.XML_MetricNames["MUI"][UserInteraction]);

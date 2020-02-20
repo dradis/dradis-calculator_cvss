@@ -4,11 +4,10 @@
 
 <p class="lead">Use this page to calculate the <abbr title="Common Vulnerability Scoring System">CVSS</abbr> score of a given finding.</p>
 
-<p class="alert alert-error text-error hide" data-behavior="cvss-error"></p>
-
+<p class="alert alert-danger d-none" data-behavior="cvss-error"></p>
 
 <div class="row">
-  <div class="span8">
+  <div class="col-8">
 
     <h2 title="The Base Metric group represents the intrinsic  characteristics of a vulnerability that are constant over time and across user environments. Determine the vulnerable component and score Attack Vector, Attack Complexity, Privileges Required and User Interaction relative to this.">
       Base: <span id="base-score">0</span>
@@ -26,8 +25,8 @@
     <%= render 'dradis/plugins/calculators/cvss/base/environmental' %>
   </div>
 
-  <div class="span4">
-    <textarea name="cvss_fields" rows="52" style="width:100%">#[CVSSv3.Vector]#
+  <div class="col-4">
+    <textarea name="cvss_fields" rows="52" class="form-control" style="width:100%">#[CVSSv3.Vector]#
 N/A
 
 #[CVSSv3.BaseScore]#

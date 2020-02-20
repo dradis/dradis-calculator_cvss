@@ -7,7 +7,7 @@
 
         <%= hidden_field_tag :av, @cvss_vector['AV'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4 text-nowrap" data-toggle="buttons-radio">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['AV'] == 'N' %>" name="av" value="N" data-label="Network" title="(N) A vulnerability exploitable with network access means the vulnerable component is bound to the network stack and the attacker's path is through OSI layer 3 (the network layer). Such a vulnerability is often termed 'remotely exploitable' and can be thought of as an attack being exploitable one or more network hops away.">Net. <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['AV'] == 'A' %>" name="av" value="A" data-label="Adjacent" title="(A) A vulnerability exploitable with adjacent network access means the vulnerable component is bound to the network stack, however the attack is limited to the same shared physical (e.g. Bluetooth, IEEE 802.11), or logical (e.g. local IP subnet) network, and cannot be performed across an OSI layer 3 boundary (e.g. a router).">Adjacent <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>

@@ -27,6 +27,11 @@
  *
  * Changelog
  *
+ * 2018-02-15  Darius Wiles   Added a missing pair of parantheses in the Environmental score, specifically
+ *                            in the code setting envScore in the main clause (not the else clause). It was changed
+ *                            from "min (...), 10" to "min ((...), 10)". This correction does not alter any final
+ *                            Environmental scores.
+ *
  * 2015-08-04  Darius Wiles   Added CVSS.generateXMLFromMetrics and CVSS.generateXMLFromVector functions to return
  *                            XML string representations of: a set of metric values; or a Vector String respectively.
  *                            Moved all constants and functions to an object named "CVSS" to
@@ -69,7 +74,7 @@ CVSS.Weight = {
   AV:   { N: 0.85,  A: 0.62,  L: 0.55,  P: 0.2},
   AC:   { H: 0.44,  L: 0.77},
   PR:   { U:       {N: 0.85,  L: 0.62,  H: 0.27},         // These values are used if Scope is Unchanged
-            C:       {N: 0.85,  L: 0.68,  H: 0.5}},         // These values are used if Scope is Changed
+          C:       {N: 0.85,  L: 0.68,  H: 0.5}},         // These values are used if Scope is Changed
   UI:   { N: 0.85,  R: 0.62},
   S:    { U: 6.42,  C: 7.52},                             // Note: not defined as constants in specification
   CIA:  { N: 0,     L: 0.22,  H: 0.56},                   // C, I and A have the same weights
@@ -303,7 +308,7 @@ CVSS.calculateCVSSFromMetrics = function (
   if (MS === "U" ||
      (MS === "X" && S === "U")) {
     envModifiedImpactSubScore = metricWeightMS * envImpactSubScoreMultiplier;
-    envScore = CVSS.roundUp1(CVSS.roundUp1(Math.min(envModifiedImpactSubScore + envModifiedExploitabalitySubScore), 10) *
+    envScore = CVSS.roundUp1(CVSS.roundUp1(Math.min((envModifiedImpactSubScore + envModifiedExploitabalitySubScore), 10)) *
                         metricWeightE * metricWeightRL * metricWeightRC);
     } else {
     envModifiedImpactSubScore = metricWeightMS * (envImpactSubScoreMultiplier - 0.029) - 3.25 * Math.pow(envImpactSubScoreMultiplier - 0.02, 15);

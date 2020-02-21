@@ -11,10 +11,22 @@ module Dradis::Plugins::Calculators::CVSS
       BaseScore
       BaseSeverity
       BaseUserInteraction
+      TemporalExploitCodeMaturity
+      TemporalRemediationLevel
+      TemporalReportConfidence
       EnvironmentalConfidentialityRequirement
       EnvironmentalIntegrityRequirement
+      EnvironmentalAvailabilityRequirement
       EnvironmentalScore
       EnvironmentalSeverity
+      ModifiedAttackVector
+      ModifiedAttackComplexity
+      ModifiedPrivilegesRequired
+      ModifiedUserInteraction
+      ModifiedScope
+      ModifiedConfidentiality
+      ModifiedIntegrity
+      ModifiedAvailability
       TemporalScore
       TemporalSeverity
       Vector

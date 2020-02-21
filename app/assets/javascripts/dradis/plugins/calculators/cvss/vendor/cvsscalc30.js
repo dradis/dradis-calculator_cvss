@@ -27,6 +27,11 @@
  *
  * Changelog
  *
+ * 2018-02-15  Darius Wiles   Added a missing pair of parantheses in the Environmental score, specifically
+ *                            in the code setting envScore in the main clause (not the else clause). It was changed
+ *                            from "min (...), 10" to "min ((...), 10)". This correction does not alter any final
+ *                            Environmental scores.
+ *
  * 2015-08-04  Darius Wiles   Added CVSS.generateXMLFromMetrics and CVSS.generateXMLFromVector functions to return
  *                            XML string representations of: a set of metric values; or a Vector String respectively.
  *                            Moved all constants and functions to an object named "CVSS" to
@@ -69,7 +74,7 @@ CVSS.Weight = {
   AV:   { N: 0.85,  A: 0.62,  L: 0.55,  P: 0.2},
   AC:   { H: 0.44,  L: 0.77},
   PR:   { U:       {N: 0.85,  L: 0.62,  H: 0.27},         // These values are used if Scope is Unchanged
-            C:       {N: 0.85,  L: 0.68,  H: 0.5}},         // These values are used if Scope is Changed
+          C:       {N: 0.85,  L: 0.68,  H: 0.5}},         // These values are used if Scope is Changed
   UI:   { N: 0.85,  R: 0.62},
   S:    { U: 6.42,  C: 7.52},                             // Note: not defined as constants in specification
   CIA:  { N: 0,     L: 0.22,  H: 0.56},                   // C, I and A have the same weights
@@ -303,7 +308,7 @@ CVSS.calculateCVSSFromMetrics = function (
   if (MS === "U" ||
      (MS === "X" && S === "U")) {
     envModifiedImpactSubScore = metricWeightMS * envImpactSubScoreMultiplier;
-    envScore = CVSS.roundUp1(CVSS.roundUp1(Math.min(envModifiedImpactSubScore + envModifiedExploitabalitySubScore), 10) *
+    envScore = CVSS.roundUp1(CVSS.roundUp1(Math.min((envModifiedImpactSubScore + envModifiedExploitabalitySubScore), 10)) *
                         metricWeightE * metricWeightRL * metricWeightRC);
     } else {
     envModifiedImpactSubScore = metricWeightMS * (envImpactSubScoreMultiplier - 0.029) - 3.25 * Math.pow(envImpactSubScoreMultiplier - 0.02, 15);
@@ -352,21 +357,12 @@ CVSS.calculateCVSSFromMetrics = function (
     success: true,
     baseMetricScore: baseScore.toFixed(1),
     baseSeverity: CVSS.severityRating( baseScore.toFixed(1) ),
+
     temporalMetricScore: temporalScore.toFixed(1),
     temporalSeverity: CVSS.severityRating( temporalScore.toFixed(1) ),
+
     environmentalMetricScore: envScore.toFixed(1),
     environmentalSeverity: CVSS.severityRating( envScore.toFixed(1) ),
-
-    baseAttackVector: CVSS.XML_MetricNames["MAV"][AttackVector],
-    baseAttackComplexity: CVSS.XML_MetricNames["MAC"][AttackComplexity],
-    basePrivilegesRequired: CVSS.XML_MetricNames["MPR"][PrivilegesRequired],
-    baseUserInteraction: CVSS.XML_MetricNames["MUI"][UserInteraction],
-    baseScope: CVSS.XML_MetricNames["MS"][Scope],
-    baseConfidentiality: CVSS.XML_MetricNames["MCIA"][Confidentiality],
-    baseIntegrity: CVSS.XML_MetricNames["MCIA"][Integrity],
-    baseAvailability: CVSS.XML_MetricNames["MCIA"][Availability],
-    environmentalConfidentialityRequirement: CVSS.XML_MetricNames["CIAR"][ConfidentialityRequirement || "X"],
-    environmentalIntegrityRequirement: CVSS.XML_MetricNames["CIAR"][IntegrityRequirement || "X"],
 
     vectorString: vectorString
   };
@@ -492,17 +488,17 @@ CVSS.severityRating = function (score) {
 // because the latter is the same as the former, except it also includes a "NOT_DEFINED" value.
 
 CVSS.XML_MetricNames = {
-  E:    { X: "Not Defined", U: "Unproven",     P: "Proof of Concept",  F: "Functional",  H: "High"},
-  RL:   { X: "Not Defined", O: "Official Fix", T: "Temporary Fix",     W: "Workaround",  U: "Unavailable"},
-  RC:   { X: "Not Defined", U: "Unknown",      R: "Reasonable",        C: "Confirmed"},
+  E:    { X: "NOT_DEFINED", U: "UNPROVEN",     P: "PROOF_OF_CONCEPT",  F: "FUNCTIONAL",  H: "HIGH"},
+  RL:   { X: "NOT_DEFINED", O: "OFFICIAL_FIX", T: "TEMPORARY_FIX",     W: "WORKAROUND",  U: "UNAVAILABLE"},
+  RC:   { X: "NOT_DEFINED", U: "UNKNOWN",      R: "REASONABLE",        C: "CONFIRMED"},
 
-  CIAR: { X: "Not Defined", L: "Low",              M: "Medium", H: "High"},         // CR, IR and AR use the same metric names
-  MAV:  { N: "Network",     A: "Adjacent Network", L: "Local",  P: "Physical", X: "Not Defined" },
-  MAC:  { H: "High",        L: "Low",              X: "Not Defined" },
-  MPR:  { N: "None",        L: "Low",              H: "High",   X: "Not Defined" },
-  MUI:  { N: "None",        R: "Required",         X: "Not Defined" },
-  MS:   { U: "Unchanged",   C: "Changed",          X: "Not Defined" },
-  MCIA: { N: "None",        L: "Low",              H: "High",   X: "Not Defined" }  // C, I and A use the same metric names
+  CIAR: { X: "NOT_DEFINED", L: "LOW",              M: "MEDIUM", H: "HIGH"},         // CR, IR and AR use the same metric names
+  MAV:  { N: "NETWORK",     A: "ADJACENT_NETWORK", L: "LOCAL",  P: "PHYSICAL", X: "NOT_DEFINED" },
+  MAC:  { H: "HIGH",        L: "LOW",              X: "NOT_DEFINED" },
+  MPR:  { N: "NONE",        L: "LOW",              H: "HIGH",   X: "NOT_DEFINED" },
+  MUI:  { N: "NONE",        R: "REQUIRED",         X: "NOT_DEFINED" },
+  MS:   { U: "UNCHANGED",   C: "CHANGED",          X: "NOT_DEFINED" },
+  MCIA: { N: "NONE",        L: "LOW",              H: "HIGH",   X: "NOT_DEFINED" }  // C, I and A use the same metric names
 };
 
 
@@ -598,7 +594,7 @@ CVSS.generateXMLFromMetrics = function (
   }
 
   var xmlOutput = xmlTemplate;
-  xmlOutput = xmlOutput.replace ("__AttackVector__",        CVSS.XML_MetricNames["MAC"][AttackVector]);
+  xmlOutput = xmlOutput.replace ("__AttackVector__",        CVSS.XML_MetricNames["MAV"][AttackVector]);
   xmlOutput = xmlOutput.replace ("__AttackComplexity__",    CVSS.XML_MetricNames["MAC"][AttackComplexity]);
   xmlOutput = xmlOutput.replace ("__PrivilegesRequired__",  CVSS.XML_MetricNames["MPR"][PrivilegesRequired]);
   xmlOutput = xmlOutput.replace ("__UserInteraction__",     CVSS.XML_MetricNames["MUI"][UserInteraction]);

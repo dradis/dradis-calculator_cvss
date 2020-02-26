@@ -57,27 +57,58 @@
       issue_cvss += "#{output.environmentalMetricScore}\n\n"
       issue_cvss += "#[CVSSv3.EnvironmentalSeverity]#\n"
       issue_cvss += "#{output.environmentalSeverity}\n\n"
-      
+
+      # Base metrics
       issue_cvss += "#[CVSSv3.BaseAttackVector]#\n"
-      issue_cvss += "#{output.baseAttackVector}\n\n"
+      issue_cvss += "#{$("button[name=av].btn-primary").data('label')}\n\n"
       issue_cvss += "#[CVSSv3.BaseAttackComplexity]#\n"
-      issue_cvss += "#{output.baseAttackComplexity}\n\n"
+      issue_cvss += "#{$("button[name=ac].btn-primary").data('label')}\n\n"
       issue_cvss += "#[CVSSv3.BasePrivilegesRequired]#\n"
-      issue_cvss += "#{output.basePrivilegesRequired}\n\n"
+      issue_cvss += "#{$("button[name=pr].btn-primary").data('label')}\n\n"
       issue_cvss += "#[CVSSv3.BaseUserInteraction]#\n"
-      issue_cvss += "#{output.baseUserInteraction}\n\n"
+      issue_cvss += "#{$("button[name=ui].btn-primary").data('label')}\n\n"
       issue_cvss += "#[CVSSv3.BaseScope]#\n"
-      issue_cvss += "#{output.baseScope}\n\n"
+      issue_cvss += "#{$("button[name=s].btn-primary").data('label')}\n\n"
       issue_cvss += "#[CVSSv3.BaseConfidentiality]#\n"
-      issue_cvss += "#{output.baseConfidentiality}\n\n"
+      issue_cvss += "#{$("button[name=c].btn-primary").data('label')}\n\n"
       issue_cvss += "#[CVSSv3.BaseIntegrity]#\n"
-      issue_cvss += "#{output.baseIntegrity}\n\n"
+      issue_cvss += "#{$("button[name=i].btn-primary").data('label')}\n\n"
       issue_cvss += "#[CVSSv3.BaseAvailability]#\n"
-      issue_cvss += "#{output.baseAvailability}\n\n"
+      issue_cvss += "#{$("button[name=a].btn-primary").data('label')}\n\n"
+
+      # Temporal metrics
+      issue_cvss += "#[CVSSv3.TemporalExploitCodeMaturity]#\n"
+      issue_cvss += "#{$("button[name=e].btn-primary").data('label')}\n\n"
+      issue_cvss += "#[CVSSv3.TemporalRemediationLevel]#\n"
+      issue_cvss += "#{$("button[name=rl].btn-primary").data('label')}\n\n"
+      issue_cvss += "#[CVSSv3.TemporalReportConfidence]#\n"
+      issue_cvss += "#{$("button[name=rc].btn-primary").data('label')}\n\n"
+
+      # Environmental metrics
       issue_cvss += "#[CVSSv3.EnvironmentalConfidentialityRequirement]#\n"
-      issue_cvss += "#{output.environmentalConfidentialityRequirement}\n\n"
+      issue_cvss += "#{$("button[name=cr].btn-primary").data('label')}\n\n"
       issue_cvss += "#[CVSSv3.EnvironmentalIntegrityRequirement]#\n"
-      issue_cvss += "#{output.environmentalIntegrityRequirement}\n\n"
+      issue_cvss += "#{$("button[name=ir].btn-primary").data('label')}\n\n"
+      issue_cvss += "#[CVSSv3.EnvironmentalAvailabilityRequirement]#\n"
+      issue_cvss += "#{$("button[name=ar].btn-primary").data('label')}\n\n"
+
+      issue_cvss += "#[CVSSv3.ModifiedAttackVector]#\n"
+      issue_cvss += "#{$("button[name=mav].btn-primary").data('label')}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedAttackComplexity]#\n"
+      issue_cvss += "#{$("button[name=mac].btn-primary").data('label')}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedPrivilegesRequired]#\n"
+      issue_cvss += "#{$("button[name=mpr].btn-primary").data('label')}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedUserInteraction]#\n"
+      issue_cvss += "#{$("button[name=mui].btn-primary").data('label')}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedScope]#\n"
+      issue_cvss += "#{$("button[name=ms].btn-primary").data('label')}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedConfidentiality]#\n"
+      issue_cvss += "#{$("button[name=mc].btn-primary").data('label')}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedIntegrity]#\n"
+      issue_cvss += "#{$("button[name=mi].btn-primary").data('label')}\n\n"
+      issue_cvss += "#[CVSSv3.ModifiedAvailability]#\n"
+      issue_cvss += "#{$("button[name=ma].btn-primary").data('label')}\n\n"
+
       $('textarea[name=cvss_fields]').val(issue_cvss)
     else
       errorMessage = ''
@@ -96,9 +127,9 @@ document.addEventListener "turbolinks:load", ->
     $('[data-behavior~=cvss-error]').addClass('d-none')
 
     $('[data-behavior~=cvss-buttons] button').on 'click', ->
-      console.log('clicked');
+
       $this = $(this)
-      $this.parent().find('button').removeClass('btn-primary');
-      $this.addClass('btn-primary');
+      $this.parent().find('button').removeClass('active btn-primary');
+      $this.addClass('active btn-primary');
       $("input[name=#{$this.attr('name')}]").val($this.val())
       CVSSCalculator.calculate()

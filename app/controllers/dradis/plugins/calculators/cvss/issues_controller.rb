@@ -7,7 +7,7 @@ module Dradis::Plugins::Calculators::CVSS
     end
 
     def update
-      cvss_fields = Hash[ *params[:cvss_fields].scan(HasFields::REGEX).flatten.map(&:strip) ]
+      cvss_fields = Hash[ *params[:cvss_fields].scan(FieldParser::FIELDS_REGEX).flatten.map(&:strip) ]
       cvss_fields.each do |name, value|
         @issue.set_field(name, value)
       end

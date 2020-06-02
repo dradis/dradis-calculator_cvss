@@ -1,3 +1,8 @@
+# Dradis Framework 3.17 (May, 2020) ##
+
+*  Update REGEX reference for compatibility.
+
+
 # Dradis Framework 3.16 (February, 2020) ##
 
 *  Update for compatibility with Tylium

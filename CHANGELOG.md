@@ -1,3 +1,7 @@
+## Dradis Framework #.## (Month, 2020) ##
+
+*   Use Bootstrap gem vs vendored assets.
+
 # Dradis Framework 3.19 (September, 2020) ##
 
 *  No changes.

@@ -1,33 +1,34 @@
-## Dradis Framework #.## (Month, 2020) ##
+## Dradis Framework 3.20 (December, 2020) ##
 
 *   Use Bootstrap gem vs vendored assets.
 
-# Dradis Framework 3.19 (September, 2020) ##
+
+## Dradis Framework 3.19 (September, 2020) ##
 
 *  No changes.
 
 
-# Dradis Framework 3.18 (July, 2020) ##
+## Dradis Framework 3.18 (July, 2020) ##
 
 *  No changes.
 
 
-# Dradis Framework 3.17 (May, 2020) ##
+## Dradis Framework 3.17 (May, 2020) ##
 
 *  Update REGEX reference for compatibility.
 
 
-# Dradis Framework 3.16 (February, 2020) ##
+## Dradis Framework 3.16 (February, 2020) ##
 
 *  Update for compatibility with Tylium
 
 
-# Dradis Framework 3.15 (November, 2019) ##
+## Dradis Framework 3.15 (November, 2019) ##
 
 *  No changes.
 
 
-# Dradis Framework 3.14 (August, 2019) ##
+## Dradis Framework 3.14 (August, 2019) ##
 
 *  No changes.
 

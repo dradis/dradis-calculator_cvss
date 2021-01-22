@@ -1,3 +1,7 @@
+## Dradis Framework 3.21 (MMM, 2021) ##
+
+*   Specify application.js and application.css when precompiling assets.
+
 ## Dradis Framework 3.20 (December, 2020) ##
 
 *   Use Bootstrap gem vs vendored assets.

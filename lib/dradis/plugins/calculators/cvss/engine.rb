@@ -8,8 +8,8 @@ module Dradis::Plugins::Calculators::CVSS
 
     initializer 'calculator_cvss.asset_precompile_paths' do |app|
       app.config.assets.precompile += [
-        "dradis/plugins/calculators/cvss/manifests/application.js",
-        "dradis/plugins/calculators/cvss/manifests/application.css"
+        'dradis/plugins/calculators/cvss/manifests/application.js',
+        'dradis/plugins/calculators/cvss/manifests/application.cs'
       ]
     end
 

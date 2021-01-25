@@ -1,6 +1,6 @@
 ## Dradis Framework 3.21 (MMM, 2021) ##
 
-*   Specify application.js and application.css when precompiling assets.
+*   Specify exact js and css file name when precompiling assets.
 
 ## Dradis Framework 3.20 (December, 2020) ##
 

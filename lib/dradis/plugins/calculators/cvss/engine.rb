@@ -7,7 +7,11 @@ module Dradis::Plugins::Calculators::CVSS
     description 'Risk Calculator: CVSSv3'
 
     initializer 'calculator_cvss.asset_precompile_paths' do |app|
-      app.config.assets.precompile += ["dradis/plugins/calculators/cvss/manifests/*"]
+      app.config.assets.precompile += [
+        'dradis/plugins/calculators/cvss/manifests/application.css',
+        'dradis/plugins/calculators/cvss/manifests/application.js',
+        'dradis/plugins/calculators/cvss/manifests/tylium.js'
+      ]
     end
 
     initializer "calculator_cvss.inflections" do |app|

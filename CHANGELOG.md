@@ -1,10 +1,16 @@
-## Dradis Framework 3.21 (MMM, 2021) ##
+## Dradis Framework 3.22 (April, 2021) ##
 
-*   Specify exact js and css file name when precompiling assets.
+* Update css manifest to use font-awesome assets from vendor files (rather than old gem)
+
+
+## Dradis Framework 3.21 (February, 2021) ##
+
+* Specify exact js and css file name when precompiling assets.
+
 
 ## Dradis Framework 3.20 (December, 2020) ##
 
-*   Use Bootstrap gem vs vendored assets.
+* Use Bootstrap gem vs vendored assets.
 
 
 ## Dradis Framework 3.19 (September, 2020) ##

@@ -9,7 +9,7 @@ module Dradis
 
         module VERSION
           MAJOR = 3
-          MINOR = 21
+          MINOR = 22
           TINY = 0
           PRE = nil
 

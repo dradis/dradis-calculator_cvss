@@ -1,7 +1,10 @@
+## Dradis Framework 4.0.0 (July, 2021) ##
+
+*  No changes.
+
 ## Dradis Framework 3.22 (April, 2021) ##
 
 * Update css manifest to use font-awesome assets from vendor files (rather than old gem)
-
 
 ## Dradis Framework 3.21 (February, 2021) ##
 

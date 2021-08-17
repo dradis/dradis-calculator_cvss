@@ -10,7 +10,8 @@ module Dradis::Plugins::Calculators::CVSS
       app.config.assets.precompile += [
         'dradis/plugins/calculators/cvss/manifests/application.css',
         'dradis/plugins/calculators/cvss/manifests/application.js',
-        'dradis/plugins/calculators/cvss/manifests/tylium.js'
+        'dradis/plugins/calculators/cvss/manifests/tylium.js',
+        'dradis/plugins/calculators/cvss/manifests/tylium.css'
       ]
     end
 

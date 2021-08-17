@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.platform    = Gem::Platform::RUBY
   spec.name        = 'dradis-calculator_cvss'
   spec.version     = Dradis::Plugins::Calculators::CVSS::VERSION::STRING
-  spec.summary     = 'This plugin adds a CVSSv3 score calculator to Dradis.'
+  spec.summary     = 'This plugin adds a CVSS score calculator to Dradis.'
   spec.description = 'Display a CVSS score calculator in Dradis Framework.'
 
   spec.license = 'GPL-2'

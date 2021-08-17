@@ -4,7 +4,7 @@ module Dradis::Plugins::Calculators::CVSS
 
     include Dradis::Plugins::Base
     provides :addon
-    description 'Risk Calculator: CVSSv3'
+    description 'Risk Calculator: CVSS'
 
     initializer 'calculator_cvss.asset_precompile_paths' do |app|
       app.config.assets.precompile += [

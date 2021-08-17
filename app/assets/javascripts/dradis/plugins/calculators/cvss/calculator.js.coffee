@@ -1,4 +1,9 @@
 @CVSSCalculator =
+  init: ->
+    $('[data-cvss]').each ->
+      title = $(this).data('cvss')
+      $(this).attr('title', CVSS_Help.helpText_en[title])
+
   calculate: ->
     av  = $("input[name=av]").val()
     ac  = $("input[name=ac]").val()
@@ -123,6 +128,7 @@
 
 document.addEventListener "turbolinks:load", ->
   if $('[data-behavior~=cvss-buttons]').length
+    CVSSCalculator.init()
     CVSSCalculator.calculate()
     $('[data-behavior~=cvss-error]').addClass('d-none')
 

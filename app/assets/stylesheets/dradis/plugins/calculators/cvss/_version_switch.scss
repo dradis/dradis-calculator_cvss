@@ -1,0 +1,40 @@
+.custom-switch.cvss {
+  align-items: center;
+  display: inline-flex;
+  white-space: nowrap;
+
+  .custom-control-input {
+    &:checked ~ .custom-control-label {
+      &::after { 
+        background-color: $primaryColor;
+      }
+
+      &::before {
+        background-color: $white;
+      }
+    }
+  }
+
+  .custom-control-label {
+    font-size: 1rem;
+    text-transform: lowercase;
+
+    &::after {
+      background-color: $primaryColor;
+      left: calc(-0.25rem + 2px);
+    }
+
+    &::before {
+      left: -0.25rem;
+    }
+
+    span {
+      line-height: normal;
+
+      &:first-of-type {
+        display: inline-block;
+        transform: translateX(-2.25rem);
+      }
+    }
+  }
+}

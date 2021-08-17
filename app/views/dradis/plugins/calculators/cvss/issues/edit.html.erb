@@ -4,13 +4,10 @@
   <%= render 'issues/sidebar'%>
 <% end %>
 
-<div class="content-container cvss">
+<div class="content-container">
   <h4 class="header-underline d-flex justify-content-between">
     <span>Edit CVSS Risk Scoring</span>
-    <div class="custom-switch">
-      <input type="checkbox" class="custom-control-input" id="cvss-version-toggle" data-behavior="cvss-version-toggle" <%= 'checked' if @issue.fields['CVSSv3.Vector'].include?('CVSS:3.0') %>>
-      <label class="custom-control-label" for="cvss-version-toggle"><span>v3.1</span><span>v3.0</span></label>
-    </div>
+    <%= render 'dradis/plugins/calculators/cvss/version_switch' %>
   </h4>
   <div id="issues_editor">
     <div class="inner note-text-inner">

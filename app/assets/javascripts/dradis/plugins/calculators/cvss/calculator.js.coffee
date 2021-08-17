@@ -1,8 +1,12 @@
 @CVSSCalculator =
   init: ->
+    cvssHelp = if $('[data-behavior~=cvss-version-toggle]').prop('checked') then CVSS_Help else CVSS31_Help
+
     $('[data-cvss]').each ->
       title = $(this).data('cvss')
-      $(this).attr('title', CVSS_Help.helpText_en[title])
+      $(this).attr('title', cvssHelp.helpText_en[title])
+
+    CVSSCalculator.calculate()
 
   calculate: ->
     av  = $("input[name=av]").val()
@@ -36,7 +40,9 @@
     # AvailabilityRequirement, ModifiedAttackVector, ModifiedAttackComplexity,
     # ModifiedPrivilegesRequired, ModifiedUserInteraction, ModifiedScope,
     # ModifiedConfidentiality, ModifiedIntegrity, ModifiedAvailability
-    output = CVSS.calculateCVSSFromMetrics(av, ac, pr, ui, s, c, i, a,
+    calc = if $('[data-behavior~=cvss-version-toggle]').prop('checked') then CVSS else CVSS31
+
+    output = calc.calculateCVSSFromMetrics(av, ac, pr, ui, s, c, i, a,
     e, rl, rc,
     cr, ir, ar, mav, mac, mpr, mui, ms, mc, mi, ma);
 
@@ -129,13 +135,14 @@
 document.addEventListener "turbolinks:load", ->
   if $('[data-behavior~=cvss-buttons]').length
     CVSSCalculator.init()
-    CVSSCalculator.calculate()
     $('[data-behavior~=cvss-error]').addClass('d-none')
 
     $('[data-behavior~=cvss-buttons] button').on 'click', ->
-
       $this = $(this)
       $this.parent().find('button').removeClass('active btn-primary');
       $this.addClass('active btn-primary');
       $("input[name=#{$this.attr('name')}]").val($this.val())
       CVSSCalculator.calculate()
+
+    $('[data-behavior~=cvss-version-toggle]').on 'change', ->
+      CVSSCalculator.init()

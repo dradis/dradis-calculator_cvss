@@ -1,6 +1,6 @@
 ## Dradis Framework 4.x.x (Month, 2021) ##
 
-* Add CVSS v3.1
+* Add functionality to toggle between CVSSv3.0 and CVSSv3.1
 
 ## Dradis Framework 4.0.0 (July, 2021) ##
 

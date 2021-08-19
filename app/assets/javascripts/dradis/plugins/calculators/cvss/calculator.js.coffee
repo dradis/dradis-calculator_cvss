@@ -1,6 +1,11 @@
 @CVSSCalculator =
   init: ->
-    cvssHelp = if $('[data-behavior~=cvss-version-toggle]').prop('checked') then CVSS_Help else CVSS31_Help
+    @calc = CVSS31
+    cvssHelp = CVSS31_Help
+
+    if $('[data-behavior~=cvss-version-toggle]').prop('checked')
+      @calc = CVSS
+      cvssHelp = CVSS_Help
 
     $('[data-cvss]').each ->
       title = $(this).data('cvss')
@@ -40,9 +45,7 @@
     # AvailabilityRequirement, ModifiedAttackVector, ModifiedAttackComplexity,
     # ModifiedPrivilegesRequired, ModifiedUserInteraction, ModifiedScope,
     # ModifiedConfidentiality, ModifiedIntegrity, ModifiedAvailability
-    calc = if $('[data-behavior~=cvss-version-toggle]').prop('checked') then CVSS else CVSS31
-
-    output = calc.calculateCVSSFromMetrics(av, ac, pr, ui, s, c, i, a,
+    output = @calc.calculateCVSSFromMetrics(av, ac, pr, ui, s, c, i, a,
     e, rl, rc,
     cr, ir, ar, mav, mac, mpr, mui, ms, mc, mi, ma);
 

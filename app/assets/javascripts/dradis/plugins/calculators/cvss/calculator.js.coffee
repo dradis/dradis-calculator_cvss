@@ -1,8 +1,8 @@
 class CVSSCalculator
   constructor: ->
-    $('[data-cvss]').each =>
-      title = $(this).data('cvss')
-      $(this).attr('title', @cvssHelp.helpText_en[title])
+    $('[data-cvss]').each (_, item)=>
+      title = $(item).data('cvss')
+      $(item).attr('title', @cvssHelp.helpText_en[title])
 
     @calculate()
 

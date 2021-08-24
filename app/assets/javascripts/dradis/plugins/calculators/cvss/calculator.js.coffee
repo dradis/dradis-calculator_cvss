@@ -153,8 +153,8 @@ document.addEventListener "turbolinks:load", ->
 
     $('[data-behavior~=cvss-buttons] button').on 'click', ->
       $this = $(this)
-      $this.parent().find('button').removeClass('active btn-primary');
-      $this.addClass('active btn-primary');
+      $this.parent().find('button').removeClass('active btn-primary')
+      $this.addClass('active btn-primary')
       $("input[name=#{$this.attr('name')}]").val($this.val())
       window.calculator.calculate()
 

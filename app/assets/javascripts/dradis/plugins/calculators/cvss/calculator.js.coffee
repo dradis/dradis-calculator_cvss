@@ -1,19 +1,12 @@
-@CVSSCalculator =
-  init: ->
-    @calc = CVSS31
-    cvssHelp = CVSS31_Help
+class CVSSCalculator
+  constructor: ->
+    $('[data-cvss]').each (_, item)=>
+      title = $(item).data('cvss')
+      $(item).attr('title', @cvssHelp.helpText_en[title])
 
-    if $('[data-behavior~=cvss-version-toggle]').prop('checked')
-      @calc = CVSS
-      cvssHelp = CVSS_Help
+    @calculate()
 
-    $('[data-cvss]').each ->
-      title = $(this).data('cvss')
-      $(this).attr('title', cvssHelp.helpText_en[title])
-
-    CVSSCalculator.calculate()
-
-  calculate: ->
+  calculate: =>
     av  = $("input[name=av]").val()
     ac  = $("input[name=ac]").val()
     pr  = $("input[name=pr]").val()
@@ -135,17 +128,38 @@
       $('input[type=submit]').attr('disabled', 'disabled')
       $('[data-behavior~=cvss-error]').removeClass('d-none').text(errorMessage)
 
+class CVSS30Calculator extends CVSSCalculator
+   constructor: ->
+     @calc = CVSS
+     @cvssHelp = CVSS_Help
+
+     super()
+
+class CVSS31Calculator extends CVSSCalculator
+   constructor: ->
+     @calc = CVSS31
+     @cvssHelp = CVSS31_Help
+
+     super()
+
 document.addEventListener "turbolinks:load", ->
   if $('[data-behavior~=cvss-buttons]').length
-    CVSSCalculator.init()
+    if $('[data-behavior~=cvss-version-toggle]').prop('checked')
+      window.calculator = new CVSS30Calculator()
+    else
+      window.calculator = new CVSS31Calculator()
+
     $('[data-behavior~=cvss-error]').addClass('d-none')
 
     $('[data-behavior~=cvss-buttons] button').on 'click', ->
       $this = $(this)
-      $this.parent().find('button').removeClass('active btn-primary');
-      $this.addClass('active btn-primary');
+      $this.parent().find('button').removeClass('active btn-primary')
+      $this.addClass('active btn-primary')
       $("input[name=#{$this.attr('name')}]").val($this.val())
-      CVSSCalculator.calculate()
+      window.calculator.calculate()
 
     $('[data-behavior~=cvss-version-toggle]').on 'change', ->
-      CVSSCalculator.init()
+      if $('[data-behavior~=cvss-version-toggle]').prop('checked')
+        window.calculator = new CVSS30Calculator()
+      else
+        window.calculator = new CVSS31Calculator()

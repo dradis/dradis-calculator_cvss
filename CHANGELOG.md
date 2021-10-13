@@ -1,3 +1,7 @@
+## Dradis Framework 4.1.0 (XXX, 2021) ##
+
+*  Settings: show/hide the calculator in the Issues view
+
 ## Dradis Framework 4.0.0 (July, 2021) ##
 
 *  No changes.

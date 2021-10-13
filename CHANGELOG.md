@@ -1,6 +1,7 @@
-## Dradis Framework 4.x.x (Month, 2021) ##
+## Dradis Framework 4.1.0 (XXX, 2021) ##
 
-* Add functionality to toggle between CVSSv3.0 and CVSSv3.1
+*  Settings: show/hide the calculator in the Issues view
+*  Toggle between CVSSv3.0 and CVSSv3.1
 
 ## Dradis Framework 4.0.0 (July, 2021) ##
 

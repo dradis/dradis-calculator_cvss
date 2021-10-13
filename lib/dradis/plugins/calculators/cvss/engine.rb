@@ -6,6 +6,10 @@ module Dradis::Plugins::Calculators::CVSS
     provides :addon
     description 'Risk Calculator: CVSS'
 
+    addon_settings :calculator_cvss do
+      settings.default_show = 1
+    end
+
     initializer 'calculator_cvss.asset_precompile_paths' do |app|
       app.config.assets.precompile += [
         'dradis/plugins/calculators/cvss/manifests/application.css',

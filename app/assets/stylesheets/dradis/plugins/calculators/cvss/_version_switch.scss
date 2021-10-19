@@ -14,6 +14,10 @@
         border-color: $primaryColor !important;
       }
     }
+
+    &:focus ~ .custom-control-label::before {
+      box-shadow: 0 0 0 0.2rem unquote(#{$primaryColor}80);
+    }
   }
 
   .custom-control-label {

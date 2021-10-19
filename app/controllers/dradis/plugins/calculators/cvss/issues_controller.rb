@@ -13,7 +13,7 @@ module Dradis::Plugins::Calculators::CVSS
       end
 
       if @issue.save
-        redirect_to main_app.project_issue_path(current_project, @issue), notice: 'CVSSv3 fields updated.'
+        redirect_to main_app.project_issue_path(current_project, @issue), notice: 'CVSS fields updated.'
       else
         render :edit
       end

@@ -1,0 +1,10 @@
+<div class="custom-switch cvss">
+  <input
+    class="custom-control-input"
+    data-behavior="cvss-version-toggle"
+    id="cvss-version-toggle"
+    type="checkbox"
+    <%= 'checked' if @issue && @issue.fields['CVSSv3.Vector'] && @issue.fields['CVSSv3.Vector'].include?('CVSS:3.0') %>
+  >
+  <label class="custom-control-label" for="cvss-version-toggle"><span>v3.1</span><span>v3.0</span></label>
+</div>

@@ -1,11 +1,14 @@
-<% content_for :title, 'Edit CVSSv3 score' %>
+<% content_for :title, 'Edit CVSS score' %>
 
 <% content_for :sidebar do %>
   <%= render 'issues/sidebar'%>
 <% end %>
 
 <div class="content-container">
-  <h4 class="header-underline">Edit CVSSv3 Risk Scoring</h4>
+  <h4 class="header-underline d-flex justify-content-between">
+    <span>Edit CVSS Risk Scoring</span>
+    <%= render 'dradis/plugins/calculators/cvss/version_switch' %>
+  </h4>
   <div id="issues_editor">
     <div class="inner note-text-inner">
 

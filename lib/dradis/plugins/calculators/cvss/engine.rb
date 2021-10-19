@@ -4,7 +4,7 @@ module Dradis::Plugins::Calculators::CVSS
 
     include Dradis::Plugins::Base
     provides :addon
-    description 'Risk Calculator: CVSSv3'
+    description 'Risk Calculator: CVSS'
 
     addon_settings :calculator_cvss do
       settings.default_show = 1
@@ -14,7 +14,8 @@ module Dradis::Plugins::Calculators::CVSS
       app.config.assets.precompile += [
         'dradis/plugins/calculators/cvss/manifests/application.css',
         'dradis/plugins/calculators/cvss/manifests/application.js',
-        'dradis/plugins/calculators/cvss/manifests/tylium.js'
+        'dradis/plugins/calculators/cvss/manifests/tylium.js',
+        'dradis/plugins/calculators/cvss/manifests/tylium.css'
       ]
     end
 

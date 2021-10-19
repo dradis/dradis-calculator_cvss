@@ -4,7 +4,7 @@ This simple add-on adds a new page under `/calculators/cvss` for you to perform 
 
 ![cvss_calculator](https://cloud.githubusercontent.com/assets/53006/12947493/f01cb53a-cffb-11e5-8f48-19072a3bd8c8.png)
 
-The Common Vulnerability Scoring System Version 3.0 (CVSSv3) Calculator is heavily inspired in the one provided by [FIRST](https://www.first.org/cvss/calculator/3.0).
+The Common Vulnerability Scoring System (CVSS) Version 3.0 & 3.1 Calculator is heavily inspired in the one provided by [FIRST](https://www.first.org/cvss/calculator/3.0).
 
 
 ## Install

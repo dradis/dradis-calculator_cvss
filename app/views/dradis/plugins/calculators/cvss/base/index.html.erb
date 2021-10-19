@@ -1,5 +1,6 @@
 <%= content_tag :div, class: 'page-header' do %>
-  <h1>CVSSv3 score calculator</h1>
+  <h1>CVSS score calculator</h1>
+  <%= render 'dradis/plugins/calculators/cvss/version_switch' %>
 <% end %>
 
 <p class="lead">Use this page to calculate the <abbr title="Common Vulnerability Scoring System">CVSS</abbr> score of a given finding.</p>
@@ -9,17 +10,17 @@
 <div class="row">
   <div class="col-8">
 
-    <h2 title="The Base Metric group represents the intrinsic  characteristics of a vulnerability that are constant over time and across user environments. Determine the vulnerable component and score Attack Vector, Attack Complexity, Privileges Required and User Interaction relative to this.">
+    <h2 data-cvss="baseMetricGroup_Legend">
       Base: <span id="base-score">0</span>
     </h2>
-    <%= render 'dradis/plugins/calculators/cvss/base/base'          %>
+    <%= render 'dradis/plugins/calculators/cvss/base/base' %>
 
-    <h2 title="The Temporal metrics measure the current state of exploit techniques or code availability, the existence of any patches or workarounds, or the confidence that one has in the description of a vulnerability.">
+    <h2 data-cvss="temporalMetricGroup_Legend">
       Temporal: <span id="temporal-score">0</span>
     </h2>
-    <%= render 'dradis/plugins/calculators/cvss/base/temporal'      %>
+    <%= render 'dradis/plugins/calculators/cvss/base/temporal' %>
 
-    <h2 title="These metrics enable the analyst to customize the CVSS score depending on the importance of the affected IT asset to a user’s organization, measured in terms of complementary/alternative security controls in place, Confidentiality, Integrity, and Availability. The metrics are the modified equivalent of base metrics and are assigned metric values based on the component placement in organization infrastructure.">
+    <h2 data-cvss="environmentalMetricGroup_Legend">
       Environmental: <span id="environmental-score">0</span>
     </h2>
     <%= render 'dradis/plugins/calculators/cvss/base/environmental' %>

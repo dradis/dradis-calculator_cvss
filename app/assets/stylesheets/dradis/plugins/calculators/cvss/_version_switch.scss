@@ -1,0 +1,47 @@
+.custom-switch.cvss {
+  align-items: center;
+  display: inline-flex;
+  white-space: nowrap;
+
+  .custom-control-input {
+    &:checked ~ .custom-control-label {
+      &::after { 
+        background-color: $primaryColor;
+      }
+
+      &::before {
+        background-color: $white;
+        border-color: $primaryColor !important;
+      }
+    }
+
+    &:focus ~ .custom-control-label::before {
+      box-shadow: 0 0 0 0.2rem unquote(#{$primaryColor}80);
+    }
+  }
+
+  .custom-control-label {
+    font-size: 1rem;
+    text-transform: lowercase;
+
+    &::after {
+      background-color: $primaryColor;
+      left: calc(-0.25rem + 2px);
+    }
+
+    &::before {
+      background-color: $white !important;
+      border-color: $primaryColor !important;
+      left: -0.25rem;
+    }
+
+    span {
+      line-height: normal;
+
+      &:first-of-type {
+        display: inline-block;
+        transform: translateX(-2.25rem);
+      }
+    }
+  }
+}

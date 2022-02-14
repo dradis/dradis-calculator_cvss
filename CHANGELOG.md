@@ -1,3 +1,6 @@
+v4.2.0 (February 2022)
+  - No changes
+
 v4.1.0 (November 2021)
   - Settings: show/hide the calculator in the Issues view
   - Toggle between CVSSv3.0 and CVSSv3.1

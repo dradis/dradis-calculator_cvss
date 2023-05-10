@@ -8,7 +8,7 @@
 
         <%= hidden_field_tag :cr, @cvss_vector['CR'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['CR'] == 'X' %>" name="cr" value="X" data-label="Not Defined" data-cvss="CR_X_Label">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['CR'] == 'L' %>" name="cr" value="L" data-label="Low" data-cvss="CR_L_Label">Low <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -24,7 +24,7 @@
 
         <%= hidden_field_tag :ir, @cvss_vector['IR'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['IR'] == 'X' %>" name="ir" value="X" data-label="Not Defined" data-cvss="IR_X_Label">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['IR'] == 'L' %>" name="ir" value="L" data-label="Low" data-cvss="IR_L_Label">Low <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -40,7 +40,7 @@
 
         <%= hidden_field_tag :ar, @cvss_vector['AR'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['AR'] == 'X' %>" name="ar" value="X" data-label="Not Defined" data-cvss="AR_X_Label">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['AR'] == 'L' %>" name="ar" value="L" data-label="Low" data-cvss="AR_L_Label">Low <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -59,7 +59,7 @@
 
         <%= hidden_field_tag :mav, @cvss_vector['MAV'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MAV'] == 'X' %>" name="mav" value="X" data-label="Not Defined" data-cvss="MAV_X_Label">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MAV'] == 'N' %>" name="mav" value="N" data-label="Network" data-cvss="MAV_N_Label">Net. <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -77,7 +77,7 @@
 
         <%= hidden_field_tag :mac, @cvss_vector['MAC'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MAC'] == 'X' %>" name="mac" value="X" data-label="Not Defined" data-cvss="MAC_X_Label">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MAC'] == 'L' %>" name="mac" value="L" data-label="Low" data-cvss="MAC_L_Label">Low <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -91,7 +91,7 @@
 
         <%= hidden_field_tag :mpr, @cvss_vector['MPR'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MPR'] == 'X' %>" name="mpr" value="X" data-label="Not Defined" data-cvss="MPR_X_Label">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MPR'] == 'N' %>" name="mpr" value="N" data-label="None" data-cvss="MPR_N_Label">None <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -107,7 +107,7 @@
 
         <%= hidden_field_tag :mui, @cvss_vector['MUI'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MUI'] == 'X' %>" name="mui" value="X" data-label="Not Defined" data-cvss="MUI_X_Label">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MUI'] == 'N' %>" name="mui" value="N" data-label="None" data-cvss="MUI_N_Label">None <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -121,7 +121,7 @@
 
         <%= hidden_field_tag :ms, @cvss_vector['MS'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MS'] == 'X' %>" name="ms" value="X" data-label="Not Defined" data-cvss="MS_X_Label">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MS'] == 'U' %>" name="ms" value="U" data-label="Unchanged" data-cvss="MS_U_Label">Unchanged <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -135,7 +135,7 @@
 
         <%= hidden_field_tag :mc, @cvss_vector['MC'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MC'] == 'X' %>" name="mc" value="X" data-label="Not Defined" data-cvss="MC_X_Label">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MC'] == 'N' %>" name="mc" value="N" data-label="None" data-cvss="MC_N_Label">None <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -151,7 +151,7 @@
 
         <%= hidden_field_tag :mi, @cvss_vector['MI'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MI'] == 'X' %>" name="mi" value="X" data-label="Not Defined" data-cvss="MI_X_Label">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MI'] == 'N' %>" name="mi" value="N" data-label="None" data-cvss="MI_N_Label">None <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
@@ -167,7 +167,7 @@
 
         <%= hidden_field_tag :ma, @cvss_vector['MA'] %>
 
-        <div class="btn-group mb-4" data-toggle="buttons-radio">
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MA'] == 'X' %>" name="ma" value="X" data-label="Not Defined" data-cvss="MA_X_Label">N/D <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['MA'] == 'N' %>" name="ma" value="N" data-label="None" data-cvss="MA_N_Label">None <i class="fa fa-question-circle-o" aria-hidden="true"></i></button>

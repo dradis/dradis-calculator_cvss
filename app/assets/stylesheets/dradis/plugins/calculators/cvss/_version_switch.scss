@@ -1,46 +1,25 @@
-.custom-switch.cvss {
-  align-items: center;
+.form-switch.cvss {
   display: inline-flex;
+  font-size: 1rem;
   white-space: nowrap;
 
-  .custom-control-input {
-    &:checked ~ .custom-control-label {
-      &::after { 
-        background-color: $primaryColor;
-      }
-
-      &::before {
-        background-color: $white;
-        border-color: $primaryColor !important;
-      }
-    }
-
-    &:focus ~ .custom-control-label::before {
-      box-shadow: 0 0 0 0.2rem unquote(#{$primaryColor}80);
-    }
+  .form-check-input,
+  .form-check-input:focus {
+    background-color: $primaryColor;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    transform: translateX(1.5rem);
   }
 
-  .custom-control-label {
+  .form-check-label {
     font-size: 1rem;
     text-transform: lowercase;
-
-    &::after {
-      background-color: $primaryColor;
-      left: calc(-0.25rem + 2px);
-    }
-
-    &::before {
-      background-color: $white !important;
-      border-color: $primaryColor !important;
-      left: -0.25rem;
-    }
 
     span {
       line-height: normal;
 
       &:first-of-type {
         display: inline-block;
-        transform: translateX(-2.25rem);
+        transform: translateX(-2.5rem);
       }
     }
   }

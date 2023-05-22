@@ -14,31 +14,31 @@
 
       <%= simple_form_for [:cvss, current_project, @issue] do |f| %>
 
-        <div class="alert alert-error text-error" data-behavior="cvss-error">
+        <div class="alert alert-error" data-behavior="cvss-error">
           <p><strong>Warning</strong>: all Base metrics are required</p>
         </div>
 
         <ul class="nav nav-pills w-100" id="cvss-tabs">
           <li class="nav-item">
-            <a href="#cvss-edit-base" data-toggle="pill" class="nav-link active">Base: <span id="base-score">0</span></a>
+            <a href="#cvss-edit-base" data-bs-toggle="pill" class="nav-link active">Base: <span id="base-score">0</span></a>
           </li>
           <li class="nav-item">
-            <a href="#cvss-edit-temporal" data-toggle="pill" class="nav-link">Temporal: <span id="temporal-score">0</span></a>
+            <a href="#cvss-edit-temporal" data-bs-toggle="pill" class="nav-link">Temporal: <span id="temporal-score">0</span></a>
           </li>
           <li class="nav-item">
-            <a href="#cvss-edit-environmental" data-toggle="pill" class="nav-link">Environmental: <span id="environmental-score">0</span></a>
+            <a href="#cvss-edit-environmental" data-bs-toggle="pill" class="nav-link">Environmental: <span id="environmental-score">0</span></a>
           </li>
           <li class="nav-item pull-right">
-            <a href="#cvss-edit-result" data-toggle="pill" class="nav-link">Result</a>
+            <a href="#cvss-edit-result" data-bs-toggle="pill" class="nav-link">Result</a>
           </li>
         </ul>
 
         <div class="tab-content mt-4">
           <div class="tab-pane active" id="cvss-edit-base">
-            <%= render 'dradis/plugins/calculators/cvss/base/base'          %>
+            <%= render 'dradis/plugins/calculators/cvss/base/base' %>
           </div>
           <div class="tab-pane" id="cvss-edit-temporal">
-            <%= render 'dradis/plugins/calculators/cvss/base/temporal'      %>
+            <%= render 'dradis/plugins/calculators/cvss/base/temporal' %>
           </div>
           <div class="tab-pane" id="cvss-edit-environmental">
             <%= render 'dradis/plugins/calculators/cvss/base/environmental' %>

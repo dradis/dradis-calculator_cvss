@@ -8,26 +8,26 @@
 <p class="alert alert-danger d-none" data-behavior="cvss-error"></p>
 
 <div class="row">
-  <div class="col-8">
+  <div class="col-lg-8">
 
     <h2 data-cvss="baseMetricGroup_Legend">
       Base: <span id="base-score">0</span>
     </h2>
     <%= render 'dradis/plugins/calculators/cvss/base/base' %>
 
-    <h2 data-cvss="temporalMetricGroup_Legend">
+    <h2 data-cvss="temporalMetricGroup_Legend" class="mt-5">
       Temporal: <span id="temporal-score">0</span>
     </h2>
     <%= render 'dradis/plugins/calculators/cvss/base/temporal' %>
 
-    <h2 data-cvss="environmentalMetricGroup_Legend">
+    <h2 data-cvss="environmentalMetricGroup_Legend" class="mt-5">
       Environmental: <span id="environmental-score">0</span>
     </h2>
     <%= render 'dradis/plugins/calculators/cvss/base/environmental' %>
   </div>
 
-  <div class="col-4">
-    <textarea name="cvss_fields" rows="52" class="form-control" style="width:100%">#[CVSSv3.Vector]#
+  <div class="col-lg-4">
+    <textarea name="cvss_fields" rows="52" class="form-control mb-4">#[CVSSv3.Vector]#
 N/A
 
 #[CVSSv3.BaseScore]#
@@ -73,8 +73,6 @@ N/A
 #[CVSSv3.ModifiedConfidentiality]#
 #[CVSSv3.ModifiedIntegrity]#
 #[CVSSv3.ModifiedAvailability]#
-
-
 </textarea>
   </div>
 </div>

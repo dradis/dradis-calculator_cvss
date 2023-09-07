@@ -1,4 +1,5 @@
-v4.10.0 (Month 2023)
+v4.10.0 (September 2023)
+  - Update gemspec links
   - Update views for compatibility with Font Awesome 6
 
 v4.9.0 (June 2023)

@@ -1,3 +1,7 @@
+
+v4.x.x
+  - Update turbolinks references to turbo
+
 v4.10.0 (September 2023)
   - Update gemspec links
   - Update views for compatibility with Font Awesome 6

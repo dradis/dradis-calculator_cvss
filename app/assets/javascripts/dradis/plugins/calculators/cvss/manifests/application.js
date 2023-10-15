@@ -1,7 +1,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require turbolinks
+//= require turbo
 
 //= require dradis/plugins/calculators/cvss/vendor/cvsscalc30
 //= require dradis/plugins/calculators/cvss/vendor/cvsscalc30_helptext

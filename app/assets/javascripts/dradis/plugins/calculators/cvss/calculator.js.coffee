@@ -142,7 +142,7 @@ class CVSS31Calculator extends CVSSCalculator
 
      super()
 
-document.addEventListener "turbolinks:load", ->
+document.addEventListener "turbo:load", ->
   if $('[data-behavior~=cvss-buttons]').length
     if $('[data-behavior~=cvss-version-toggle]').prop('checked')
       window.calculator = new CVSS30Calculator()

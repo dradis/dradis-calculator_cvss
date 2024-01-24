@@ -128,45 +128,16 @@ class CVSSCalculator
       $('input[type=submit]').attr('disabled', 'disabled')
       $('[data-behavior~=cvss-error]').removeClass('d-none').text(errorMessage)
 
-class CVSS30Calculator extends CVSSCalculator
+class @CVSS30Calculator extends CVSSCalculator
    constructor: ->
-     @calc = CVSS
-     @cvssHelp = CVSS_Help
+    @calc = CVSS
+    @cvssHelp = CVSS_Help
 
-     super()
+    super()
 
-class CVSS31Calculator extends CVSSCalculator
+class @CVSS31Calculator extends CVSSCalculator
    constructor: ->
-     @calc = CVSS31
-     @cvssHelp = CVSS31_Help
+    @calc = CVSS31
+    @cvssHelp = CVSS31_Help
 
-     super()
-
-document.addEventListener "turbolinks:load", ->
-  if $('[data-behavior~=cvss-version]').length
-    handleVersionSelection = ->
-      selectedValue = $('[data-behavior~=cvss-version]').val()
-      $('[data-cvss-version]').addClass('d-none')
-
-      switch selectedValue
-        when '40'
-          $('[data-cvss-version=4]').removeClass('d-none')
-        when '31'
-          $('[data-cvss-version=3]').removeClass('d-none')
-          window.calculator = new CVSS31Calculator()
-        when '30'
-          $('[data-cvss-version=3]').removeClass('d-none')
-          window.calculator = new CVSS30Calculator()
-    
-    handleVersionSelection()
-
-    $('[data-behavior~=cvss-error]').addClass('d-none')
-
-    $('[data-behavior~=cvss-buttons] button').on 'click', ->
-      $this = $(this)
-      $this.parent().find('button').removeClass('active btn-primary')
-      $this.addClass('active btn-primary')
-      $("input[name=#{$this.attr('name')}]").val($this.val())
-      window.calculator.calculate()
-
-    $('[data-behavior~=cvss-version]').on 'change', handleVersionSelection 
+    super()

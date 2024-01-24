@@ -7,10 +7,10 @@
 <div class="content-container">
   <h4 class="header-underline d-flex justify-content-between">
     <span>Edit CVSS Risk Scoring</span>
-    <%= render 'dradis/plugins/calculators/cvss/version_switch' %>
+    <%= render 'dradis/plugins/calculators/cvss/version_menu' %>
   </h4>
   <div id="issues_editor">
-    <div class="inner note-text-inner d-none" data-behavior="cvss3-form">
+    <div class="inner note-text-inner d-none" data-cvss-version="3">
 
       <%= simple_form_for [:cvss, current_project, @issue] do |f| %>
 
@@ -103,7 +103,7 @@
       <% end %>
     </div>
 
-    <div class="inner note-text-inner d-none" data-behavior="cvss4-form">
+    <div class="inner note-text-inner d-none" data-cvss-version="4">
 
       <%= simple_form_for [:cvss, current_project, @issue] do |f| %>
 

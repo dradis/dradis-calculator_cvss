@@ -143,11 +143,22 @@ class CVSS31Calculator extends CVSSCalculator
      super()
 
 document.addEventListener "turbolinks:load", ->
-  if $('[data-behavior~=cvss-buttons]').length
-    if $('[data-behavior~=cvss-version-toggle]').prop('checked')
-      window.calculator = new CVSS30Calculator()
-    else
-      window.calculator = new CVSS31Calculator()
+  if $('[data-behavior~=cvss-version]').length
+    handleVersionSelection = ->
+      selectedValue = $('[data-behavior~=cvss-version]').val()
+      $('[data-cvss-version]').addClass('d-none')
+
+      switch selectedValue
+        when '40'
+          $('[data-cvss-version=4]').removeClass('d-none')
+        when '31'
+          $('[data-cvss-version=3]').removeClass('d-none')
+          window.calculator = new CVSS31Calculator()
+        when '30'
+          $('[data-cvss-version=3]').removeClass('d-none')
+          window.calculator = new CVSS30Calculator()
+    
+    handleVersionSelection()
 
     $('[data-behavior~=cvss-error]').addClass('d-none')
 
@@ -158,8 +169,4 @@ document.addEventListener "turbolinks:load", ->
       $("input[name=#{$this.attr('name')}]").val($this.val())
       window.calculator.calculate()
 
-    $('[data-behavior~=cvss-version-toggle]').on 'change', ->
-      if $('[data-behavior~=cvss-version-toggle]').prop('checked')
-        window.calculator = new CVSS30Calculator()
-      else
-        window.calculator = new CVSS31Calculator()
+    $('[data-behavior~=cvss-version]').on 'change', handleVersionSelection 

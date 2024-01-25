@@ -130,7 +130,7 @@
 
       <%= hidden_field_tag :av, @cvss4_vector['AV'] %>
 
-      <div class="btn-group mb-4 text-nowrap">
+      <div class="btn-group mb-4">
         <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AV'] == 'N' %>" name="av" value="N" data-cvss-option="Network (N)">Network (N) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
 
         <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AV'] == 'A' %>" name="av" value="A" data-cvss-option="Adjacent (A)">Adjacent (A) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>

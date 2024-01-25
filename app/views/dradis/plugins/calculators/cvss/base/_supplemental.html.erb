@@ -5,7 +5,7 @@
 
       <%= hidden_field_tag :s, @cvss4_vector['S'] %>
 
-      <div class="btn-group mb-4 text-nowrap">
+      <div class="btn-group mb-4">
         <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['S'] == 'X' %>" name="s" value="X" data-cvss-option="Not Defined (X)">Not Defined (X) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
 
         <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['S'] == 'N' %>" name="s" value="N" data-cvss-option="Negligible (N)">Negligible (N) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>

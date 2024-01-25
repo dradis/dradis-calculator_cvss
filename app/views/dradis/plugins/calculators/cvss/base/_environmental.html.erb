@@ -350,7 +350,7 @@
 
       <%= hidden_field_tag :msa, @cvss4_vector['MSA'] %>
 
-      <div class="btn-group mb-5">
+      <div class="btn-group mb-5 mb-xl-0">
         <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MSA'] == 'X' %>" name="msa" value="X" data-cvss-option="Not Defined (X)">Not Defined (X) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
 
         <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MSA'] == 'S' %>" name="msa" value="S" data-cvss-option="Safety (S)">Safety (S) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>

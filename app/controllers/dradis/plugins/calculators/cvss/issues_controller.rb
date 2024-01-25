@@ -22,6 +22,7 @@ module Dradis::Plugins::Calculators::CVSS
     def set_cvss_vector
       # Undefined Temporal and Environmental default to X
       @cvss_vector = Hash.new { |h, k| h[k] = 'X' }
+      @cvss4_vector = {}
       field_value  = @issue.fields['CVSSv3.Vector'] || @issue.fields['CVSSv3Vector']
 
       # If no vector is set yet, that's OK

@@ -6,6 +6,7 @@ $(document).on('turbolinks:load', function () {
       switch (selectedValue) {
         case '40':
           $('[data-cvss-version=4]').removeClass('d-none');
+          window.calculator = new CVSS40Calculator();
           break;
         case '31':
           $('[data-cvss-version=3]').removeClass('d-none');

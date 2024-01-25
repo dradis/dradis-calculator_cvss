@@ -1,18 +1,18 @@
-<section data-behavior="cvss-buttons" data-cvss-version="4">
+<section data-behavior="cvss-buttons" data-cvss-version="4" data-cvss-metrics="Threat Metrics">
   <div class="row">
-    <div class="col-12 col-lg-6">
-      <h5 class="header-underline mt-0" data-cvss="">Exploit Maturity (E)</h5>
+    <div class="col-12 col-lg-6" data-cvss-metric-group="none">
+      <h5 class="header-underline mt-0 align-items-center gap-2" data-cvss-heading="Exploit Maturity (E)">Exploit Maturity (E) <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></h5>
 
-      <%= hidden_field_tag :e, @cvss_vector['E'] %>
+      <%= hidden_field_tag :e, @cvss4_vector['E'] %>
 
       <div class="btn-group text-nowrap">
-        <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['E'] == 'X' %>" name="e" value="X" data-label="Not Defined" data-cvss="">Not Defined <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+        <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['E'] == 'X' %>" name="e" value="X" data-cvss-option="Not Defined (X)">Not Defined (X) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
 
-        <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['E'] == 'A' %>" name="e" value="A" data-label="Attacked" data-cvss="">Attacked <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+        <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['E'] == 'A' %>" name="e" value="A" data-cvss-option="Attacked (A)">Attacked (A) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
 
-        <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['E'] == 'P' %>" name="e" value="P" data-label="POC" data-cvss="">POC <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+        <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['E'] == 'P' %>" name="e" value="P" data-cvss-option="POC (P)">POC (P) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
 
-        <button type="button" class="btn <%= 'active btn-primary' if @cvss_vector['E'] == 'U' %>" name="e" value="U" data-label="Unreported" data-cvss="">Unreported <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+        <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['E'] == 'U' %>" name="e" value="U" data-cvss-option="Unreported (U)">Unreported (U) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
       </div>
     </div>
   </div>

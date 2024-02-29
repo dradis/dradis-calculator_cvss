@@ -129,14 +129,14 @@ class CVSSCalculator
       $('[data-behavior~=cvss-error]').removeClass('d-none').text(errorMessage)
 
 class @CVSS30Calculator extends CVSSCalculator
-   constructor: ->
+  constructor: ->
     @calc = CVSS
     @cvssHelp = CVSS_Help
 
     super()
 
 class @CVSS31Calculator extends CVSSCalculator
-   constructor: ->
+  constructor: ->
     @calc = CVSS31
     @cvssHelp = CVSS31_Help
 

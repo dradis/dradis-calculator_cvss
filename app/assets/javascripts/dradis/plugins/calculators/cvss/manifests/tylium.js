@@ -8,6 +8,7 @@
 //= require dradis/plugins/calculators/cvss/v4/vendor/cvss_lookup
 //= require dradis/plugins/calculators/cvss/v4/vendor/max_composed
 //= require dradis/plugins/calculators/cvss/v4/vendor/max_severity
+//= require dradis/plugins/calculators/cvss/v4/vendor/metrics
 //= require dradis/plugins/calculators/cvss/v4/vendor/app
 //= require dradis/plugins/calculators/cvss/v4/calculator
 

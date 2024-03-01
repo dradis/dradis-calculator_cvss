@@ -136,6 +136,10 @@ const app = {
         else if (this.m("E") == "U") {
             eq5 = 2
         }
+        // if E:X
+        else {
+          eq5 = 0
+        }
 
         // EQ6: 0-(CR:H and VC:H) or (IR:H and VI:H) or (AR:H and VA:H)
         //      1-not[(CR:H and VC:H) or (IR:H and VI:H) or (AR:H and VA:H)]

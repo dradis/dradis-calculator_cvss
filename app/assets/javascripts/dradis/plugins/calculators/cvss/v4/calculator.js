@@ -1,5 +1,5 @@
 class CVSS4Calculator {
-  constructor(cvss_config) {
+  constructor() {
     $('[data-cvss-heading], [data-cvss-option]').each(function (_, item) {
       let heading, metrics, metricGroup, tooltipContent;
 
@@ -15,13 +15,13 @@ class CVSS4Calculator {
           .prevAll('[data-cvss-heading]:first')
           .data('cvss-heading');
         tooltipContent =
-          cvss_config[metrics].metric_groups[metricGroup][heading].options[
+          cvss40Config[metrics].metric_groups[metricGroup][heading].options[
             option
           ].tooltip;
       } else {
         heading = $(item).data('cvss-heading');
         tooltipContent =
-          cvss_config[metrics].metric_groups[metricGroup][heading].tooltip;
+          cvss40Config[metrics].metric_groups[metricGroup][heading].tooltip;
       }
 
       $(item).attr('title', tooltipContent);
@@ -31,7 +31,7 @@ class CVSS4Calculator {
 
 class CVSS40Calculator extends CVSS4Calculator {
   constructor() {
-    super(cvss40Config);
+    super()
   }
 
   calculate() {
@@ -44,6 +44,8 @@ class CVSS40Calculator extends CVSS4Calculator {
     });
 
     this.setResult();
+
+    return true;
   }
 
   baseVector() {
@@ -136,7 +138,7 @@ class CVSS40Calculator extends CVSS4Calculator {
     issue_cvss += "#[CVSSv4.ThreatExploitMaturity]#\n"
     issue_cvss += (app.cvssSelected['E'] || '') + "\n\n"
 
-    $('#cvss4-edit-result textarea').val(issue_cvss)
+    $('#cvss4-text-result textarea').val(issue_cvss)
     $('[data-behavior=cvss4-result]').html(app.score() + ' (' + app.qualScore() + ')')
   }
 }

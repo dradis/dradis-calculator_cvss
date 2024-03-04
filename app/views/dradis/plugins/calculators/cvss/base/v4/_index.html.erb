@@ -1,0 +1,71 @@
+<div class="col-lg-8">
+
+  <h2 data-cvss="baseMetricGroup_Legend">
+    Base Score: <span id="base-score" data-behavior="cvss4-result">0</span>
+  </h2>
+  <%= render 'dradis/plugins/calculators/cvss/base/v4/base' %>
+
+  <h2 data-cvss="supplementalMetricGroup_Legend" class="mt-5">
+    Supplemental
+  </h2>
+  <%= render 'dradis/plugins/calculators/cvss/base/v4/supplemental' %>
+
+  <h2 data-cvss="environmentalMetricGroup_Legend" class="mt-5">
+    Environmental
+  </h2>
+  <%= render 'dradis/plugins/calculators/cvss/base/v4/environmental' %>
+
+  <h2 data-cvss="threatMetricGroup_Legend" class="mt-5">
+    Threat
+  </h2>
+  <%= render 'dradis/plugins/calculators/cvss/base/v4/threat' %>
+</div>
+
+<div class="col-lg-4" id="cvss4-text-result">
+  <textarea name="cvss_fields" rows="52" class="form-control mb-4">#[CVSSv4.Vector]#
+N/A
+
+#[CVSSv4.BaseScore]#
+N/A
+
+#[CVSSv4.BaseSeverity]#
+N/A
+
+#[CVSSv4.BaseExploitableAttackVector]#
+#[CVSSv4.BaseExploitableAttackComplexity]#
+#[CVSSv4.BaseExploitableAttackRequirements]#
+#[CVSSv4.BaseExploitablePrivilegesRequired]#
+#[CVSSv4.BaseExploitableUserInteraction]#
+#[CVSSv4.BaseVulnerableConfidentiality]#
+#[CVSSv4.BaseVulnerableIntegrity]#
+#[CVSSv4.BaseVulnerableAvailability]#
+#[CVSSv4.BaseSubsequentConfidentiality]#
+#[CVSSv4.BaseSubsequentIntegrity]#
+#[CVSSv4.BaseSubsequentAvailability]#
+
+#[CVSSv4.SupplementalSafety]#
+#[CVSSv4.SupplementalAutomatable]#
+#[CVSSv4.SupplementalRecovery]#
+#[CVSSv4.SupplementalValueDensity]#
+#[CVSSv4.SupplementalVulnerabilityResponseEffort]#
+#[CVSSv4.SupplementalProviderUrgency]#
+
+#[CVSSv4.EnvironmentalExploitabilityAttackVector]#
+#[CVSSv4.EnvironmentalExploitabilityAttackComplexity]#
+#[CVSSv4.EnvironmentalExploitabilityAttackRequirements]#
+#[CVSSv4.EnvironmentalExploitabilityPrivilegesRequired]#
+#[CVSSv4.EnvironmentalExploitabilityUserInteraction]#
+#[CVSSv4.EnvironmentalVulnerableConfidentiality]#
+#[CVSSv4.EnvironmentalVulnerableIntegrity]#
+#[CVSSv4.EnvironmentalVulnerableAvailability]#
+#[CVSSv4.EnvironmentalSubsequentConfidentiality]#
+#[CVSSv4.EnvironmentalSubsequentIntegrity]#
+#[CVSSv4.EnvironmentalSubsequentAvailability]#
+#[CVSSv4.EnvironmentalConfidentialityRequirements]#
+#[CVSSv4.EnvironmentalIntegrityRequirements]#
+#[CVSSv4.EnvironmentalAvailabilityRequirements]#
+
+#[CVSSv4.ThreatExploitMaturity]#
+
+  </textarea>
+</div>

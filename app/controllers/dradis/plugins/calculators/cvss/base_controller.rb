@@ -3,6 +3,7 @@ module Dradis::Plugins::Calculators::CVSS
   class BaseController < ActionController::Base
     def index
       @cvss_vector = Hash.new { |h, k| h[k] = 'X' }
+      @cvss4_vector = {}
     end
   end
 end

@@ -1,7 +1,11 @@
 <div class="col-lg-8">
 
+  <h2 data-cvss="cvss4Score_Legend">
+    CVSS V4 Score: <span id="cvss4-score" data-behavior="cvss4-result">0</span>
+  </h2>
+
   <h2 data-cvss="baseMetricGroup_Legend">
-    Base Score: <span id="base-score" data-behavior="cvss4-result">0</span>
+    Base
   </h2>
   <%= render 'dradis/plugins/calculators/cvss/base/v4/base' %>
 
@@ -21,7 +25,7 @@
   <%= render 'dradis/plugins/calculators/cvss/base/v4/threat' %>
 </div>
 
-<div class="col-lg-4" id="cvss4-text-result">
+<div class="col-lg-4" id="cvss4-edit-result">
   <textarea name="cvss_fields" rows="52" class="form-control mb-4">#[CVSSv4.Vector]#
 N/A
 

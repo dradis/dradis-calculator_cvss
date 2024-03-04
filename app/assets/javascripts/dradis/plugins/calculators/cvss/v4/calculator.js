@@ -35,6 +35,8 @@ class CVSS40Calculator extends CVSS4Calculator {
   }
 
   calculate() {
+    $('input[type=submit]').attr('disabled', null);
+
     $('[data-cvss-metrics] .btn-group').each(function(){
       const selected = $(this).find('[data-cvss-option].active');
 
@@ -138,7 +140,7 @@ class CVSS40Calculator extends CVSS4Calculator {
     issue_cvss += "#[CVSSv4.ThreatExploitMaturity]#\n"
     issue_cvss += (app.cvssSelected['E'] || '') + "\n\n"
 
-    $('#cvss4-text-result textarea').val(issue_cvss)
+    $('#cvss4-edit-result textarea').val(issue_cvss)
     $('[data-behavior=cvss4-result]').html(app.score() + ' (' + app.qualScore() + ')')
   }
 }

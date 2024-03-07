@@ -1,31 +1,30 @@
 <div class="row">
   <div class="col-lg-8">
-    <h2 data-cvss="cvss4Score_Legend">
-      CVSS V4 Score: <span id="cvss4-score" data-behavior="cvss4-result">0</span>
-    </h2>
-
-    <h2 data-cvss="baseMetricGroup_Legend">
+    <h3 class="border-bottom border-dark border-opacity-25 pb-1">
       Base
-    </h2>
+    </h3>
     <%= render 'dradis/plugins/calculators/cvss/base/v4/base' %>
 
-    <h2 data-cvss="supplementalMetricGroup_Legend" class="mt-5">
+    <h3 class="mt-5 border-bottom border-dark border-opacity-25 pb-1">
       Supplemental
-    </h2>
+    </h3>
     <%= render 'dradis/plugins/calculators/cvss/base/v4/supplemental' %>
 
-    <h2 data-cvss="environmentalMetricGroup_Legend" class="mt-5">
+    <h3 class="mt-5 border-bottom border-dark border-opacity-25 pb-1">
       Environmental
-    </h2>
+    </h3>
     <%= render 'dradis/plugins/calculators/cvss/base/v4/environmental' %>
 
-    <h2 data-cvss="threatMetricGroup_Legend" class="mt-5">
+    <h3 class="mt-5 border-bottom border-dark border-opacity-25 pb-1">
       Threat
-    </h2>
-    <%= render 'dradis/plugins/calculators/cvss/base/v4/threat' %>
+    </h3>
+    <div class="mb-4"><%= render 'dradis/plugins/calculators/cvss/base/v4/threat' %></div>
   </div>
 
   <div class="col-lg-4" id="cvss4-edit-result">
+    <h3>
+      Result: <span id="cvss4-score" data-behavior="cvss4-result">0.0 (None)</span>
+    </h3>
     <textarea name="cvss_fields" rows="52" class="form-control mb-4">#[CVSSv4.Vector]#
 N/A
 

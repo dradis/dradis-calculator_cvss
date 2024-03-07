@@ -1,6 +1,8 @@
 <%= content_tag :div, class: 'page-header' do %>
-  <h1>CVSS score calculator</h1>
-  <%= render 'dradis/plugins/calculators/cvss/version_menu' %>
+  <h1 class="d-flex align-items-center justify-content-between">
+    CVSS score calculator
+    <div class="fs-3"><%= render 'dradis/plugins/calculators/cvss/version_menu' %></div>
+  </h1>
 <% end %>
 
 <p class="lead">Use this page to calculate the <abbr title="Common Vulnerability Scoring System">CVSS</abbr> score of a given finding.</p>

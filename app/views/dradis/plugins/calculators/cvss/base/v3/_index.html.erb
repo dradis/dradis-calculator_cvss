@@ -1,22 +1,23 @@
 <div class="row">
   <div class="col-lg-8">
-    <h2 data-cvss="baseMetricGroup_Legend">
+    <h3 data-cvss="baseMetricGroup_Legend" class=" border-bottom border-dark border-opacity-25 pb-1">
       Base: <span id="base-score">0</span>
-    </h2>
+    </h3>
     <%= render 'dradis/plugins/calculators/cvss/base/v3/base' %>
 
-    <h2 data-cvss="temporalMetricGroup_Legend" class="mt-5">
+    <h3 data-cvss="temporalMetricGroup_Legend" class="mt-5 border-bottom border-dark border-opacity-25 pb-1">
       Temporal: <span id="temporal-score">0</span>
-    </h2>
+    </h3>
     <%= render 'dradis/plugins/calculators/cvss/base/v3/temporal' %>
 
-    <h2 data-cvss="environmentalMetricGroup_Legend" class="mt-5">
+    <h3 data-cvss="environmentalMetricGroup_Legend" class="mt-5 border-bottom border-dark border-opacity-25 pb-1">
       Environmental: <span id="environmental-score">0</span>
-    </h2>
+    </h3>
     <%= render 'dradis/plugins/calculators/cvss/base/v3/environmental' %>
   </div>
 
   <div class="col-lg-4">
+    <h3>Result</h3>
     <textarea name="cvss_fields" rows="52" class="form-control mb-4">#[CVSSv3.Vector]#
 N/A
 

@@ -1,22 +1,23 @@
-<div class="col-lg-8">
-  <h2 data-cvss="baseMetricGroup_Legend">
-    Base: <span id="base-score">0</span>
-  </h2>
-  <%= render 'dradis/plugins/calculators/cvss/base/v3/base' %>
+<div class="row">
+  <div class="col-lg-8">
+    <h2 data-cvss="baseMetricGroup_Legend">
+      Base: <span id="base-score">0</span>
+    </h2>
+    <%= render 'dradis/plugins/calculators/cvss/base/v3/base' %>
 
-  <h2 data-cvss="temporalMetricGroup_Legend" class="mt-5">
-    Temporal: <span id="temporal-score">0</span>
-  </h2>
-  <%= render 'dradis/plugins/calculators/cvss/base/v3/temporal' %>
+    <h2 data-cvss="temporalMetricGroup_Legend" class="mt-5">
+      Temporal: <span id="temporal-score">0</span>
+    </h2>
+    <%= render 'dradis/plugins/calculators/cvss/base/v3/temporal' %>
 
-  <h2 data-cvss="environmentalMetricGroup_Legend" class="mt-5">
-    Environmental: <span id="environmental-score">0</span>
-  </h2>
-  <%= render 'dradis/plugins/calculators/cvss/base/v3/environmental' %>
-</div>
+    <h2 data-cvss="environmentalMetricGroup_Legend" class="mt-5">
+      Environmental: <span id="environmental-score">0</span>
+    </h2>
+    <%= render 'dradis/plugins/calculators/cvss/base/v3/environmental' %>
+  </div>
 
-<div class="col-lg-4">
-  <textarea name="cvss_fields" rows="52" class="form-control mb-4">#[CVSSv3.Vector]#
+  <div class="col-lg-4">
+    <textarea name="cvss_fields" rows="52" class="form-control mb-4">#[CVSSv3.Vector]#
 N/A
 
 #[CVSSv3.BaseScore]#
@@ -62,5 +63,6 @@ N/A
 #[CVSSv3.ModifiedConfidentiality]#
 #[CVSSv3.ModifiedIntegrity]#
 #[CVSSv3.ModifiedAvailability]#
-</textarea>
+    </textarea>
+  </div>
 </div>

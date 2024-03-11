@@ -4,10 +4,10 @@
 cvssMacroVectorDetails = {
   "Exploitability": 0,
   "Complexity": 1,
-  "Vulnerable system": 2,
-  "Subsequent system": 3,
+  "VulnerableSystem": 2,
+  "SubsequentSystem": 3,
   "Exploitation": 4,
-  "Security requirements": 5
+  "SecurityRequirements": 5
 }
 
 cvssMacroVectorValues = {

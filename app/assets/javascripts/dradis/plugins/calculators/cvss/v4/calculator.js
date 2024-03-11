@@ -79,6 +79,17 @@ class CVSS40Calculator extends CVSS4Calculator {
     issue_cvss += "#[CVSSv4.BaseSeverity]#\n"
     issue_cvss += app.qualScore() + "\n\n"
 
+    issue_cvss += "#[CVSSv4.MacroVector]#\n";
+    issue_cvss += app.macroVector() + "\n\n";
+
+    [
+      'Exploitability', 'Complexity', 'VulnerableSystem', 'SubsequentSystem',
+      'Exploitation', 'SecurityRequirements'
+    ].forEach(function(macroMetric) {
+      issue_cvss += "#[CVSSv4." + macroMetric + "]#\n"
+      issue_cvss += cvssMacroVectorValues[app.macroVector()[cvssMacroVectorDetails[macroMetric]]] + "\n\n"
+    });
+
     issue_cvss += "#[CVSSv4.BaseExploitableAttackVector]#\n"
     issue_cvss += app.cvssSelectedValue['AV'] + "\n\n"
     issue_cvss += "#[CVSSv4.BaseExploitableAttackComplexity]#\n"

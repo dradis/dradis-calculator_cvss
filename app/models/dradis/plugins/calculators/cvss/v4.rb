@@ -39,6 +39,14 @@ module Dradis::Plugins::Calculators::CVSS
       BaseScore
       BaseSeverity
 
+      MacroVector
+      Exploitability
+      Complexity
+      VulnerableSystem
+      SubsequentSystem
+      Exploitation
+      SecurityRequirements
+
       BaseExploitableAttackVector
       BaseExploitableAttackComplexity
       BaseExploitableAttackRequirements

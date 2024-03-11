@@ -10,6 +10,7 @@
 //= require dradis/plugins/calculators/cvss/v3/calculator
 
 //= require dradis/plugins/calculators/cvss/v4/vendor/cvss_config
+//= require dradis/plugins/calculators/cvss/v4/vendor/cvss_details
 //= require dradis/plugins/calculators/cvss/v4/vendor/cvss_lookup
 //= require dradis/plugins/calculators/cvss/v4/vendor/max_composed
 //= require dradis/plugins/calculators/cvss/v4/vendor/max_severity

@@ -1,5 +1,6 @@
 const app = {
     cvssSelected: {},
+    cvssSelectedValue: {},
     lookup: cvssLookup_global,
     maxComposedData: maxComposed,
     maxSeverityData: maxSeverity,

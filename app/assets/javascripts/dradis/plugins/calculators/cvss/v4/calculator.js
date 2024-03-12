@@ -42,14 +42,14 @@ class CVSS40Calculator extends CVSS4Calculator {
 
     $('input[type=submit]').attr('disabled', null);
 
-    var that = this;
+    const that = this;
     $('[data-cvss-metrics] .btn-group').each(function(){
       const selected = $(this).find('[data-cvss-option].active');
 
       if (selected.length == 1) {
         that.app.cvssSelected[selected.attr('name').toUpperCase()] = selected.attr('value');
 
-        var label = selected.data('cvss-option');
+        const label = selected.data('cvss-option');
         that.app.cvssSelectedValue[selected.attr('name').toUpperCase()] = label.replace(regex, '');
       }
     });
@@ -60,12 +60,11 @@ class CVSS40Calculator extends CVSS4Calculator {
   }
 
   baseVector() {
-    var baseVector = 'CVSS:4.0'
-
-    var that = this;
+    const baseVector = 'CVSS:4.0',
+      that = this;
     Object.keys(expectedMetricOrder).forEach(function(metric) {
       if (that.app.cvssSelected[metric] && that.app.cvssSelected[metric] != 'X') {
-        baseVector += '/' + metric + ':' + that.app.cvssSelected[metric]
+        baseVector += `/${metric}:${that.app.cvssSelected[metric]}`
       }
     })
 
@@ -73,7 +72,7 @@ class CVSS40Calculator extends CVSS4Calculator {
   }
 
   setResult() {
-    var issue_cvss = ''
+    let issue_cvss = ''
 
     issue_cvss += "#[CVSSv4.BaseVector]#\n"
     issue_cvss += this.baseVector() + "\n\n"
@@ -85,7 +84,7 @@ class CVSS40Calculator extends CVSS4Calculator {
     issue_cvss += "#[CVSSv4.MacroVector]#\n";
     issue_cvss += this.app.macroVector() + "\n\n";
 
-    var that = this;
+    const that = this;
     [
       'Exploitability', 'Complexity', 'VulnerableSystem', 'SubsequentSystem',
       'Exploitation', 'SecurityRequirements'

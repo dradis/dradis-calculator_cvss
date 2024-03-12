@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function () {
       var $this = $(this);
       $this.parent().find('button').removeClass('active btn-primary');
       $this.addClass('active btn-primary');
-      $('input[name=' + $this.attr('name') + ']').val($this.val());
+      $(`input[name="${$this.attr('name')}"]`).val($this.val());
       window.calculator.calculate();
     });
     $('[data-behavior~=cvss-version]').on('change', handleVersionSelection);

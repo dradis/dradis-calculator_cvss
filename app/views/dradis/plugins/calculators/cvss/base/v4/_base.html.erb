@@ -33,7 +33,7 @@
       <div class="btn-group mb-4">
         <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AT'] == 'N' %>" name="at" value="N" data-cvss-option="None (N)">None (N) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
 
-        <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AT'] == 'H' %>" name="at" value="P" data-cvss-option="Present (P)">Present (P) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+        <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AT'] == 'P' %>" name="at" value="P" data-cvss-option="Present (P)">Present (P) <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
       </div>
 
       <h5 class="header-underline mt-0 align-items-center gap-2" data-cvss-heading="Privileges Required (PR)">Privileges Required (PR) <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></h5>

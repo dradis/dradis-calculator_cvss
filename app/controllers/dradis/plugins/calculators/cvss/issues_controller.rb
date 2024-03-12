@@ -4,6 +4,16 @@ module Dradis::Plugins::Calculators::CVSS
     before_action :set_cvss_vector, only: :edit
 
     def edit
+      @cvss_version =
+        if @issue.fields['CVSSv4.BaseVector']
+          '4.0'
+        elsif @issue.fields['CVSSv3.Vector']&.include?('CVSS:3.1')
+          '3.1'
+        elsif @issue.fields['CVSSv3.Vector']&.include?('CVSS:3.0')
+          '3.0'
+        else
+          '4.0'
+        end
     end
 
     def update
@@ -22,7 +32,7 @@ module Dradis::Plugins::Calculators::CVSS
     def set_cvss_vector
       # Undefined Temporal and Environmental default to X
       @cvss_vector = Hash.new { |h, k| h[k] = 'X' }
-      @cvss4_vector = Dradis::Plugins::Calculators::CVSS::V4::DEFAULT_CVSS_V4
+      @cvss4_vector = Dradis::Plugins::Calculators::CVSS::V4::DEFAULT_CVSS_V4.clone
       field_value_v3 = @issue.fields['CVSSv3.Vector'] || @issue.fields['CVSSv3Vector']
       field_value_v4  = @issue.fields['CVSSv4.BaseVector']
 

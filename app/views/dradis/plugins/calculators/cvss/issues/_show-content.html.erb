@@ -17,7 +17,11 @@
               .map { |k,v| "#[#{k}]#\n#{v}" }.join("\n\n")
           )
         %>
-      <% else %>
+      <% end%>
+
+      <br>
+
+      <% if @issue.fields['CVSSv3.Vector'] %>
         <%=
           markup(
             @issue.fields

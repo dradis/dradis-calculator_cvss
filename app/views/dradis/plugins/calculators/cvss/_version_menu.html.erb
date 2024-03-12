@@ -1,8 +1,8 @@
 <div class="d-flex align-items-center justify-content-end gap-2 small">
   <label class="form-label m-0" for="cvss-version">Version:</label>
   <select id="cvss-version" class="form-select" aria-label="cvss version select" data-behavior="cvss-version">
-    <option value="40" <%= 'selected' if !!@issue&.fields['CVSSv4.Vector'] %>>v4.0</option>
-    <option value="31" <%= 'selected' if @issue&.fields['CVSSv3.Vector']&.include?('CVSS:3.1') %>>v3.1</option>
-    <option value="30" <%= 'selected' if @issue&.fields['CVSSv3.Vector']&.include?('CVSS:3.0') %>>v3.0</option>
+    <option value="40" <%= 'selected' if @cvss_version == '4.0' %>>v4.0</option>
+    <option value="31" <%= 'selected' if @cvss_version == '3.1' %>>v3.1</option>
+    <option value="30" <%= 'selected' if @cvss_version == '3.0' %>>v3.0</option>
   </select>
 </div>

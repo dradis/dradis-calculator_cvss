@@ -33,6 +33,7 @@ class CVSS40Calculator extends CVSS4Calculator {
   constructor() {
     super()
 
+    this.app = cvss_v4_app();
     this.calculate();
   }
 
@@ -41,14 +42,15 @@ class CVSS40Calculator extends CVSS4Calculator {
 
     $('input[type=submit]').attr('disabled', null);
 
+    var that = this;
     $('[data-cvss-metrics] .btn-group').each(function(){
       const selected = $(this).find('[data-cvss-option].active');
 
       if (selected.length == 1) {
-        app.cvssSelected[selected.attr('name').toUpperCase()] = selected.attr('value');
+        that.app.cvssSelected[selected.attr('name').toUpperCase()] = selected.attr('value');
 
         var label = selected.data('cvss-option');
-        app.cvssSelectedValue[selected.attr('name').toUpperCase()] = label.replace(regex, '');
+        that.app.cvssSelectedValue[selected.attr('name').toUpperCase()] = label.replace(regex, '');
       }
     });
 
@@ -60,9 +62,10 @@ class CVSS40Calculator extends CVSS4Calculator {
   baseVector() {
     var baseVector = 'CVSS:4.0'
 
+    var that = this;
     Object.keys(expectedMetricOrder).forEach(function(metric) {
-      if (app.cvssSelected[metric] && app.cvssSelected[metric] != 'X') {
-        baseVector += '/' + metric + ':' + app.cvssSelected[metric]
+      if (that.app.cvssSelected[metric] && that.app.cvssSelected[metric] != 'X') {
+        baseVector += '/' + metric + ':' + that.app.cvssSelected[metric]
       }
     })
 
@@ -75,90 +78,91 @@ class CVSS40Calculator extends CVSS4Calculator {
     issue_cvss += "#[CVSSv4.BaseVector]#\n"
     issue_cvss += this.baseVector() + "\n\n"
     issue_cvss += "#[CVSSv4.BaseScore]#\n"
-    issue_cvss += app.score() + "\n\n"
+    issue_cvss += this.app.score() + "\n\n"
     issue_cvss += "#[CVSSv4.BaseSeverity]#\n"
-    issue_cvss += app.qualScore() + "\n\n"
+    issue_cvss += this.app.qualScore() + "\n\n"
 
     issue_cvss += "#[CVSSv4.MacroVector]#\n";
-    issue_cvss += app.macroVector() + "\n\n";
+    issue_cvss += this.app.macroVector() + "\n\n";
 
+    var that = this;
     [
       'Exploitability', 'Complexity', 'VulnerableSystem', 'SubsequentSystem',
       'Exploitation', 'SecurityRequirements'
     ].forEach(function(macroMetric) {
       issue_cvss += "#[CVSSv4." + macroMetric + "]#\n"
-      issue_cvss += cvssMacroVectorValues[app.macroVector()[cvssMacroVectorDetails[macroMetric]]] + "\n\n"
+      issue_cvss += cvssMacroVectorValues[that.app.macroVector()[cvssMacroVectorDetails[macroMetric]]] + "\n\n"
     });
 
     issue_cvss += "#[CVSSv4.BaseExploitableAttackVector]#\n"
-    issue_cvss += app.cvssSelectedValue['AV'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['AV'] + "\n\n"
     issue_cvss += "#[CVSSv4.BaseExploitableAttackComplexity]#\n"
-    issue_cvss += app.cvssSelectedValue['AC'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['AC'] + "\n\n"
     issue_cvss += "#[CVSSv4.BaseExploitableAttackRequirements]#\n"
-    issue_cvss += app.cvssSelectedValue['AT'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['AT'] + "\n\n"
     issue_cvss += "#[CVSSv4.BaseExploitablePrivilegesRequired]#\n"
-    issue_cvss += app.cvssSelectedValue['PR'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['PR'] + "\n\n"
     issue_cvss += "#[CVSSv4.BaseExploitableUserInteraction]#\n"
-    issue_cvss += app.cvssSelectedValue['UI'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['UI'] + "\n\n"
     issue_cvss += "#[CVSSv4.BaseVulnerableConfidentiality]#\n"
-    issue_cvss += app.cvssSelectedValue['VC'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['VC'] + "\n\n"
     issue_cvss += "#[CVSSv4.BaseVulnerableIntegrity]#\n"
-    issue_cvss += app.cvssSelectedValue['VI'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['VI'] + "\n\n"
     issue_cvss += "#[CVSSv4.BaseVulnerableAvailability]#\n"
-    issue_cvss += app.cvssSelectedValue['VA'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['VA'] + "\n\n"
     issue_cvss += "#[CVSSv4.BaseSubsequentConfidentiality]#\n"
-    issue_cvss += app.cvssSelectedValue['SC'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['SC'] + "\n\n"
     issue_cvss += "#[CVSSv4.BaseSubsequentIntegrity]#\n"
-    issue_cvss += app.cvssSelectedValue['SI'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['SI'] + "\n\n"
     issue_cvss += "#[CVSSv4.BaseSubsequentAvailability]#\n"
-    issue_cvss += app.cvssSelectedValue['SA'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['SA'] + "\n\n"
 
     issue_cvss += "#[CVSSv4.SupplementalSafety]#\n"
-    issue_cvss += app.cvssSelectedValue['S'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['S'] + "\n\n"
     issue_cvss += "#[CVSSv4.SupplementalAutomatable]#\n"
-    issue_cvss += app.cvssSelectedValue['AU'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['AU'] + "\n\n"
     issue_cvss += "#[CVSSv4.SupplementalRecovery]#\n"
-    issue_cvss += app.cvssSelectedValue['R'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['R'] + "\n\n"
     issue_cvss += "#[CVSSv4.SupplementalValueDensity]#\n"
-    issue_cvss += app.cvssSelectedValue['V'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['V'] + "\n\n"
     issue_cvss += "#[CVSSv4.SupplementalVulnerabilityResponseEffort]#\n"
-    issue_cvss += app.cvssSelectedValue['RE'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['RE'] + "\n\n"
     issue_cvss += "#[CVSSv4.SupplementalProviderUrgency]#\n"
-    issue_cvss += app.cvssSelectedValue['U'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['U'] + "\n\n"
 
     issue_cvss += "#[CVSSv4.EnvironmentalExploitabilityAttackVector]#\n"
-    issue_cvss += app.cvssSelectedValue['MAV'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['MAV'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalExploitabilityAttackComplexity]#\n"
-    issue_cvss += app.cvssSelectedValue['MAC'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['MAC'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalExploitabilityAttackRequirements]#\n"
-    issue_cvss += app.cvssSelectedValue['MAT'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['MAT'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalExploitabilityPrivilegesRequired]#\n"
-    issue_cvss += app.cvssSelectedValue['MPR'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['MPR'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalExploitabilityUserInteraction]#\n"
-    issue_cvss += app.cvssSelectedValue['MUI'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['MUI'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalVulnerableConfidentiality]#\n"
-    issue_cvss += app.cvssSelectedValue['MVC'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['MVC'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalVulnerableIntegrity]#\n"
-    issue_cvss += app.cvssSelectedValue['MVI'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['MVI'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalVulnerableAvailability]#\n"
-    issue_cvss += app.cvssSelectedValue['MVA'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['MVA'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalSubsequentConfidentiality]#\n"
-    issue_cvss += app.cvssSelectedValue['MSC'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['MSC'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalSubsequentIntegrity]#\n"
-    issue_cvss += app.cvssSelectedValue['MSI'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['MSI'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalSubsequentAvailability]#\n"
-    issue_cvss += app.cvssSelectedValue['MSA'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['MSA'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalConfidentialityRequirements]#\n"
-    issue_cvss += app.cvssSelectedValue['CR'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['CR'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalIntegrityRequirements]#\n"
-    issue_cvss += app.cvssSelectedValue['IR'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['IR'] + "\n\n"
     issue_cvss += "#[CVSSv4.EnvironmentalAvailabilityRequirements]#\n"
-    issue_cvss += app.cvssSelectedValue['AR'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['AR'] + "\n\n"
 
     issue_cvss += "#[CVSSv4.ThreatExploitMaturity]#\n"
-    issue_cvss += app.cvssSelectedValue['E'] + "\n\n"
+    issue_cvss += this.app.cvssSelectedValue['E'] + "\n\n"
 
     $('#cvss4-edit-result textarea').val(issue_cvss)
-    $('[data-behavior=cvss4-result]').html(app.score() + ' (' + app.qualScore() + ')')
+    $('[data-behavior=cvss4-result]').html(this.app.score() + ' (' + this.app.qualScore() + ')')
   }
 }

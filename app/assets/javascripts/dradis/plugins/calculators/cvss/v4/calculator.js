@@ -83,7 +83,7 @@ class CVSS40Calculator extends CVSS4Calculator {
     issue_cvss += `${this.app.qualScore()}\n\n`
 
     issue_cvss += "#[CVSSv4.MacroVector]#\n";
-    issue_cvss += `${this.app.macroVector()}\n\n"`
+    issue_cvss += `${this.app.macroVector()}\n\n`
 
     const that = this;
     [

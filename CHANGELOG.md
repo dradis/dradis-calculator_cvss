@@ -1,3 +1,6 @@
+v4.12.0 (Mmmm 2024)
+  - Add CVSS v4 support
+
 v4.11.0 (January 2024)
   - No changes
 

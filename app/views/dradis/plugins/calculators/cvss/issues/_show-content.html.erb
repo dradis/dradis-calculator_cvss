@@ -9,13 +9,27 @@
     </h4>
 
     <div class="mb-4 content-textile">
-      <%=
-        markup(
-          @issue.fields
-            .select { |k,v| Dradis::Plugins::Calculators::CVSS::V3::FIELDS.include?(k) }
-            .map { |k,v| "#[#{k}]#\n#{v}" }.join("\n\n")
-        )
-      %>
+      <% if @issue.fields['CVSSv4.BaseVector'] %>
+        <%=
+          markup(
+            @issue.fields
+              .select { |k,v| Dradis::Plugins::Calculators::CVSS::V4::FIELDS.include?(k) }
+              .map { |k,v| "#[#{k}]#\n#{v}" }.join("\n\n")
+          )
+        %>
+      <% end%>
+
+      <br>
+
+      <% if @issue.fields['CVSSv3.Vector'] %>
+        <%=
+          markup(
+            @issue.fields
+              .select { |k,v| Dradis::Plugins::Calculators::CVSS::V3::FIELDS.include?(k) }
+              .map { |k,v| "#[#{k}]#\n#{v}" }.join("\n\n")
+          )
+        %>
+      <% end %>
     </div>
   </div>
 </div>

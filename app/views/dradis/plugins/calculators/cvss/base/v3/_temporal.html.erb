@@ -1,0 +1,67 @@
+<section data-behavior="cvss-buttons" data-cvss-version="3">
+
+  <div class="inner">
+    <h5 class="header-underline mt-0" data-cvss="E_Heading">
+      Exploit Code Maturity (E)
+    </h5>
+
+    <%= hidden_field_tag :e, @cvss3_vector['E'] %>
+
+    <div class="btn-group mb-4">
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['E'] == 'X' %>" name="e" value="X" data-label="Not Defined" data-cvss="E_X_Label">Not Defined <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['E'] == 'U' %>" name="e" value="U" data-label="Unproven" data-cvss="E_U_Label">Unproven <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['E'] == 'P' %>" name="e" value="P" data-label="Proof-of-Concept" data-cvss="E_P_Label">Proof-of-Concept <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['E'] == 'F' %>" name="e" value="F" data-label="Functional" data-cvss="E_F_Label">Functional <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['E'] == 'H' %>" name="e" value="H" data-label="High" data-cvss="E_H_Label">High <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <div class="inner">
+    <h5 class="header-underline mt-0" data-cvss="RL_Heading">
+      Remediation Level (RL)
+    </h5>
+
+    <%= hidden_field_tag :rl, @cvss3_vector['RL'] %>
+
+    <div class="btn-group mb-4">
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['RL'] == 'X' %>" name="rl" value="X" data-label="Not Defined" data-cvss="RL_X_Label">Not Defined <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['RL'] == 'O' %>" name="rl" value="O" data-label="Official Fix" data-cvss="RL_O_Label">Official Fix <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['RL'] == 'T' %>" name="rl" value="T" data-label="Temporary Fix" data-cvss="RL_T_Label">Temporary Fix <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['RL'] == 'W' %>" name="rl" value="W" data-label="Workaround" data-cvss="RL_W_Label">Workaround <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['RL'] == 'U' %>" name="rl" value="U" data-label="Unavailable" data-cvss="RL_U_Label">Unavailable <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <div class="inner">
+    <h5 class="header-underline mt-0" data-cvss="RC_Heading">
+      Report Confidence (RC)
+    </h5>
+
+    <%= hidden_field_tag :rc, @cvss3_vector['RC'] %>
+
+    <div class="btn-group mb-4">
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['RC'] == 'X' %>" name="rc" value="X" data-label="Not Defined" data-cvss="RC_X_Label">Not Defined <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['RC'] == 'U' %>" name="rc" value="U" data-label="Unknown" data-cvss="RC_U_Label">Unknown <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['RC'] == 'R' %>" name="rc" value="R" data-label="Reasonable" data-cvss="RC_R_Label">Reasonable <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+
+      <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['RC'] == 'C' %>" name="rc" value="C" data-label="Confirmed" data-cvss="RC_C_Label">Confirmed <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
+    </div>
+
+  </div>
+
+  <p>
+    The Temporal metrics measure the current state of exploit techniques or code
+    availability, the existence of any patches or workarounds, or the confidence
+    that one has in the description of a vulnerability.
+  </p>
+</section>

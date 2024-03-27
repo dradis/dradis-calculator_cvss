@@ -1,20 +1,10 @@
 module Dradis::Plugins::Calculators::CVSS
   # Does it matter that we're inheriting from the no-frills controller?
   class IssuesController < ::IssuesController
+    before_action :set_cvss_version, only: :edit
     before_action :set_cvss_vector, only: :edit
 
-    def edit
-      @cvss_version =
-        if @issue.fields['CVSSv4.BaseVector']
-          '4.0'
-        elsif @issue.fields['CVSSv3.Vector']&.include?('CVSS:3.1')
-          '3.1'
-        elsif @issue.fields['CVSSv3.Vector']&.include?('CVSS:3.0')
-          '3.0'
-        else
-          '4.0'
-        end
-    end
+    def edit; end
 
     def update
       cvss_fields = Hash[ *params[:cvss_fields].scan(FieldParser::FIELDS_REGEX).flatten.map(&:strip) ]
@@ -29,9 +19,11 @@ module Dradis::Plugins::Calculators::CVSS
       end
     end
 
+    private
+
     def set_cvss_vector
       # Undefined Temporal and Environmental default to X
-      @cvss_vector = Hash.new { |h, k| h[k] = 'X' }
+      @cvss3_vector = Hash.new { |h, k| h[k] = 'X' }
       @cvss4_vector = Dradis::Plugins::Calculators::CVSS::V4::DEFAULT_CVSS_V4.clone
       field_value_v3 = @issue.fields['CVSSv3.Vector'] || @issue.fields['CVSSv3Vector']
       field_value_v4  = @issue.fields['CVSSv4.BaseVector']
@@ -41,7 +33,7 @@ module Dradis::Plugins::Calculators::CVSS
 
       if field_value_v3
         if field_value_v3 =~ V3::VECTOR_REGEXP
-          field_value_v3.split('/').each { |pair| @cvss_vector.store *pair.split(':') }
+          field_value_v3.split('/').each { |pair| @cvss3_vector.store *pair.split(':') }
         else
           redirect_to main_app.project_issue_path(current_project, @issue), alert: 'The format of the CVSSv3 Vector field is invalid.'
         end
@@ -54,6 +46,18 @@ module Dradis::Plugins::Calculators::CVSS
           redirect_to main_app.project_issue_path(current_project, @issue), alert: 'The format of the CVSSv4 Vector field is invalid.'
         end
       end
+    end
+
+    def set_cvss_version
+      @cvss_version =
+        case
+        when @issue.fields['CVSSv3.Vector']&.include?('CVSS:3.1')
+          '3.1'
+        when @issue.fields['CVSSv3.Vector']&.include?('CVSS:3.0')
+          '3.0'
+        else
+          '4.0'
+        end
     end
   end
 end

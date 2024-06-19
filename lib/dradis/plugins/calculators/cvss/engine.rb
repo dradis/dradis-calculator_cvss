@@ -7,8 +7,8 @@ module Dradis::Plugins::Calculators::CVSS
     description 'Risk Calculator: CVSS'
 
     addon_settings :calculator_cvss do
-      settings.default_show = 1
-    end
+      settings.default_enabled = false
+    end if defined?(Dradis::Pro)
 
     initializer 'calculator_cvss.asset_precompile_paths' do |app|
       app.config.assets.precompile += [
@@ -27,9 +27,12 @@ module Dradis::Plugins::Calculators::CVSS
 
     initializer 'calculator_cvss.mount_engine' do
       Rails.application.routes.append do
-        mount Dradis::Plugins::Calculators::CVSS::Engine => '/', as: :cvss_calculator
+        # Enabling/disabling integrations calls Rails.application.reload_routes! we need the enable
+        # check inside the block to ensure the routes can be re-enabled without a server restart
+        if Engine.enabled?
+          mount Engine => '/', as: :cvss_calculator
+        end
       end
     end
-
   end
 end

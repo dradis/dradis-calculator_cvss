@@ -1,3 +1,6 @@
+v4.13.0 (Month 2024)
+  - Add calculator to the Tools Manager
+
 v4.12.0 (May 2024)
   - Add CVSS v4 support
 

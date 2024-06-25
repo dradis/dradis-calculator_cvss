@@ -22,6 +22,10 @@ module Dradis::Plugins::Calculators::CVSS
     end
 
     initializer 'calculator_cvss.mount_engine' do
+      # This engine is loaded into the main app by default so when the app
+      # is initialized, we need to check if the DB is loaded and the
+      # Configuration table has been created before checking if the engine
+      # is enabled
       Rails.application.reloader.to_prepare do
         if (ActiveRecord::Base.connection rescue false) && ::Configuration.table_exists?
           Rails.application.routes.append do

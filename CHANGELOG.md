@@ -1,3 +1,6 @@
+v4.16.0 (Month 2025)
+  - Update manifest for compatibility with Hera layout.
+
 v4.15.0 (December 2024)
   - No changes
 

@@ -4,6 +4,21 @@
   <%= render 'issues/sidebar'%>
 <% end %>
 
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to current_project.name, main_app.project_path(current_project) %>
+  </li>
+  <li class="breadcrumb-item">
+    <%= link_to 'All issues', main_app.project_issues_path(current_project) %>
+  </li>
+  <li class="breadcrumb-item">
+    <%= link_to @issue.title? ? @issue.title : "Issue ##{@issue.id}", main_app.project_issue_path(current_project, @issue) %>
+  </li>
+  <li class="breadcrumb-item active">
+    CVSS Risk Scoring
+  </li>
+</ol>
+
 <div class="content-container">
   <h4 class="header-underline d-flex justify-content-between">
     <span>Edit CVSS Risk Scoring</span>

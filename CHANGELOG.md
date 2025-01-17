@@ -1,3 +1,6 @@
+v4.16.0 (Month 2025)
+  - Hera layout compatibility changes
+
 v4.15.0 (December 2024)
   - No changes
 

@@ -8,7 +8,7 @@
 
         <%= hidden_field_tag :cr, @cvss3_vector['CR'] %>
 
-        <div class="btn-group mb-4t>
+        <div class="btn-group mb-4">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['CR'] == 'X' %>" name="cr" value="X" data-label="Not Defined" data-cvss="CR_X_Label">N/D <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>
 
           <button type="button" class="btn <%= 'active btn-primary' if @cvss3_vector['CR'] == 'L' %>" name="cr" value="L" data-label="Low" data-cvss="CR_L_Label">Low <i class="fa-regular fa-question-circle" aria-hidden="true"></i></button>

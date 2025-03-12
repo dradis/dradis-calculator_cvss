@@ -1,5 +1,6 @@
 @import '_bootstrap';
 @import 'font-awesome';
 
-@import 'tylium/variables';
-@import 'dradis/plugins/calculators/cvss/version_switch';
+@import 'hera/variables';
+@import 'shared/mixins';
+@import 'hera/modules/buttons';

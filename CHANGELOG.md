@@ -1,6 +1,21 @@
-
-v4.x.x (Month 2023)
+v4.16.0 (Month 2025)
+  - Hera layout compatibility changes
   - Update turbolinks references to turbo
+
+v4.15.0 (December 2024)
+  - No changes
+
+v4.14.0 (October 2024)
+  - No changes
+
+v4.13.0 (July 2024)
+  - Add ability to enable/disable calculator in the Tools Manager
+
+v4.12.0 (May 2024)
+  - Add CVSS v4 support
+
+v4.11.0 (January 2024)
+  - No changes
 
 v4.10.0 (September 2023)
   - Update gemspec links

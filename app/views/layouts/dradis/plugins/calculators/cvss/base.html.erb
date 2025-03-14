@@ -14,8 +14,14 @@
         <a href="javascript:void(0)" class="navbar-brand">CVSS score calculator</a>
         <ul class="navbar-nav pull-right">
           <li class="nav-item">
-            <%= link_to main_app.root_path, class: 'nav-link', data: { turbolinks: false } do %>
-            Back to the app  &rarr;
+            <% if current_user.role?(:contributor) -%>
+              <%= link_to main_app.contributors_home_path, class: 'nav-link', data: { turbolinks: false } do %>
+                Back to the app  &rarr;
+              <% end %>
+            <% else %>
+              <%= link_to main_app.root_path, class: 'nav-link', data: { turbolinks: false } do %>
+                Back to the app  &rarr;
+              <% end %>
             <% end %>
           </li>
         </ul>

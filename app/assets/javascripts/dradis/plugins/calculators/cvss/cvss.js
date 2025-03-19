@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function () {
+$(document).on('turbo:load', function () {
   if ($('[data-behavior~=cvss-version]').length) {
     function handleVersionSelection() {
       var selectedValue = $('[data-behavior~=cvss-version]').val();

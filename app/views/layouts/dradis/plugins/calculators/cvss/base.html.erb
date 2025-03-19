@@ -2,9 +2,10 @@
 <html>
   <head>
     <title>CVSS Score Calculator | Dradis Framework</title>
-    <%= stylesheet_link_tag    'dradis/plugins/calculators/cvss/manifests/application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'dradis/plugins/calculators/cvss/manifests/application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'dradis/plugins/calculators/cvss/manifests/application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'dradis/plugins/calculators/cvss/manifests/application', 'data-turbo-track': 'reload' %>
     <%= csrf_meta_tags %>
+    <%= javascript_importmap_tags %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
@@ -14,8 +15,8 @@
         <a href="javascript:void(0)" class="navbar-brand">CVSS score calculator</a>
         <ul class="navbar-nav pull-right">
           <li class="nav-item">
-            <%= link_to main_app.root_path, class: 'nav-link', data: { turbolinks: false } do %>
-              Back to the app  &rarr;
+            <%= link_to main_app.root_path, class: 'nav-link', data: { turbo: false } do %>
+            Back to the app  &rarr;
             <% end %>
           </li>
         </ul>

@@ -1,1 +1,5 @@
-<li><%= link_to 'Risk Calculators - CVSS', cvss_calculator.calculators_cvss_path, class: 'dropdown-item', data: { turbo: false } %></li>
+<% unless current_user.role?(:contributor) %>
+  <li>
+    <%= link_to 'Risk Calculators - CVSS', cvss_calculator.calculators_cvss_path, class: 'dropdown-item', data: { turbolinks: false } %>
+  </li>
+<% end %>

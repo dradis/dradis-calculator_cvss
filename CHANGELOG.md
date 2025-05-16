@@ -1,4 +1,4 @@
-v4.16.0 (Month 2025)
+v4.16.0 (May 2025)
 
 - Hera layout compatibility changes
 - Update turbolinks references to turbo

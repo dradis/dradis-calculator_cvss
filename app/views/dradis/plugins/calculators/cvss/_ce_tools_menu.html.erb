@@ -1,0 +1,5 @@
+<% if !defined?(Dradis::Pro) %>
+  <li>
+    <%= link_to 'Risk Calculators - CVSS', cvss_calculator.calculators_cvss_path, class: 'dropdown-item', data: { turbolinks: false } %>
+  </li>
+<% end %>

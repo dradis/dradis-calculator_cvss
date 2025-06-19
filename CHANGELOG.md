@@ -1,3 +1,8 @@
+v#.#.#] ([month] [YYYY])
+
+- Bug fixes:
+  - Enable access for CE users
+
 v4.16.0 (May 2025)
 
 - Hera layout compatibility changes

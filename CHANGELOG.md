@@ -1,5 +1,5 @@
 v4.17.0 (July 2025)
-  - No changes
+  - Bug fixes: Enable access for CE users
 
 v4.16.0 (May 2025)
 

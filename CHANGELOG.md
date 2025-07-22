@@ -1,7 +1,5 @@
-v#.#.#] ([month] [YYYY])
-
-- Bug fixes:
-  - Enable access for CE users
+v4.17.0 (July 2025)
+  - Bug fixes: Enable access for CE users
 
 v4.16.0 (May 2025)
 

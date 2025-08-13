@@ -4,6 +4,8 @@ module Dradis::Plugins::Calculators::CVSS
     before_action :set_cvss_version, only: :edit
     before_action :set_cvss_vector, only: :edit
 
+    skip_before_action :remove_unused_state_param
+
     def edit; end
 
     def update

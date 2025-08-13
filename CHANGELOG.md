@@ -1,3 +1,6 @@
+v4.17.1 (July 2025)
+  - Bug fixes: Fix issue calculator edit for authors
+
 v4.17.0 (July 2025)
   - Bug fixes: Enable access for CE users
 

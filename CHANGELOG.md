@@ -1,4 +1,4 @@
-v4.17.1 (August 2025)
+v4.17.1 (September 2025)
   - Bug fixes: Fix issue calculator edit for authors
 
 v4.17.0 (July 2025)

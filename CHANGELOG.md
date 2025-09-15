@@ -1,3 +1,6 @@
+v4.18.0 (September 2025)
+  - No changes
+
 v4.17.1 (September 2025)
   - Bug fixes: Fix issue calculator edit for authors
 

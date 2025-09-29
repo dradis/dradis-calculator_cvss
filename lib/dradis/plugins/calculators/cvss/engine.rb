@@ -22,13 +22,11 @@ module Dradis::Plugins::Calculators::CVSS
     end
 
     initializer 'calculator_cvss.mount_engine' do
-      Rails.application.reloader.to_prepare do
-        Rails.application.routes.append do
-          # Enabling/disabling integrations calls Rails.application.reload_routes! we need the enable
-          # check inside the block to ensure the routes can be re-enabled without a server restart
-          if Engine.enabled?
-            mount Engine => '/', as: :cvss_calculator
-          end
+      Rails.application.routes.append do
+        # Enabling/disabling integrations calls Rails.application.reload_routes! we need the enable
+        # check inside the block to ensure the routes can be re-enabled without a server restart
+        if Engine.enabled?
+          mount Engine => '/', as: :cvss_calculator
         end
       end
     end

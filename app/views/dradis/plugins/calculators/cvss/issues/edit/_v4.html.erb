@@ -1,4 +1,8 @@
-<div class="inner note-text-inner d-none" data-cvss-version="4">
+<div
+  class="inner note-text-inner d-none"
+  data-behavior="cvss-v4-calculator"
+  data-cvss-version="4"
+  data-cvss-v4-fields="<%= Dradis::Plugins::Calculators::CVSS::Engine.settings.v4_fields %>">
 
   <%= simple_form_for [:cvss, current_project, @issue] do |f| %>
 
@@ -95,7 +99,7 @@ N/A
       </div>
     </div>
 
-    <div class="form-actions">
+    <div class="form-actions sticky">
       <%= f.button :submit, nil, class: 'btn btn-primary' %> or
       <%= link_to 'Cancel', main_app.project_issue_path(current_project, @issue), class: 'cancel-link' %>
     </div>

@@ -1,3 +1,6 @@
+vx.y.0 (November 2025)
+  - CVSSv4: configure fields you care about
+
 v4.19.0 (November 2025)
   - No changes
 

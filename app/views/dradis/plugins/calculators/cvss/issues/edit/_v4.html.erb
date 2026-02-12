@@ -43,6 +43,7 @@
       </div>
 
       <div class="tab-pane" id="cvss4-edit-result" data-behavior="cvss4-result-text">
+        <p>Toggle the fields you'd like to include in the issue content. Defaults can be set in the <%= link_to 'Configuration Manager', main_app.project_configurations_path %>.</p>
         <%
           default_fields = Dradis::Plugins::Calculators::CVSS::Engine.settings.v4_fields.split(',')
           field_groups = Dradis::Plugins::Calculators::CVSS::V4::FIELDS.group_by do |field|

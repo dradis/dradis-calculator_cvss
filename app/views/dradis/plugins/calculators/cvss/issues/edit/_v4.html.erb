@@ -2,7 +2,7 @@
   class="inner note-text-inner d-none"
   data-behavior="cvss-v4-calculator"
   data-cvss-version="4"
-  data-cvss-v4-fields="<%= Dradis::Plugins::Calculators::CVSS::Engine.settings.v4_fields %>">
+>
 
   <%= simple_form_for [:cvss, current_project, @issue] do |f| %>
 
@@ -43,59 +43,38 @@
       </div>
 
       <div class="tab-pane" id="cvss4-edit-result" data-behavior="cvss4-result-text">
-        <textarea class="form-control" name="cvss_fields" rows="10" style="width:95%">#[CVSSv4.Vector]#
-N/A
+        <%
+          default_fields = Dradis::Plugins::Calculators::CVSS::Engine.settings.v4_fields.split(',')
+          field_groups = Dradis::Plugins::Calculators::CVSS::V4::FIELDS.group_by do |field|
+            name = field.sub('CVSSv4.', '')
+            case name
+            when 'BaseVector', 'BaseScore', 'BaseSeverity' then 'Score'
+            when /^Base/ then 'Base Metrics'
+            when /^Supplemental/ then 'Supplemental'
+            when /^Environmental/ then 'Environmental'
+            when /^Threat/ then 'Threat'
+            else 'Macro Vector'
+            end
+          end
+        %>
 
-#[CVSSv4.BaseScore]#
-N/A
+        <% field_groups.each do |group_name, fields| %>
+          <h6 class="mt-3 mb-2"><%= group_name %></h6>
+          <% fields.each do |field| %>
+            <div class="form-check form-switch">
+              <input class="form-check-input"
+                     type="checkbox"
+                     role="switch"
+                     id="cvss4-field-<%= field.parameterize %>"
+                     data-behavior="cvss4-field-switch"
+                     data-field-name="<%= field %>"
+                     <%= 'checked' if default_fields.include?(field) %>>
+              <label class="form-check-label" for="cvss4-field-<%= field.parameterize %>"><%= field %></label>
+            </div>
+          <% end %>
+        <% end %>
 
-#[CVSSv4.BaseSeverity]#
-N/A
-
-#[CVSSv4.MacroVector]#
-#[CVSSv4.Expoitability]#
-#[CVSSv4.Complexity]#
-#[CVSSv4.VulnerableSystem]#
-#[CVSSv4.SubsequentSystem]#
-#[CVSSv4.Exploitation]#
-#[CVSSv4.SecurityRequirements]#
-
-#[CVSSv4.BaseExploitableAttackVector]#
-#[CVSSv4.BaseExploitableAttackComplexity]#
-#[CVSSv4.BaseExploitableAttackRequirements]#
-#[CVSSv4.BaseExploitablePrivilegesRequired]#
-#[CVSSv4.BaseExploitableUserInteraction]#
-#[CVSSv4.BaseVulnerableConfidentiality]#
-#[CVSSv4.BaseVulnerableIntegrity]#
-#[CVSSv4.BaseVulnerableAvailability]#
-#[CVSSv4.BaseSubsequentConfidentiality]#
-#[CVSSv4.BaseSubsequentIntegrity]#
-#[CVSSv4.BaseSubsequentAvailability]#
-
-#[CVSSv4.SupplementalSafety]#
-#[CVSSv4.SupplementalAutomatable]#
-#[CVSSv4.SupplementalRecovery]#
-#[CVSSv4.SupplementalValueDensity]#
-#[CVSSv4.SupplementalVulnerabilityResponseEffort]#
-#[CVSSv4.SupplementalProviderUrgency]#
-
-#[CVSSv4.EnvironmentalExploitabilityAttackVector]#
-#[CVSSv4.EnvironmentalExploitabilityAttackComplexity]#
-#[CVSSv4.EnvironmentalExploitabilityAttackRequirements]#
-#[CVSSv4.EnvironmentalExploitabilityPrivilegesRequired]#
-#[CVSSv4.EnvironmentalExploitabilityUserInteraction]#
-#[CVSSv4.EnvironmentalVulnerableConfidentiality]#
-#[CVSSv4.EnvironmentalVulnerableIntegrity]#
-#[CVSSv4.EnvironmentalVulnerableAvailability]#
-#[CVSSv4.EnvironmentalSubsequentConfidentiality]#
-#[CVSSv4.EnvironmentalSubsequentIntegrity]#
-#[CVSSv4.EnvironmentalSubsequentAvailability]#
-#[CVSSv4.EnvironmentalConfidentialityRequirements]#
-#[CVSSv4.EnvironmentalIntegrityRequirements]#
-#[CVSSv4.EnvironmentalAvailabilityRequirements]#
-
-#[CVSSv4.ThreatExploitMaturity]#
-        </textarea>
+        <textarea class="form-control mt-3" name="cvss_fields" rows="10"></textarea>
       </div>
     </div>
 

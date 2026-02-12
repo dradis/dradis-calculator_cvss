@@ -194,8 +194,12 @@ class CVSS40Calculator extends CVSS4Calculator {
     let issue_cvss = '';
 
     for (const [name, getValue] of Object.entries(this.fieldMap())) {
+      const value = getValue();
+
+      $(`[data-behavior=cvss4-field-value][data-field-name="${name}"]`).text(value);
+
       if (this.fieldList.includes(name)) {
-        issue_cvss += `#[${name}]#\n${getValue()}\n\n`;
+        issue_cvss += `#[${name}]#\n${value}\n\n`;
       }
     }
 

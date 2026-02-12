@@ -59,22 +59,27 @@
         %>
 
         <% field_groups.each do |group_name, fields| %>
-          <h6 class="mt-3 mb-2"><%= group_name %></h6>
-          <% fields.each do |field| %>
-            <div class="form-check form-switch">
-              <input class="form-check-input"
-                     type="checkbox"
-                     role="switch"
-                     id="cvss4-field-<%= field.parameterize %>"
-                     data-behavior="cvss4-field-switch"
-                     data-field-name="<%= field %>"
-                     <%= 'checked' if default_fields.include?(field) %>>
-              <label class="form-check-label" for="cvss4-field-<%= field.parameterize %>"><%= field %></label>
-            </div>
-          <% end %>
+          <div class="mb-3">
+            <h6 class="mb-2"><%= group_name %></h6>
+            <% fields.each do |field| %>
+              <div class="form-check form-switch mb-2">
+                <input class="form-check-input"
+                       type="checkbox"
+                       role="switch"
+                       id="cvss4-field-<%= field.parameterize %>"
+                       data-behavior="cvss4-field-switch"
+                       data-field-name="<%= field %>"
+                       <%= 'checked' if default_fields.include?(field) %>>
+                <label class="form-check-label d-flex flex-column" for="cvss4-field-<%= field.parameterize %>">
+                  <span class="h4 fw-bold"><%= field %></span>
+                  <span data-behavior="cvss4-field-value" data-field-name="<%= field %>"></span>
+                </label>
+              </div>
+            <% end %>
+          </div>
         <% end %>
 
-        <textarea class="form-control mt-3" name="cvss_fields" rows="10"></textarea>
+        <textarea class="d-none" name="cvss_fields"></textarea>
       </div>
     </div>
 

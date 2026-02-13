@@ -44,6 +44,10 @@
 
       <div class="tab-pane" id="cvss4-edit-result" data-behavior="cvss4-result-text">
         <p>Toggle the fields you'd like to include in the issue content. Defaults can be set in the <%= link_to 'Configuration Manager', main_app.project_configurations_path %>.</p>
+        <div class="mb-2">
+          <a href="javascript:void(0)" data-behavior="form-select-all">Select all</a>
+          - <a href="javascript:void(0)" data-behavior="form-select-none">Deselect all</a>
+        </div>
         <%
           default_fields = Dradis::Plugins::Calculators::CVSS::Engine.settings.v4_fields.split(',')
           existing_fields = @issue.fields.keys.select { |k| k.start_with?('CVSSv4.') }

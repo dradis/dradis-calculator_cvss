@@ -56,6 +56,11 @@ class CVSS40Calculator extends CVSS4Calculator {
       this.updateFieldList();
       this.setResult();
     });
+
+    $('[data-behavior=form-select-all], [data-behavior=form-select-none]').on('click', () => {
+      this.updateFieldList();
+      this.setResult();
+    });
   }
 
   calculate() {

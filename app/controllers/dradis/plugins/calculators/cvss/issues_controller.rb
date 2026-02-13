@@ -3,6 +3,7 @@ module Dradis::Plugins::Calculators::CVSS
   class IssuesController < ::IssuesController
     before_action :set_cvss_version, only: :edit
     before_action :set_cvss_vector, only: :edit
+    before_action :set_v4_field_groups, only: :edit
 
     skip_before_action :remove_unused_state_param
 
@@ -54,6 +55,24 @@ module Dradis::Plugins::Calculators::CVSS
       else
         redirect_to main_app.project_issue_path(current_project, @issue),
                     alert: 'The format of the CVSSv4 Vector field is invalid.'
+      end
+    end
+
+    def set_v4_field_groups
+      default_fields = Engine.settings.v4_fields.split(',')
+      existing_fields = @issue.fields.keys.select { |k| k.start_with?('CVSSv4.') }
+      @enabled_fields = existing_fields.any? ? existing_fields : default_fields
+
+      @v4_field_groups = V4::FIELDS.group_by do |field|
+        name = field.sub('CVSSv4.', '')
+        case name
+        when 'BaseVector', 'BaseScore', 'BaseSeverity' then 'Score'
+        when /^Base/ then 'Base Metrics'
+        when /^Supplemental/ then 'Supplemental'
+        when /^Environmental/ then 'Environmental'
+        when /^Threat/ then 'Threat'
+        else 'Macro Vector'
+        end
       end
     end
 

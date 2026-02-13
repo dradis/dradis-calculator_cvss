@@ -48,24 +48,7 @@
           <a href="javascript:void(0)" data-behavior="form-select-all">Select all</a>
           - <a href="javascript:void(0)" data-behavior="form-select-none">Deselect all</a>
         </div>
-        <%
-          default_fields = Dradis::Plugins::Calculators::CVSS::Engine.settings.v4_fields.split(',')
-          existing_fields = @issue.fields.keys.select { |k| k.start_with?('CVSSv4.') }
-          enabled_fields = existing_fields.any? ? existing_fields : default_fields
-          field_groups = Dradis::Plugins::Calculators::CVSS::V4::FIELDS.group_by do |field|
-            name = field.sub('CVSSv4.', '')
-            case name
-            when 'BaseVector', 'BaseScore', 'BaseSeverity' then 'Score'
-            when /^Base/ then 'Base Metrics'
-            when /^Supplemental/ then 'Supplemental'
-            when /^Environmental/ then 'Environmental'
-            when /^Threat/ then 'Threat'
-            else 'Macro Vector'
-            end
-          end
-        %>
-
-        <% field_groups.each do |group_name, fields| %>
+        <% @v4_field_groups.each do |group_name, fields| %>
           <div class="mb-3">
             <h6 class="mb-2"><%= group_name %></h6>
             <% fields.each do |field| %>
@@ -76,7 +59,7 @@
                        id="cvss4-field-<%= field.parameterize %>"
                        data-behavior="cvss4-field-switch"
                        data-field-name="<%= field %>"
-                       <%= 'checked' if enabled_fields.include?(field) || field == 'CVSSv4.BaseVector' %>
+                       <%= 'checked' if @enabled_fields.include?(field) || field == 'CVSSv4.BaseVector' %>
                        <%= 'disabled' if field == 'CVSSv4.BaseVector' %>>
                 <label class="form-check-label<%= ' opacity-100' if field == 'CVSSv4.BaseVector' %>" for="cvss4-field-<%= field.parameterize %>"><%= field %></label>
                 <p class="small mb-0" data-behavior="cvss4-field-value" data-field-name="<%= field %>"></p>

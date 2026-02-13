@@ -76,8 +76,9 @@
                        id="cvss4-field-<%= field.parameterize %>"
                        data-behavior="cvss4-field-switch"
                        data-field-name="<%= field %>"
-                       <%= 'checked' if enabled_fields.include?(field) %>>
-                <label class="form-check-label" for="cvss4-field-<%= field.parameterize %>"><%= field %></label>
+                       <%= 'checked' if enabled_fields.include?(field) || field == 'CVSSv4.BaseVector' %>
+                       <%= 'disabled' if field == 'CVSSv4.BaseVector' %>>
+                <label class="form-check-label<%= ' opacity-100' if field == 'CVSSv4.BaseVector' %>" for="cvss4-field-<%= field.parameterize %>"><%= field %></label>
                 <p class="small mb-0" data-behavior="cvss4-field-value" data-field-name="<%= field %>"></p>
               </div>
             <% end %>

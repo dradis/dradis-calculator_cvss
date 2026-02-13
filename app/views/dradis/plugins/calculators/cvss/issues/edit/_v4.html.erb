@@ -46,6 +46,8 @@
         <p>Toggle the fields you'd like to include in the issue content. Defaults can be set in the <%= link_to 'Configuration Manager', main_app.project_configurations_path %>.</p>
         <%
           default_fields = Dradis::Plugins::Calculators::CVSS::Engine.settings.v4_fields.split(',')
+          existing_fields = @issue.fields.keys.select { |k| k.start_with?('CVSSv4.') }
+          enabled_fields = existing_fields.any? ? existing_fields : default_fields
           field_groups = Dradis::Plugins::Calculators::CVSS::V4::FIELDS.group_by do |field|
             name = field.sub('CVSSv4.', '')
             case name
@@ -70,11 +72,9 @@
                        id="cvss4-field-<%= field.parameterize %>"
                        data-behavior="cvss4-field-switch"
                        data-field-name="<%= field %>"
-                       <%= 'checked' if default_fields.include?(field) %>>
-                <label class="form-check-label d-flex flex-column" for="cvss4-field-<%= field.parameterize %>">
-                  <span class="h4 fw-bold"><%= field %></span>
-                  <span data-behavior="cvss4-field-value" data-field-name="<%= field %>"></span>
-                </label>
+                       <%= 'checked' if enabled_fields.include?(field) %>>
+                <label class="form-check-label" for="cvss4-field-<%= field.parameterize %>"><%= field %></label>
+                <p class="small mb-0" data-behavior="cvss4-field-value" data-field-name="<%= field %>"></p>
               </div>
             <% end %>
           </div>

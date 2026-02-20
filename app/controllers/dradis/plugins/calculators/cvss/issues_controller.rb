@@ -15,7 +15,7 @@ module Dradis::Plugins::Calculators::CVSS
         @issue.set_field(name, value)
       end
 
-      existing_v4_fields = @issue.fields.keys.select { |k| V4::FIELDS.include?(k) }
+      existing_v4_fields = @issue.fields.keys & V4::FIELDS
       (existing_v4_fields - cvss_fields.keys).each do |name|
         @issue.delete_field(name)
       end

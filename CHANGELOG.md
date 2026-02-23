@@ -1,3 +1,6 @@
+v4.20.0 (Month 2026)
+  - CVSSv4: configure fields you care about
+
 v4.19.0 (November 2025)
   - No changes
 

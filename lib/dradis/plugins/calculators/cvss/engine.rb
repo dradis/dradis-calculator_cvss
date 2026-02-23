@@ -6,6 +6,10 @@ module Dradis::Plugins::Calculators::CVSS
     provides :addon
     description 'Risk Calculator: CVSS'
 
+    addon_settings :cvss do
+      settings.default_v4_fields = 'CVSSv4.BaseVector,CVSSv4.BaseScore,CVSSv4.BaseSeverity'
+    end
+
     initializer 'calculator_cvss.asset_precompile_paths' do |app|
       app.config.assets.precompile += [
         'dradis/plugins/calculators/cvss/base.css',

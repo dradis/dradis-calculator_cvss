@@ -1,4 +1,8 @@
-<div class="inner note-text-inner d-none" data-cvss-version="4">
+<div
+  class="inner note-text-inner d-none"
+  data-behavior="cvss-v4-calculator"
+  data-cvss-version="4"
+>
 
   <%= simple_form_for [:cvss, current_project, @issue] do |f| %>
 
@@ -39,63 +43,36 @@
       </div>
 
       <div class="tab-pane" id="cvss4-edit-result" data-behavior="cvss4-result-text">
-        <textarea class="form-control" name="cvss_fields" rows="10" style="width:95%">#[CVSSv4.Vector]#
-N/A
+        <p>Toggle the fields you'd like to include in the issue content. Defaults can be set in the <%= link_to 'Configuration Manager', main_app.project_configurations_path %>.</p>
+        <div class="mb-2">
+          <a href="javascript:void(0)" data-behavior="form-select-all">Select all</a>
+          - <a href="javascript:void(0)" data-behavior="form-select-none">Deselect all</a>
+        </div>
+        <% @v4_field_groups.each do |group_name, fields| %>
+          <div class="mb-3">
+            <h6 class="mb-2"><%= group_name %></h6>
+            <% fields.each do |field| %>
+              <div class="form-check form-switch mb-2">
+                <input class="form-check-input"
+                       type="checkbox"
+                       role="switch"
+                       id="cvss4-field-<%= field.parameterize %>"
+                       data-behavior="cvss4-field-switch"
+                       data-field-name="<%= field %>"
+                       <%= 'checked' if @enabled_fields.include?(field) || field == 'CVSSv4.BaseVector' %>
+                       <%= 'disabled' if field == 'CVSSv4.BaseVector' %>>
+                <label class="form-check-label<%= ' opacity-100' if field == 'CVSSv4.BaseVector' %>" for="cvss4-field-<%= field.parameterize %>"><%= field %></label>
+                <p class="small mb-0" data-behavior="cvss4-field-value" data-field-name="<%= field %>"></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
 
-#[CVSSv4.BaseScore]#
-N/A
-
-#[CVSSv4.BaseSeverity]#
-N/A
-
-#[CVSSv4.MacroVector]#
-#[CVSSv4.Expoitability]#
-#[CVSSv4.Complexity]#
-#[CVSSv4.VulnerableSystem]#
-#[CVSSv4.SubsequentSystem]#
-#[CVSSv4.Exploitation]#
-#[CVSSv4.SecurityRequirements]#
-
-#[CVSSv4.BaseExploitableAttackVector]#
-#[CVSSv4.BaseExploitableAttackComplexity]#
-#[CVSSv4.BaseExploitableAttackRequirements]#
-#[CVSSv4.BaseExploitablePrivilegesRequired]#
-#[CVSSv4.BaseExploitableUserInteraction]#
-#[CVSSv4.BaseVulnerableConfidentiality]#
-#[CVSSv4.BaseVulnerableIntegrity]#
-#[CVSSv4.BaseVulnerableAvailability]#
-#[CVSSv4.BaseSubsequentConfidentiality]#
-#[CVSSv4.BaseSubsequentIntegrity]#
-#[CVSSv4.BaseSubsequentAvailability]#
-
-#[CVSSv4.SupplementalSafety]#
-#[CVSSv4.SupplementalAutomatable]#
-#[CVSSv4.SupplementalRecovery]#
-#[CVSSv4.SupplementalValueDensity]#
-#[CVSSv4.SupplementalVulnerabilityResponseEffort]#
-#[CVSSv4.SupplementalProviderUrgency]#
-
-#[CVSSv4.EnvironmentalExploitabilityAttackVector]#
-#[CVSSv4.EnvironmentalExploitabilityAttackComplexity]#
-#[CVSSv4.EnvironmentalExploitabilityAttackRequirements]#
-#[CVSSv4.EnvironmentalExploitabilityPrivilegesRequired]#
-#[CVSSv4.EnvironmentalExploitabilityUserInteraction]#
-#[CVSSv4.EnvironmentalVulnerableConfidentiality]#
-#[CVSSv4.EnvironmentalVulnerableIntegrity]#
-#[CVSSv4.EnvironmentalVulnerableAvailability]#
-#[CVSSv4.EnvironmentalSubsequentConfidentiality]#
-#[CVSSv4.EnvironmentalSubsequentIntegrity]#
-#[CVSSv4.EnvironmentalSubsequentAvailability]#
-#[CVSSv4.EnvironmentalConfidentialityRequirements]#
-#[CVSSv4.EnvironmentalIntegrityRequirements]#
-#[CVSSv4.EnvironmentalAvailabilityRequirements]#
-
-#[CVSSv4.ThreatExploitMaturity]#
-        </textarea>
+        <textarea class="d-none" name="cvss_fields"></textarea>
       </div>
     </div>
 
-    <div class="form-actions">
+    <div class="form-actions sticky">
       <%= f.button :submit, nil, class: 'btn btn-primary' %> or
       <%= link_to 'Cancel', main_app.project_issue_path(current_project, @issue), class: 'cancel-link' %>
     </div>

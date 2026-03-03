@@ -1,5 +1,6 @@
 v4.20.0 (Month 2026)
   - CVSSv4: configure fields you care about
+  - Issue: Remove extra click to access the calculator
 
 v4.19.0 (November 2025)
   - No changes

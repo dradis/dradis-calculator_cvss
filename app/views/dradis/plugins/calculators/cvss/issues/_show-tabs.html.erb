@@ -1,3 +1,5 @@
 <li class="nav-item">
-  <a href="#cvss-tab" data-bs-toggle="tab" class="nav-link"><i class="fa-solid fa-calculator"></i> CVSS</a>
+  <%= link_to cvss_calculator.cvss_project_issue_path(current_project, @issue), class: 'nav-link' do %>
+    <i class="fa-solid fa-calculator"></i> CVSS
+  <% end %>
 </li>

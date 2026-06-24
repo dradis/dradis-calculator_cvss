@@ -1,5 +1,254 @@
-@import '_bootstrap';
-@import 'font-awesome';
-
 @import 'hera/variables';
-@import 'hera/modules/buttons';
+
+.cvss-calculator {
+  padding-bottom: 2rem;
+
+  .cvss-metric-group {
+    border: 1px solid $grey-300;
+    border-radius: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .cvss-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    margin-top: 0;
+  }
+
+  .cvss-group-title {
+    border-bottom: 1px solid $grey-300;
+    color: $grey-600;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .cvss-metric-subgroup {
+    margin-top: 2rem;
+    width: 100%;
+
+    &:first-child {
+      margin-top: 1rem;
+    }
+  }
+
+  .cvss-metric-label {
+    display: block;
+    margin-bottom: 0.375rem;
+
+    strong {
+      font-weight: 700;
+      margin-right: 0.25rem;
+    }
+
+    span {
+      color: $grey-600;
+    }
+
+    i {
+      color: $grey-500;
+      cursor: help;
+      margin-left: 0.25rem;
+    }
+  }
+
+  .cvss-btn-group.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+
+    > .btn {
+      border-radius: 2rem !important;
+      flex: none;
+      font-size: 0.8rem;
+      font-weight: 400;
+      margin-left: 0;
+      padding: 0.3rem 0.75rem;
+      white-space: nowrap;
+
+      &:not(.active) {
+        background: $grey-100;
+        border-color: transparent;
+        color: $grey-700;
+
+        &:hover {
+          background: $brand-100;
+          border-color: $primary;
+          color: $primary;
+        }
+      }
+
+      &.active {
+        background: $primary;
+        border-color: $primary;
+        box-shadow: 0 1px 3px rgba($primary, 0.3);
+        color: $white;
+      }
+    }
+  }
+}
+
+.cvss-results-panel {
+  border: 1px solid $grey-300;
+  border-radius: 0.5rem;
+  box-shadow: 0.125rem 0.125rem 0.5rem 0 rgba($grey-600, 0.1);
+  padding: 1.5rem;
+  position: sticky;
+  top: 1.5rem;
+}
+
+.cvss-score-display {
+  align-items: center;
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.cvss-score {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-right: 0.75rem;
+}
+
+.cvss-severity-badge {
+  border-radius: 2rem;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.875rem;
+}
+
+.cvss-severity-none {
+  background: $grey-100;
+  border: 1px solid $grey-800;
+  color: $grey-800;
+}
+
+.cvss-severity-low {
+  background: $blue-100;
+  border: 1px solid $blue-700;
+  color: $blue-700;
+}
+
+.cvss-severity-medium {
+  background: $orange-100;
+  border: 1px solid $orange-700;
+  color: $orange-700;
+}
+
+.cvss-severity-high {
+  background: $red-100;
+  border: 1px solid $red-600;
+  color: $red-600;
+}
+
+.cvss-severity-critical {
+  background: mix($white, $lavender-dark, 85%);
+  border: 1px solid darken($lavender-dark, 20%);
+  color: darken($lavender-dark, 20%);
+}
+
+.cvss-vector-display {
+  margin-bottom: 1.25rem;
+}
+
+.cvss-vector-label {
+  color: $grey-600;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.375rem;
+  text-transform: uppercase;
+}
+
+.cvss-vector-copyable {
+  align-items: center;
+  background: $grey-100;
+  border: 1px solid $grey-300;
+  border-radius: 0.375rem;
+  display: flex;
+  padding: 0.5rem 0.75rem;
+}
+
+.cvss-vector-string {
+  background-color: transparent;
+  color: $grey-700;
+  flex: 1;
+  font-size: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cvss-copy-btn {
+  background: none;
+  border: none;
+  color: $grey-600;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  padding: 0.125rem 0.375rem;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.cvss-dradis-output {
+  margin-bottom: 0.5rem;
+}
+
+.cvss-output-label {
+  color: $grey-600;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.375rem;
+  text-transform: uppercase;
+
+  small {
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-top: 0.125rem;
+    text-transform: none;
+  }
+}
+
+.cvss-output-textarea {
+  background: $grey-100;
+  border: 1px solid $grey-300;
+  border-radius: 0.375rem;
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  resize: vertical;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 0.2rem rgba($primary, 0.15);
+  }
+}
+
+@media (max-width: 991px) {
+  .cvss-results-panel {
+    box-shadow: none;
+    position: static;
+  }
+
+  .cvss-score {
+    font-size: 2.25rem;
+  }
+
+  .cvss-calculator .cvss-btn-group .btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.625rem;
+  }
+}

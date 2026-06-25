@@ -210,18 +210,18 @@ class CVSS40Calculator extends CVSS4Calculator {
 
     $('[data-behavior=cvss4-result-text] textarea').val(issue_cvss);
 
-    var score = this.app.score();
-    var severity = this.app.qualScore();
+    const score = this.app.score();
+    const severity = this.app.qualScore();
 
     if ($('[data-behavior=cvss4-severity]').length) {
       $('[data-behavior=cvss4-result]').text(score);
       $('[data-behavior=cvss4-severity]')
         .text(severity)
         .removeClass('cvss-severity-none cvss-severity-low cvss-severity-medium cvss-severity-high cvss-severity-critical')
-        .addClass('cvss-severity-' + severity.toLowerCase());
+        .addClass(`cvss-severity-${severity.toLowerCase()}`);
       $('[data-behavior=cvss4-vector]').text(this.baseVector());
     } else {
-      $('[data-behavior=cvss4-result]').html(score + ' (' + severity + ')');
+      $('[data-behavior=cvss4-result]').html(`${score} (${severity})`);
     }
   }
 }

@@ -1,12 +1,12 @@
 <section data-behavior="cvss-buttons" data-cvss-version="4" data-cvss-metrics="Environmental (Modified Base Metrics)">
   <div class="row">
     <div class="col-12 col-xl-6 cvss-metric-subgroup" data-cvss-metric-group="Exploitability Metrics">
-      <h5 class="cvss-group-title mb-3 fw-bold">Exploitability Metrics</h5>
+      <h5 class="cvss-group-title">Exploitability Metrics</h5>
 
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Attack Vector (MAV)"><strong>MAV</strong> <span>Attack Vector</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :mav, @cvss4_vector['MAV'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MAV'] == 'X' %>" name="mav" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MAV'] == 'N' %>" name="mav" value="N" data-cvss-option="Network (N)">Network (N)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MAV'] == 'A' %>" name="mav" value="A" data-cvss-option="Adjacent (A)">Adjacent (A)</button>
@@ -18,7 +18,7 @@
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Attack Complexity (MAC)"><strong>MAC</strong> <span>Attack Complexity</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :mac, @cvss4_vector['MAC'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MAC'] == 'X' %>" name="mac" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MAC'] == 'L' %>" name="mac" value="L" data-cvss-option="Low (L)">Low (L)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MAC'] == 'H' %>" name="mac" value="H" data-cvss-option="High (H)">High (H)</button>
@@ -28,7 +28,7 @@
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Attack Requirements (MAT)"><strong>MAT</strong> <span>Attack Requirements</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :mat, @cvss4_vector['MAT'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MAT'] == 'X' %>" name="mat" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MAT'] == 'N' %>" name="mat" value="N" data-cvss-option="None (N)">None (N)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MAT'] == 'P' %>" name="mat" value="P" data-cvss-option="Present (P)">Present (P)</button>
@@ -38,7 +38,7 @@
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Privileges Required (MPR)"><strong>MPR</strong> <span>Privileges Required</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :mpr, @cvss4_vector['MPR'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MPR'] == 'X' %>" name="mpr" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MPR'] == 'N' %>" name="mpr" value="N" data-cvss-option="None (N)">None (N)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MPR'] == 'L' %>" name="mpr" value="L" data-cvss-option="Low (L)">Low (L)</button>
@@ -49,7 +49,7 @@
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="User Interaction (MUI)"><strong>MUI</strong> <span>User Interaction</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :mui, @cvss4_vector['MUI'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MUI'] == 'X' %>" name="mui" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MUI'] == 'N' %>" name="mui" value="N" data-cvss-option="None (N)">None (N)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MUI'] == 'P' %>" name="mui" value="P" data-cvss-option="Passive (P)">Passive (P)</button>
@@ -59,12 +59,12 @@
     </div>
 
     <div class="col-12 col-xl-6 cvss-metric-subgroup" data-cvss-metric-group="Vulnerable System Impact Metrics">
-      <h5 class="cvss-group-title mb-3 fw-bold">Vulnerable System Impact</h5>
+      <h5 class="cvss-group-title">Vulnerable System Impact</h5>
 
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Confidentiality (MVC)"><strong>MVC</strong> <span>Confidentiality</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :mvc, @cvss4_vector['MVC'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MVC'] == 'X' %>" name="mvc" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MVC'] == 'H' %>" name="mvc" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MVC'] == 'L' %>" name="mvc" value="L" data-cvss-option="Low (L)">Low (L)</button>
@@ -75,7 +75,7 @@
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Integrity (MVI)"><strong>MVI</strong> <span>Integrity</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :mvi, @cvss4_vector['MVI'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MVI'] == 'X' %>" name="mvi" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MVI'] == 'H' %>" name="mvi" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MVI'] == 'L' %>" name="mvi" value="L" data-cvss-option="Low (L)">Low (L)</button>
@@ -86,7 +86,7 @@
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Availability (MVA)"><strong>MVA</strong> <span>Availability</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :mva, @cvss4_vector['MVA'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MVA'] == 'X' %>" name="mva" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MVA'] == 'H' %>" name="mva" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MVA'] == 'L' %>" name="mva" value="L" data-cvss-option="Low (L)">Low (L)</button>
@@ -96,12 +96,12 @@
     </div>
 
     <div class="col-12 col-xl-6 cvss-metric-subgroup" data-cvss-metric-group="Subsequent System Impact Metrics">
-      <h5 class="cvss-group-title mb-3 fw-bold">Subsequent System Impact</h5>
+      <h5 class="cvss-group-title">Subsequent System Impact</h5>
 
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Confidentiality (MSC)"><strong>MSC</strong> <span>Confidentiality</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :msc, @cvss4_vector['MSC'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MSC'] == 'X' %>" name="msc" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MSC'] == 'H' %>" name="msc" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MSC'] == 'L' %>" name="msc" value="L" data-cvss-option="Low (L)">Low (L)</button>
@@ -112,7 +112,7 @@
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Integrity (MSI)"><strong>MSI</strong> <span>Integrity</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :msi, @cvss4_vector['MSI'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MSI'] == 'X' %>" name="msi" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MSI'] == 'S' %>" name="msi" value="S" data-cvss-option="Safety (S)">Safety (S)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MSI'] == 'H' %>" name="msi" value="H" data-cvss-option="High (H)">High (H)</button>
@@ -124,7 +124,7 @@
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Availability (MSA)"><strong>MSA</strong> <span>Availability</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :msa, @cvss4_vector['MSA'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MSA'] == 'X' %>" name="msa" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MSA'] == 'S' %>" name="msa" value="S" data-cvss-option="Safety (S)">Safety (S)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['MSA'] == 'H' %>" name="msa" value="H" data-cvss-option="High (H)">High (H)</button>
@@ -135,12 +135,12 @@
     </div>
 
     <div class="col-12 col-xl-6 cvss-metric-subgroup" data-cvss-metric-group="Environmental (Security Requirements)">
-      <h5 class="cvss-group-title mb-3 fw-bold">Security Requirements</h5>
+      <h5 class="cvss-group-title">Security Requirements</h5>
 
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Confidentiality Requirements (CR)"><strong>CR</strong> <span>Confidentiality Requirements</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :cr, @cvss4_vector['CR'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['CR'] == 'X' %>" name="cr" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['CR'] == 'H' %>" name="cr" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['CR'] == 'M' %>" name="cr" value="M" data-cvss-option="Medium (M)">Medium (M)</button>
@@ -151,7 +151,7 @@
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Integrity Requirements (IR)"><strong>IR</strong> <span>Integrity Requirements</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :ir, @cvss4_vector['IR'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['IR'] == 'X' %>" name="ir" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['IR'] == 'H' %>" name="ir" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['IR'] == 'M' %>" name="ir" value="M" data-cvss-option="Medium (M)">Medium (M)</button>
@@ -162,7 +162,7 @@
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Availability Requirements (AR)"><strong>AR</strong> <span>Availability Requirements</span> <i class="fa-regular fa-question-circle small" aria-hidden="true"></i></label>
         <%= hidden_field_tag :ar, @cvss4_vector['AR'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AR'] == 'X' %>" name="ar" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AR'] == 'H' %>" name="ar" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AR'] == 'M' %>" name="ar" value="M" data-cvss-option="Medium (M)">Medium (M)</button>

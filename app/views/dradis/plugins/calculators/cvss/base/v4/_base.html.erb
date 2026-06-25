@@ -1,7 +1,7 @@
 <section data-behavior="cvss-buttons" data-cvss-version="4" data-cvss-metrics="Base Metrics">
   <div class="row">
     <div class="col-12 col-xl-6 cvss-metric-subgroup" data-cvss-metric-group="Exploitability Metrics">
-      <h5 class="cvss-group-title mb-3 fw-bold">Exploitability Metrics</h5>
+      <h5 class="cvss-group-title">Exploitability Metrics</h5>
 
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Attack Vector (AV)">
@@ -9,7 +9,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :av, @cvss4_vector['AV'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AV'] == 'N' %>" name="av" value="N" data-cvss-option="Network (N)">Network (N)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AV'] == 'A' %>" name="av" value="A" data-cvss-option="Adjacent (A)">Adjacent (A)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AV'] == 'L' %>" name="av" value="L" data-cvss-option="Local (L)">Local (L)</button>
@@ -23,7 +23,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :ac, @cvss4_vector['AC'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AC'] == 'L' %>" name="ac" value="L" data-cvss-option="Low (L)">Low (L)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AC'] == 'H' %>" name="ac" value="H" data-cvss-option="High (H)">High (H)</button>
         </div>
@@ -35,7 +35,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :at, @cvss4_vector['AT'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AT'] == 'N' %>" name="at" value="N" data-cvss-option="None (N)">None (N)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AT'] == 'P' %>" name="at" value="P" data-cvss-option="Present (P)">Present (P)</button>
         </div>
@@ -47,7 +47,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :pr, @cvss4_vector['PR'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['PR'] == 'N' %>" name="pr" value="N" data-cvss-option="None (N)">None (N)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['PR'] == 'L' %>" name="pr" value="L" data-cvss-option="Low (L)">Low (L)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['PR'] == 'H' %>" name="pr" value="H" data-cvss-option="High (H)">High (H)</button>
@@ -60,7 +60,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :ui, @cvss4_vector['UI'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['UI'] == 'N' %>" name="ui" value="N" data-cvss-option="None (N)">None (N)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['UI'] == 'P' %>" name="ui" value="P" data-cvss-option="Passive (P)">Passive (P)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['UI'] == 'A' %>" name="ui" value="A" data-cvss-option="Active (A)">Active (A)</button>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="col-12 col-xl-6 cvss-metric-subgroup" data-cvss-metric-group="Vulnerable System Impact Metrics">
-      <h5 class="cvss-group-title mb-3 fw-bold">Vulnerable System Impact Metrics</h5>
+      <h5 class="cvss-group-title">Vulnerable System Impact Metrics</h5>
 
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Confidentiality (VC)">
@@ -77,7 +77,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :vc, @cvss4_vector['VC'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['VC'] == 'H' %>" name="vc" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['VC'] == 'L' %>" name="vc" value="L" data-cvss-option="Low (L)">Low (L)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['VC'] == 'N' %>" name="vc" value="N" data-cvss-option="None (N)">None (N)</button>
@@ -90,7 +90,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :vi, @cvss4_vector['VI'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['VI'] == 'H' %>" name="vi" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['VI'] == 'L' %>" name="vi" value="L" data-cvss-option="Low (L)">Low (L)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['VI'] == 'N' %>" name="vi" value="N" data-cvss-option="None (N)">None (N)</button>
@@ -103,7 +103,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :va, @cvss4_vector['VA'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['VA'] == 'H' %>" name="va" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['VA'] == 'L' %>" name="va" value="L" data-cvss-option="Low (L)">Low (L)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['VA'] == 'N' %>" name="va" value="N" data-cvss-option="None (N)">None (N)</button>
@@ -112,7 +112,7 @@
     </div>
 
     <div class="col-12 col-xl-6 cvss-metric-subgroup" data-cvss-metric-group="Subsequent System Impact Metrics">
-      <h5 class="cvss-group-title mb-3 fw-bold">Subsequent System Impact Metrics</h5>
+      <h5 class="cvss-group-title">Subsequent System Impact Metrics</h5>
 
       <div class="cvss-metric">
         <label class="cvss-metric-label" data-cvss-heading="Confidentiality (SC)">
@@ -120,7 +120,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :sc, @cvss4_vector['SC'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['SC'] == 'H' %>" name="sc" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['SC'] == 'L' %>" name="sc" value="L" data-cvss-option="Low (L)">Low (L)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['SC'] == 'N' %>" name="sc" value="N" data-cvss-option="None (N)">None (N)</button>
@@ -133,7 +133,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :si, @cvss4_vector['SI'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['SI'] == 'H' %>" name="si" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['SI'] == 'L' %>" name="si" value="L" data-cvss-option="Low (L)">Low (L)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['SI'] == 'N' %>" name="si" value="N" data-cvss-option="None (N)">None (N)</button>
@@ -146,7 +146,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :sa, @cvss4_vector['SA'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['SA'] == 'H' %>" name="sa" value="H" data-cvss-option="High (H)">High (H)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['SA'] == 'L' %>" name="sa" value="L" data-cvss-option="Low (L)">Low (L)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['SA'] == 'N' %>" name="sa" value="N" data-cvss-option="None (N)">None (N)</button>

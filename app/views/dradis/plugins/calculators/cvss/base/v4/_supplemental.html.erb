@@ -7,7 +7,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :s, @cvss4_vector['S'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['S'] == 'X' %>" name="s" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['S'] == 'N' %>" name="s" value="N" data-cvss-option="Negligible (N)">Negligible (N)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['S'] == 'P' %>" name="s" value="P" data-cvss-option="Present (P)">Present (P)</button>
@@ -20,7 +20,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :au, @cvss4_vector['AU'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AU'] == 'X' %>" name="au" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AU'] == 'N' %>" name="au" value="N" data-cvss-option="No (N)">No (N)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['AU'] == 'Y' %>" name="au" value="Y" data-cvss-option="Yes (Y)">Yes (Y)</button>
@@ -33,7 +33,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :r, @cvss4_vector['R'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['R'] == 'X' %>" name="r" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['R'] == 'A' %>" name="r" value="A" data-cvss-option="Automatic (A)">Automatic (A)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['R'] == 'U' %>" name="r" value="U" data-cvss-option="User (U)">User (U)</button>
@@ -47,7 +47,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :v, @cvss4_vector['V'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['V'] == 'X' %>" name="v" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['V'] == 'D' %>" name="v" value="D" data-cvss-option="Diffuse (D)">Diffuse (D)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['V'] == 'C' %>" name="v" value="C" data-cvss-option="Concentrated (C)">Concentrated (C)</button>
@@ -60,7 +60,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :re, @cvss4_vector['RE'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['RE'] == 'X' %>" name="re" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['RE'] == 'L' %>" name="re" value="L" data-cvss-option="Low (L)">Low (L)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['RE'] == 'M' %>" name="re" value="M" data-cvss-option="Moderate (M)">Moderate (M)</button>
@@ -74,7 +74,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :u, @cvss4_vector['U'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['U'] == 'X' %>" name="u" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['U'] == 'Clear' %>" name="u" value="Clear" data-cvss-option="Clear">Clear</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['U'] == 'Green' %>" name="u" value="Green" data-cvss-option="Green">Green</button>

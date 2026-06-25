@@ -7,7 +7,7 @@
           <i class="fa-regular fa-question-circle small" aria-hidden="true"></i>
         </label>
         <%= hidden_field_tag :e, @cvss4_vector['E'] %>
-        <div class="btn-group cvss-btn-group mb-4">
+        <div class="btn-group cvss-btn-group">
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['E'] == 'X' %>" name="e" value="X" data-cvss-option="Not Defined (X)">Not Defined (X)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['E'] == 'A' %>" name="e" value="A" data-cvss-option="Attacked (A)">Attacked (A)</button>
           <button type="button" class="btn <%= 'active btn-primary' if @cvss4_vector['E'] == 'P' %>" name="e" value="P" data-cvss-option="POC (P)">POC (P)</button>

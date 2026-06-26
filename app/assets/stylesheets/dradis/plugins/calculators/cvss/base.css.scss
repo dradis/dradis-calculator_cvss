@@ -17,7 +17,7 @@
 
   .cvss-group-title {
     border-bottom: 1px solid $grey-300;
-    font-size: 0.8rem;
+    font-size: 0.875em;
     letter-spacing: 0.04em;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
@@ -135,7 +135,6 @@
 
 .cvss-vector-label,
 .cvss-output-label {
-  font-size: 0.7rem;
   letter-spacing: 0.04em;
   margin-bottom: 0.375rem;
   text-transform: uppercase;

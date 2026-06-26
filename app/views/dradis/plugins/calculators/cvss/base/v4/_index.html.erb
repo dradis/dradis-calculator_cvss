@@ -1,82 +1,53 @@
 <div class="row">
   <div class="col-lg-8">
-    <h3 class="border-bottom border-dark border-opacity-25 pb-1">
-      Base
-    </h3>
-    <%= render 'dradis/plugins/calculators/cvss/base/v4/base' %>
+    <div class="cvss-metric-group" data-cvss-metrics="Base Metrics">
+      <h3 class="cvss-section-title">Base Score</h3>
+      <%= render 'dradis/plugins/calculators/cvss/base/v4/base' %>
+    </div>
 
-    <h3 class="mt-5 border-bottom border-dark border-opacity-25 pb-1">
-      Supplemental
-    </h3>
-    <%= render 'dradis/plugins/calculators/cvss/base/v4/supplemental' %>
+    <div class="cvss-metric-group">
+      <h3 class="cvss-section-title">Supplemental Metrics</h3>
+      <%= render 'dradis/plugins/calculators/cvss/base/v4/supplemental' %>
+    </div>
 
-    <h3 class="mt-5 border-bottom border-dark border-opacity-25 pb-1">
-      Environmental
-    </h3>
-    <%= render 'dradis/plugins/calculators/cvss/base/v4/environmental' %>
+    <div class="cvss-metric-group">
+      <h3 class="cvss-section-title">Environmental Metrics</h3>
+      <%= render 'dradis/plugins/calculators/cvss/base/v4/environmental' %>
+    </div>
 
-    <h3 class="mt-5 border-bottom border-dark border-opacity-25 pb-1">
-      Threat
-    </h3>
-    <div class="mb-4"><%= render 'dradis/plugins/calculators/cvss/base/v4/threat' %></div>
-  </div>
+    <div class="cvss-metric-group">
+      <h3 class="cvss-section-title">Threat Metrics</h3>
+      <%= render 'dradis/plugins/calculators/cvss/base/v4/threat' %>
+    </div>
+  </div><%# /col-lg-8 %>
 
-  <div class="col-lg-4" id="cvss4-edit-result" data-behavior="cvss4-result-text">
-    <h3>
-      Result: <span id="cvss4-score" data-behavior="cvss4-result">0.0 (None)</span>
-    </h3>
-    <textarea name="cvss_fields" rows="52" class="form-control mb-4">#[CVSSv4.Vector]#
-N/A
+  <%# ── Results column (sticky) ── %>
+  <div class="col-lg-4">
+    <div class="cvss-results-panel" data-behavior="cvss4-result-text">
+      <h3 class="cvss-section-title">Result</h3>
 
-#[CVSSv4.BaseScore]#
-N/A
+      <div class="cvss-score-display">
+        <span class="cvss-score" data-behavior="cvss4-result">0.0</span>
+        <span class="cvss-severity-badge cvss-severity-none" data-behavior="cvss4-severity">None</span>
+      </div>
 
-#[CVSSv4.BaseSeverity]#
-N/A
+      <div class="cvss-vector-display">
+        <label class="cvss-vector-label small">Vector String</label>
+        <div class="cvss-vector-copyable">
+          <code class="cvss-vector-string" data-behavior="cvss4-vector">CVSS:4.0</code>
+          <button type="button" class="btn btn-sm cvss-copy-btn" data-behavior="cvss-copy-vector" title="Copy to clipboard">
+            <i class="fa-regular fa-copy" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
 
-#[CVSSv4.MacroVector]#
-#[CVSSv4.Expoitability]#
-#[CVSSv4.Complexity]#
-#[CVSSv4.VulnerableSystem]#
-#[CVSSv4.SubsequentSystem]#
-#[CVSSv4.Exploitation]#
-#[CVSSv4.SecurityRequirements]#
-
-#[CVSSv4.BaseExploitableAttackVector]#
-#[CVSSv4.BaseExploitableAttackComplexity]#
-#[CVSSv4.BaseExploitableAttackRequirements]#
-#[CVSSv4.BaseExploitablePrivilegesRequired]#
-#[CVSSv4.BaseExploitableUserInteraction]#
-#[CVSSv4.BaseVulnerableConfidentiality]#
-#[CVSSv4.BaseVulnerableIntegrity]#
-#[CVSSv4.BaseVulnerableAvailability]#
-#[CVSSv4.BaseSubsequentConfidentiality]#
-#[CVSSv4.BaseSubsequentIntegrity]#
-#[CVSSv4.BaseSubsequentAvailability]#
-
-#[CVSSv4.SupplementalSafety]#
-#[CVSSv4.SupplementalAutomatable]#
-#[CVSSv4.SupplementalRecovery]#
-#[CVSSv4.SupplementalValueDensity]#
-#[CVSSv4.SupplementalVulnerabilityResponseEffort]#
-#[CVSSv4.SupplementalProviderUrgency]#
-
-#[CVSSv4.EnvironmentalExploitabilityAttackVector]#
-#[CVSSv4.EnvironmentalExploitabilityAttackComplexity]#
-#[CVSSv4.EnvironmentalExploitabilityAttackRequirements]#
-#[CVSSv4.EnvironmentalExploitabilityPrivilegesRequired]#
-#[CVSSv4.EnvironmentalExploitabilityUserInteraction]#
-#[CVSSv4.EnvironmentalVulnerableConfidentiality]#
-#[CVSSv4.EnvironmentalVulnerableIntegrity]#
-#[CVSSv4.EnvironmentalVulnerableAvailability]#
-#[CVSSv4.EnvironmentalSubsequentConfidentiality]#
-#[CVSSv4.EnvironmentalSubsequentIntegrity]#
-#[CVSSv4.EnvironmentalSubsequentAvailability]#
-#[CVSSv4.EnvironmentalConfidentialityRequirements]#
-#[CVSSv4.EnvironmentalIntegrityRequirements]#
-#[CVSSv4.EnvironmentalAvailabilityRequirements]#
-
-#[CVSSv4.ThreatExploitMaturity]#
-    </textarea>
-  </div>
-</div>
+      <div class="cvss-dradis-output">
+        <label class="cvss-output-label">
+          Dradis field output
+          <span class="d-block">Copy this into Dradis to populate issue fields</span>
+        </label>
+        <textarea name="cvss_fields" rows="20" class="form-control cvss-output-textarea" readonly></textarea>
+      </div>
+    </div>
+  </div><%# /col-lg-4 %>
+</div><%# /row %>

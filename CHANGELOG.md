@@ -1,3 +1,6 @@
+v5.#.0 (Month 2026)
+  - Standalone calculator: redesign with two-column layout, sticky results panel, severity badges, and vector string copy
+
 v5.1.0 (May 2026)
   - No changes
 

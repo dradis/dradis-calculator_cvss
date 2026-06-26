@@ -5,7 +5,7 @@
   padding-bottom: 2rem;
 
   .cvss-metric-group {
-    border: 1px solid $grey-300;
+    border: 1px solid var(--border-color);
     border-radius: 0.5rem;
     margin-bottom: 1.25rem;
     padding: 1.5rem;
@@ -16,7 +16,7 @@
   }
 
   .cvss-group-title {
-    border-bottom: 1px solid $grey-300;
+    border-bottom: 1px solid var(--border-color);
     font-size: 0.875em;
     letter-spacing: 0.04em;
     margin-bottom: 1rem;
@@ -49,8 +49,8 @@
       white-space: nowrap;
 
       &:not(.active) {
-        background: $grey-100;
-        color: $grey-700;
+        background: var(--secondary-bg);
+        color: var(--text-muted);
 
         &:hover {
           background: $brand-100;
@@ -69,7 +69,7 @@
 }
 
 .cvss-results-panel {
-  border: 1px solid $grey-300;
+  border: 1px solid var(--border-color);
   border-radius: 0.5rem;
   box-shadow: 0.125rem 0.125rem 0.5rem 0 $shadow-color-light;
   padding: 1.5rem;
@@ -148,8 +148,8 @@
 
 .cvss-vector-copyable {
   align-items: center;
-  background: $grey-100;
-  border: 1px solid $grey-300;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
   border-radius: 0.375rem;
   display: flex;
   padding: 0.5rem 0.75rem;
@@ -157,7 +157,7 @@
 
 .cvss-vector-string {
   background-color: transparent;
-  color: $grey-700;
+  color: var(--text-muted);
   flex: 1;
   font-size: 0.75rem;
   overflow: hidden;
@@ -182,10 +182,10 @@
 }
 
 .cvss-output-textarea {
-  background: $grey-100 !important;
-  border: 1px solid $grey-300;
+  background: var(--secondary-bg) !important;
+  border: 1px solid var(--border-color);
   border-radius: 0.375rem;
-  color: $grey-700;
+  color: var(--text-muted);
   font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo',
     monospace;
   font-size: 0.75rem;

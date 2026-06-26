@@ -61,7 +61,7 @@
       &.active {
         background: $primary;
         border: 1px solid $primary;
-        box-shadow: 0.125rem 0.125rem 0.5rem 0 $shadow-color-light;
+        box-shadow: 0.125rem 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.1);
         color: $white;
       }
     }
@@ -71,7 +71,7 @@
 .cvss-results-panel {
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
-  box-shadow: 0.125rem 0.125rem 0.5rem 0 $shadow-color-light;
+  box-shadow: 0.125rem 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   position: sticky;
   top: 1.5rem;

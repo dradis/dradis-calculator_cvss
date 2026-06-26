@@ -60,7 +60,7 @@
 
       &.active {
         background: $primary;
-        border-color: $primary;
+        border: 1px solid $primary;
         box-shadow: 0.125rem 0.125rem 0.5rem 0 $shadow-color-light;
         color: $white;
       }

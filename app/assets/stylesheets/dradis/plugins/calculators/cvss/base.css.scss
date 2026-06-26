@@ -15,17 +15,8 @@
     }
   }
 
-  .cvss-section-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-    margin-top: 0;
-  }
-
   .cvss-group-title {
     border-bottom: 1px solid $grey-300;
-    color: $grey-600;
-    font-size: 0.8rem;
     letter-spacing: 0.04em;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
@@ -58,12 +49,10 @@
 
       &:not(.active) {
         background: $grey-100;
-        border-color: transparent;
         color: $grey-700;
 
         &:hover {
           background: $brand-100;
-          border-color: $primary;
           color: $primary;
         }
       }
@@ -71,7 +60,7 @@
       &.active {
         background: $primary;
         border-color: $primary;
-        box-shadow: 0 1px 3px rgba($primary, 0.3);
+        box-shadow: 0.125rem 0.125rem 0.5rem 0 $shadow-color-light;
         color: $white;
       }
     }
@@ -81,7 +70,7 @@
 .cvss-results-panel {
   border: 1px solid $grey-300;
   border-radius: 0.5rem;
-  box-shadow: 0.125rem 0.125rem 0.5rem 0 rgba($grey-600, 0.1);
+  box-shadow: 0.125rem 0.125rem 0.5rem 0 $shadow-color-light;
   padding: 1.5rem;
   position: sticky;
   top: 1.5rem;
@@ -145,16 +134,12 @@
 
 .cvss-vector-label,
 .cvss-output-label {
-  color: $grey-600;
-  font-size: 0.7rem;
-  font-weight: 600;
   letter-spacing: 0.04em;
   margin-bottom: 0.375rem;
   text-transform: uppercase;
 }
 
-.cvss-output-label small {
-  font-weight: 400;
+.cvss-output-label span {
   letter-spacing: 0;
   margin-top: 0.125rem;
   text-transform: none;
@@ -182,7 +167,6 @@
 .cvss-copy-btn {
   background: none;
   border: none;
-  color: $grey-600;
   flex-shrink: 0;
   margin-left: 0.5rem;
   padding: 0.125rem 0.375rem;
@@ -197,10 +181,12 @@
 }
 
 .cvss-output-textarea {
-  background: $grey-100;
+  background: $grey-100 !important;
   border: 1px solid $grey-300;
   border-radius: 0.375rem;
-  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+  color: $grey-700;
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo',
+    monospace;
   font-size: 0.75rem;
   line-height: 1.5;
   resize: vertical;

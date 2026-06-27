@@ -1,10 +1,12 @@
 # CVSS score calculator for Dradis
 
-This simple add-on adds a new page under `/calculators/cvss` for you to perform CVSS score calculations:
+This add-on adds the Common Vulnerability Scoring System (CVSS) risk calculator to [Dradis Framework](https://dradis.com/):
 
 ![cvss4_calculator](https://github.com/dradis/dradis-calculator_cvss/assets/111541062/fd957a70-c068-4453-908e-be50beff9325)
 
-The Common Vulnerability Scoring System (CVSS) Version 4.0, 3.1, 3.0 Calculator is heavily inspired in the one provided by [FIRST](https://www.first.org/cvss/calculator/3.0).
+Versions 4.0, 3.1, 3.0 of CVSS are supported in the calculator, which is heavily inspired in the one provided by [FIRST](https://www.first.org/cvss/calculator/3.0).
+
+You can try the [CVSS calculator online](https://dradis.com/tools/calculators/cvss.html) and outside of Dradis.
 
 
 ## Install

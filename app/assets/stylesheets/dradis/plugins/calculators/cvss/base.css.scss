@@ -198,6 +198,14 @@
   }
 }
 
+.navbar-brand {
+  color: var(--text-default);
+
+  &:hover {
+    color: var(--text-default);
+  }
+}
+
 @media (max-width: 991px) {
   .cvss-results-panel {
     box-shadow: none;

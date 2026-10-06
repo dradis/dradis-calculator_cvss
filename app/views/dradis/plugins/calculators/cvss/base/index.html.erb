@@ -1,17 +1,17 @@
-<%= content_tag :div, class: 'page-header' do %>
-  <h1 class="d-flex align-items-center justify-content-between">
-    CVSS score calculator
-    <div class="fs-3"><%= render 'dradis/plugins/calculators/cvss/version_menu' %></div>
-  </h1>
-<% end %>
+<div class="cvss-calculator" data-behavior="cvss-calculator">
+  <div class="page-header d-flex align-items-center justify-content-between mb-4">
+    <h1 class="m-0">CVSS v4.0 Calculator</h1>
+    <div class="fs-6"><%= render 'dradis/plugins/calculators/cvss/version_menu' %></div>
+  </div>
 
-<p class="lead">Use this page to calculate the <abbr title="Common Vulnerability Scoring System">CVSS</abbr> score of a given finding.</p>
+  <p class="lead">Calculate <abbr title="Common Vulnerability Scoring System">CVSS</abbr> scores for your findings.</p>
 
-<p class="alert alert-danger d-none" data-behavior="cvss-error"></p>
+  <p class="alert alert-danger d-none" data-behavior="cvss-error"></p>
 
-<div id="v3-index d-none" data-cvss-version="3">
-  <%= render 'dradis/plugins/calculators/cvss/base/v3/index' %>
-</div>
-<div id="v4-index d-none" data-cvss-version="4">
-  <%= render 'dradis/plugins/calculators/cvss/base/v4/index' %>
+  <div id="v3-index" class="d-none" data-cvss-version="3">
+    <%= render 'dradis/plugins/calculators/cvss/base/v3/index' %>
+  </div>
+  <div id="v4-index" data-cvss-version="4">
+    <%= render 'dradis/plugins/calculators/cvss/base/v4/index' %>
+  </div>
 </div>

@@ -1,5 +1,19 @@
-v4.20.0 (Month 2026)
+v5.4.0 (September 2026)
   - Calculator: return to Issue information after using the calculator
+
+v5.3.0 (August 2026)
+  - No changes
+
+v5.2.0 (July 2026)
+  - Standalone calculator: redesign with two-column layout, sticky results panel, severity badges, and vector string copy
+
+v5.1.0 (May 2026)
+  - No changes
+
+v5.0.0 (March 2026)
+  - No changes
+
+v4.20.0 (Month 2026)
   - Calculator: Remove extra click to access the calculator
   - CVSSv4: configure fields you care about
 

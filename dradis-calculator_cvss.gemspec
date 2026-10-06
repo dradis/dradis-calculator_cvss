@@ -15,11 +15,13 @@ Gem::Specification.new do |spec|
   spec.authors = ['Daniel Martin']
   spec.homepage = 'https://dradis.com/support/guides/projects/calculators.html'
 
-  spec.files = `git ls-files`.split($\)
+  spec.files = Dir.chdir(File.expand_path(__dir__)) do
+    Dir['{app,config,db,lib,templates}/**/*', 'CHANGELOG', 'CHANGELOG.md', 'LICENSE', 'Rakefile', 'README.md']
+  end
   spec.executables = spec.files.grep(%r{^bin/}).map { |f| File.basename(f) }
   spec.test_files = spec.files.grep(%r{^(test|spec|features)/})
 
-  spec.add_dependency 'dradis-plugins', '~> 4.0'
+  spec.add_dependency 'dradis-plugins', '>= 4.0'
 
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'rake', '~> 10.0'

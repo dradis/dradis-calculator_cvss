@@ -1,5 +1,5 @@
 v5.4.0 (September 2026)
-  - No changes
+  - Calculator: return to Issue information after using the calculator
 
 v5.3.0 (August 2026)
   - No changes

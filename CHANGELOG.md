@@ -1,4 +1,5 @@
 v4.20.0 (Month 2026)
+  - Calculator: return to Issue information after using the calculator
   - Calculator: Remove extra click to access the calculator
   - CVSSv4: configure fields you care about
 

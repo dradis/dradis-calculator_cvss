@@ -1,4 +1,4 @@
-v5.#.0 (Month 2026)
+v5.5.0 (November 2026)
   - Upkeep: Remove outdated boilerplate
 
 v5.4.0 (September 2026)
